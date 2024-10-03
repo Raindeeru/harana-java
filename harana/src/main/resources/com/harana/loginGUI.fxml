@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0" style="-fx-background-color: #461b68;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.LoginController" stylesheets="@loginStyle.css">
+   <children>
+      <HBox alignment="CENTER" prefHeight="350.0" prefWidth="400.0">
+         <children>
+            <Circle fx:id="circleLogo" fill="#f5bd1f" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0">
+               <HBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </HBox.margin>
+            </Circle>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+         <children>
+            <TextField fx:id="usernameTextField" promptText="Username" style="-fx-background-color: #47297B;" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <TextField fx:id="passwordTextField" promptText="Password" style="-fx-background-color: #47297B;" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#loginBtn" style="-fx-background-color: #f5bd1f;" text="Login" textAlignment="CENTER" textFill="#47297b" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
