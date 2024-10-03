@@ -23,7 +23,9 @@ public class postController {
 
     @FXML
     public void postB() throws IOException{ 
-        System.out.println("Hello");
+        String post = new String(); 
+        post = postArea.getText(); 
+        postArea.clear(); 
     }
 
     
