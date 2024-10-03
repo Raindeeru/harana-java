@@ -10,11 +10,15 @@ public class LoginController {
     private TextField passwordTextField;
 
     @FXML
-    private TextField usernameTextField;
+    TextField usernameTextField;
 
+    
+    
     @FXML
     void loginBtn(ActionEvent event) {
 
     }
+
+    
 
 }
