@@ -1,6 +1,7 @@
 package com.harana;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 
@@ -48,5 +49,13 @@ public class JsonParser {
         );
         Chat chat = gson.fromJson(bufferedReader, Chat.class);
         return chat;
+    }
+
+    public static void setChat(String chatURL, Chat chat) throws IOException{
+        GsonBuilder builder = new GsonBuilder(); 
+        Gson gson = builder.setPrettyPrinting().create(); 
+        FileWriter writer = new FileWriter(chats_loc + chatURL);   
+        writer.write(gson.toJson(chat));   
+        writer.close(); 
     }
 }
