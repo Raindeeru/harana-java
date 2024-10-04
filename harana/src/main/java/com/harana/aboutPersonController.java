@@ -27,19 +27,23 @@ public class aboutPersonController {
 
     private Image[] userSetImages =  new Image[2]; //di pa ito taposs
     private int currentImage = 0; 
-    //private User user; 
+    private User profile; 
 
-    //public void setUser(User user){
-    //    this.user = user;
-    //}
+    @FXML
+    public void initialize() throws IOException{
+        profile = JsonParser.getUser("user1.json");
+        aboutPName.setText(profile.getUsername());
+        userImage();
+    }
 
     @FXML
     public void userImage() {
-        for (int i = 0; i < 2; i++) { 
-            userSetImages[i] = new Image(getClass().getResourceAsStream("userimage" + (i + 1) + ".jpg"));
+        for (int i = 0; i < profile.getImagePaths().size(); i++) { 
+            userSetImages[i] = new Image(getClass().getResourceAsStream(profile.getImagePaths().get(i)));
         }
         userImage.setImage(userSetImages[0]);
     }
+
 
     @FXML
     public void nextImage() { 
@@ -60,6 +64,16 @@ public class aboutPersonController {
     }
 
     @FXML
+    public void aboutName() { 
+        aboutPName.setText(profile.getUsername());
+    }
+
+    @FXML
+    public void aboutAge() { 
+        aboutPAge.setText("eyy");
+    }
+
+    @FXML
     public void backPButton() { 
         stage = (Stage) backPButton.getScene().getWindow();
         stage.close();
@@ -75,21 +89,11 @@ public class aboutPersonController {
         System.out.println("Yew");
     }
 
-    @FXML
-    public void aboutName() { 
-        aboutPName.setText("ello");
-    }
-
-    @FXML
-    public void aboutAge() { 
-        aboutPAge.setText("eyy");
-    }
-
-    @FXML
-    private void initialize() {
-        userImage();
-        aboutName();
-        aboutAge();
-    }
+    //@FXML
+    //private void initialize() {
+     //   userImage();
+    //    aboutName();
+    //    aboutAge();
+    //}
 
 }
