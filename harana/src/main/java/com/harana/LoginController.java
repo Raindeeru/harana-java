@@ -11,7 +11,10 @@ import javafx.scene.shape.Circle;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
+
+import com.harana.users.Cred;
 public class LoginController {
+    private ArrayList<Cred> cred;
 
     @FXML
     private Circle circleLogo;
@@ -27,7 +30,10 @@ public class LoginController {
 
 
 
-    public void initialize() {
+    public void initialize() throws IOException{
+        cred = JsonParser.getCredentials("credentials.json");
+        
+        System.out.println(cred);
     }
 
     @FXML

@@ -32,7 +32,7 @@ public class JsonParser {
         BufferedReader bufferedReader = new BufferedReader(
             new FileReader(cred_loc + credentialsURL)
         );
-        Type listType = new TypeToken<ArrayList<App>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<Cred>>(){}.getType();
         ArrayList<Cred> credentials = gson.fromJson(bufferedReader, listType);
         return credentials;
     }
