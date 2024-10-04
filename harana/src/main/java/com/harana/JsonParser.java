@@ -27,7 +27,7 @@ public class JsonParser {
 
     }
 
-    public ArrayList<Cred> getCredentials(String credentialsURL){
+    public static ArrayList<Cred> getCredentials(String credentialsURL) throws IOException{
         Gson gson = new Gson();
         BufferedReader bufferedReader = new BufferedReader(
             new FileReader(cred_loc + credentialsURL)
