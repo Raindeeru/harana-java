@@ -23,7 +23,7 @@ public class JsonParser {
         return user;
     }
     
-    public static void setUser(String userURL, User user){
+    public static void setUser(String userURL, User user) throws IOException{
 
     }
 
@@ -33,7 +33,7 @@ public class JsonParser {
             new FileReader(cred_loc + credentialsURL)
         );
         Type listType = new TypeToken<ArrayList<App>>(){}.getType();
-        ArrayList<Cred> credentials = credentials.fromJson(bufferedReader, listType);
+        ArrayList<Cred> credentials = gson.fromJson(bufferedReader, listType);
         return credentials;
     }
 }
