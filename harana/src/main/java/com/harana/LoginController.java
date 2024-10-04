@@ -5,14 +5,21 @@ package com.harana;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
 
 import com.harana.users.Cred;
+import com.harana.users.User;
 public class LoginController {
     private ArrayList<Cred> cred;
 
@@ -33,16 +40,30 @@ public class LoginController {
     public void initialize() throws IOException{
         cred = JsonParser.getCredentials("credentials.json");
         
-        System.out.println(cred);
-    }
-
-    @FXML
-    void loginBtn(ActionEvent event) {
-        String username = usernameTextField.getText();
-        String password = passwordTextField.getText();
-
         
     }
 
+    @FXML
+    void loginBtn(ActionEvent event) throws IOException {
+        String username = usernameTextField.getText();
+        String password = passwordTextField.getText();
+        
+        User verify = verifyAccount(username, password);
 
+        
+        System.out.println(verify);
+        if(verify != null){
+            App.switchToProfilePage();
+        }
+    }
+
+    public User verifyAccount(String username, String password) throws IOException{
+        User user = null;
+        for(Cred creds : cred){
+            if(username.equals(creds.getUsername())&& password.equals(creds.getPassword()))
+                user = JsonParser.getUser(creds.getUserJsonPath());
+        }
+        
+        return user;
+    }
 }

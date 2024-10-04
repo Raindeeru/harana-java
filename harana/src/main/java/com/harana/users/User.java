@@ -4,11 +4,19 @@ import java.util.ArrayList;
 
 public class User {
     private String username;
+    
     private boolean online;
     private ArrayList<String> chats;
     private ArrayList<Post> posts;
     private ArrayList<String> imagePaths;
-    private ArrayList<String> musicUrls;
+    private String musicUrls;
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setMusicUrls(String musicUrls) {
+        this.musicUrls = musicUrls;
+    }
     public String getUsername() {
         return username;
     }
@@ -24,9 +32,10 @@ public class User {
     public ArrayList<String> getImagePaths() {
         return imagePaths;
     }
-    public ArrayList<String> getMusicUrls() {
+    public String getMusicUrls() {
         return musicUrls;
     }
+
 
     
 }
