@@ -29,7 +29,11 @@ public class JsonParser {
     }
     
     public static void setUser(String userURL, User user) throws IOException{
-
+        GsonBuilder builder = new GsonBuilder(); 
+        Gson gson = builder.setPrettyPrinting().create(); 
+        FileWriter writer = new FileWriter(users_loc + userURL);   
+        writer.write(gson.toJson(user));
+        writer.close(); 
     }
 
     public static ArrayList<Cred> getCredentials(String credentialsURL) throws IOException{
@@ -58,4 +62,5 @@ public class JsonParser {
         writer.write(gson.toJson(chat));   
         writer.close(); 
     }
+
 }

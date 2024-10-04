@@ -50,6 +50,7 @@ public class LoginController {
         
         User verify = verifyAccount(username, password);
 
+        
         System.out.println(verify);
         if(verify != null){
             App.switchToProfilePage();

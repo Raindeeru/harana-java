@@ -47,7 +47,7 @@ public class ChatMenuController {
         }
     }
 
-    private void initializeChats() throws IOException{
+    public void initializeChats() throws IOException{
         chats = new ArrayList<Chat>();
         getChats();
         for(Chat chat: chats){

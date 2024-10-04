@@ -21,9 +21,10 @@ public class App extends Application {
     private static Scene scene;
     Gson gson = new Gson();
 
+    
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("loginGUI"));
+        scene = new Scene(loadFXML("moreAboutPerson"));
         stage.setScene(scene);
         stage.show();
     }
@@ -54,13 +55,12 @@ public class App extends Application {
         scene.setRoot(chatParent);
     }
 
-    public static void SwitchToChatMenu(User user){
+    public static void SwitchToChatMenu(User user) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("chatmenu.fxml"));
         Parent chatParent = fxmlLoader.load();
-        ChatMenuController chatsController = fxmlLoader.getController();
-        chatsController.setChat(chat);
-        chatsController.setUser(user);
-        chatsController.initializeChats();
+        ChatMenuController chatMenuController = fxmlLoader.getController();
+        chatMenuController.setUser(user);
+        chatMenuController.initialize();
         scene.setRoot(chatParent);
     }
 
