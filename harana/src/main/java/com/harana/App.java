@@ -8,12 +8,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+import com.google.gson.Gson;
+
 /**
  * JavaFX App
  */
 public class App extends Application {
 
     private static Scene scene;
+    Gson gson = new Gson();
 
     @Override
     public void start(Stage stage) throws IOException {
