@@ -27,12 +27,12 @@ public class JsonParser {
 
     }
 
-    public static ArrayList<Cred> getCredentials(String credentialsURL)throws IOException{
+    public static ArrayList<Cred> getCredentials(String credentialsURL) throws IOException{
         Gson gson = new Gson();
         BufferedReader bufferedReader = new BufferedReader(
             new FileReader(cred_loc + credentialsURL)
         );
-        Type listType = new TypeToken<ArrayList<App>>(){}.getType();
+        Type listType = new TypeToken<ArrayList<Cred>>(){}.getType();
         ArrayList<Cred> credentials = gson.fromJson(bufferedReader, listType);
         return credentials;
     }
