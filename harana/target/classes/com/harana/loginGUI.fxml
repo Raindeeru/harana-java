@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0" style="-fx-background-color: #461b68;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.LoginController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1000.0" prefWidth="500.0" style="-fx-background-color: #461b68;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.LoginController">
    <children>
-      <HBox alignment="CENTER" prefHeight="350.0" prefWidth="400.0">
+      <HBox alignment="CENTER" prefHeight="578.0" prefWidth="500.0">
          <children>
-            <StackPane prefHeight="150.0" prefWidth="200.0">
+            <StackPane prefHeight="150.0" prefWidth="250.0">
                <children>
                   <Circle fx:id="circleLogo" fill="#f5bc20" radius="125.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <ImageView fitHeight="200.0" fitWidth="200.0">
@@ -32,17 +32,17 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0">
+      <HBox alignment="CENTER" prefHeight="117.0" prefWidth="500.0">
          <children>
             <TextField fx:id="usernameTextField" promptText="Username" style="-fx-background-color: #47297B;" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="114.0" prefWidth="500.0">
          <children>
             <TextField fx:id="passwordTextField" promptText="Password" style="-fx-background-color: #47297B;" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="500.0">
          <children>
             <Button mnemonicParsing="false" onAction="#loginBtn" style="-fx-background-color: #f5bd1f;" text="Login" textAlignment="CENTER" textFill="#47297b" />
          </children>
