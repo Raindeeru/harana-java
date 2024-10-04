@@ -1,7 +1,5 @@
 package com.harana.users;
 
-import java.time.LocalDateTime;
-
 public class Message {
     String sender;
     String message;

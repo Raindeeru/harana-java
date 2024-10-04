@@ -3,6 +3,8 @@ package com.harana;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+
+import com.harana.users.Chat;
 import com.harana.users.Cred;
 import com.harana.users.User;
 import java.io.*;
@@ -12,6 +14,8 @@ public class JsonParser {
     private static String users_loc = "data/users/";
     private static String images_loc = "data/images/";
     private static String cred_loc = "data/credentials/";
+    private static String chats_loc = "data/chats/";
+
 
 
     public static User getUser(String userURL)throws IOException{
@@ -35,5 +39,14 @@ public class JsonParser {
         Type listType = new TypeToken<ArrayList<Cred>>(){}.getType();
         ArrayList<Cred> credentials = gson.fromJson(bufferedReader, listType);
         return credentials;
+    }
+
+    public static Chat getChat(String chatsURL) throws IOException{
+        Gson gson = new Gson();
+        BufferedReader bufferedReader = new BufferedReader(
+            new FileReader(chats_loc + chatsURL)
+        );
+        Chat chat = gson.fromJson(bufferedReader, Chat.class);
+        return chat;
     }
 }

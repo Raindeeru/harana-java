@@ -1,0 +1,18 @@
+{
+    "user1": "Jamal",
+    "user2": "Abdullah",
+    "messages": [
+        {
+            "sender": "user1",
+            "message": "Supot"
+        },
+        {
+            "sender": "user1",
+            "message": "Yaks"
+        },
+        {
+            "sender": "user2",
+            "message": "aaaa"
+        }
+    ]
+}
