@@ -19,5 +19,7 @@ public class JsonParser {
         return user;
     }
     
+    public static void setUser(String userURL, User user){
 
+    }
 }
