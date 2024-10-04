@@ -1,7 +1,5 @@
 package com.harana;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,50 +8,45 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
-
 public class aboutPersonController {
     @FXML Button backPButton; 
     @FXML Button likeButton; 
     @FXML Button dislikeButton; 
     @FXML Button nextImage; 
     @FXML Button backImage; 
-    @FXML ImageView imageUser; 
+    @FXML ImageView userImage; 
     @FXML ScrollPane scrollPane; 
     @FXML Label aboutPName; 
     @FXML Label aboutPAge; 
 
     Stage stage; 
 
-    private Image[] userSetImages = new Image[5]; 
+    private Image[] userSetImages = new Image[6]; 
     private int currentImage = 0; 
 
     @FXML
-    public void imageCarousell() {
-        for(int i = 0; i <= 5; i++) {
-            userSetImages[i] = new Image(getClass().getResourceAsStream("userImage"+(i+1)+".png")); 
+    public void userImage() {
+       for (int i = 0; i < 2; i++) {
+            userSetImages[i] = new Image(getClass().getResourceAsStream("userimage" + (i + 1) + ".jpg"));
         }
-    } //kunyari may set of image na 
+        userImage.setImage(userSetImages[0]);
+    }
 
     @FXML
     public void nextImage() { 
-        if(currentImage <= userSetImages.length) {
-            currentImage ++;
-            imageUser.setImage(userSetImages[currentImage]);
-        }
+        if (currentImage <= userSetImages.length - 1) {
+            currentImage++;
+            userImage.setImage(userSetImages[currentImage]);
+        } 
     }
 
     @FXML
     public void backImage() { 
-        if(currentImage > 0) {
-            currentImage --;
-            imageUser.setImage(userSetImages[currentImage]);
-        }
+        if (currentImage > 0) {
+            currentImage--;
+            userImage.setImage(userSetImages[currentImage]);
+        } 
     }
-
-    //@FXML
-    //public void imageCarusel() {
-    //    imageUser.setImage(newImage);
-    //}
 
     @FXML
     public void backPButton() { 
@@ -63,15 +56,13 @@ public class aboutPersonController {
 
     @FXML
     public void likeButton() { 
-        System.out.println("U like this person");
+        System.out.println("liked");
     }
 
     @FXML
     public void dislikeButton() { 
-        System.out.println("ew");
+        System.out.println("Yew");
     }
-
-    //to change name shit 
 
     @FXML
     public void aboutName() { 
@@ -80,6 +71,13 @@ public class aboutPersonController {
 
     @FXML
     public void aboutAge() { 
-        aboutPAge.setText("hi");
+        aboutPAge.setText("eyy");
+    }
+
+    @FXML
+    private void initialize() {
+        userImage();
+        aboutName();
+        aboutAge();
     }
 }
