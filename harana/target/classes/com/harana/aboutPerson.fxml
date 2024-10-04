@@ -42,7 +42,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #F5BD1F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" style="-fx-background-color: #F5BD1F;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller = "com.harana.aboutPersonController">
    <bottom>
       <Pane prefHeight="45.0" prefWidth="335.0" style="-fx-background-color: #5D2689;" BorderPane.alignment="CENTER">
          <children>
