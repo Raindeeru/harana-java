@@ -44,7 +44,7 @@ public class aboutPersonController {
     @FXML
     public void nextImage() { 
         currentImage++;
-        if (currentImage >= userSetImages.length - 1) {
+        if (currentImage >= userSetImages.length) {
             currentImage = 0;
         } 
         userImage.setImage(userSetImages[currentImage]);
