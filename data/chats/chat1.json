@@ -1,0 +1,45 @@
+{
+  "messages": [
+    {
+      "sender": "user1",
+      "message": "Hello"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaa"
+    }
+  ],
+  "user1": "Jamal",
+  "user2": "Abdullah",
+  "chatid": "chat1",
+  "user1_typing": false,
+  "user2_typing": false
+}
