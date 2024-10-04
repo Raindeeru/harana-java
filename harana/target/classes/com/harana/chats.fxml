@@ -10,29 +10,31 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatsController">
    <children>
       <Label prefHeight="18.0" prefWidth="264.0" text="Label" />
-      <ScrollPane hbarPolicy="NEVER" prefHeight="406.0" prefWidth="250.0">
+      <Button mnemonicParsing="false" onAction="#Switch" text="switch user (for debugging only)" />
+      <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" prefHeight="406.0" prefWidth="250.0" vvalue="1.0">
          <content>
             <VBox fx:id="chat_screen" alignment="BOTTOM_LEFT" prefHeight="400.0" prefWidth="250.0">
                <children>
-                  <VBox fx:id="user1_chat" prefHeight="55.0" prefWidth="250.0" style="-fx-border-color: red;">
+                  <VBox fx:id="user1_chat" prefHeight="0.0" prefWidth="250.0" style="-fx-border-color: red;">
                      <children>
                         <Label fx:id="user1_name" text="You" />
                         <Label fx:id="user1_message" text="Your Chat" />
                      </children>
                   </VBox>
-                  <VBox fx:id="user2_chat" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="250.0">
+                  <VBox fx:id="user2_chat" layoutX="10.0" layoutY="10.0" prefHeight="0.0" prefWidth="250.0" style="-fx-border-color: blue;">
                      <children>
                         <Label fx:id="user2_name" text="Other Person" />
                         <Label fx:id="user2_message" text="Other Person Chat" />
                      </children>
                   </VBox>
+                  <Label fx:id="typing_label" text="User Typing" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
       <HBox prefHeight="38.0" prefWidth="250.0">
          <children>
-            <TextField fx:id="message_field" text="aaaaa" />
+            <TextField fx:id="message_field" onKeyTyped="#Typing" text="aaaaa" />
             <Button fx:id="send_btn" mnemonicParsing="false" onAction="#Send" text="send" />
          </children>
       </HBox>

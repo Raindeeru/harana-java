@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class User {
     private String username;
     private boolean online;
-    private ArrayList<Chat> chats;
+    private ArrayList<String> chats;
     private ArrayList<Post> posts;
     private ArrayList<String> imagePaths;
     private ArrayList<String> musicUrls;
@@ -15,7 +15,7 @@ public class User {
     public boolean isOnline() {
         return online;
     }
-    public ArrayList<Chat> getChats() {
+    public ArrayList<String> getChats() {
         return chats;
     }
     public ArrayList<Post> getPosts() {
