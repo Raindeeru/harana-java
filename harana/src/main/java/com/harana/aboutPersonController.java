@@ -8,6 +8,10 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
+import java.io.IOException;
+
+import com.harana.users.*;
+
 public class aboutPersonController {
     @FXML Button backPButton; 
     @FXML Button likeButton; 
@@ -21,12 +25,17 @@ public class aboutPersonController {
 
     Stage stage; 
 
-    private Image[] userSetImages = new Image[6]; 
+    private Image[] userSetImages =  new Image[2]; //di pa ito taposs
     private int currentImage = 0; 
+    //private User user; 
+
+    //public void setUser(User user){
+    //    this.user = user;
+    //}
 
     @FXML
     public void userImage() {
-       for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) { 
             userSetImages[i] = new Image(getClass().getResourceAsStream("userimage" + (i + 1) + ".jpg"));
         }
         userImage.setImage(userSetImages[0]);
@@ -34,18 +43,20 @@ public class aboutPersonController {
 
     @FXML
     public void nextImage() { 
-        if (currentImage <= userSetImages.length - 1) {
-            currentImage++;
-            userImage.setImage(userSetImages[currentImage]);
+        currentImage++;
+        if (currentImage >= userSetImages.length - 1) {
+            currentImage = 0;
         } 
+        userImage.setImage(userSetImages[currentImage]);
     }
 
     @FXML
     public void backImage() { 
-        if (currentImage > 0) {
-            currentImage--;
-            userImage.setImage(userSetImages[currentImage]);
+        currentImage--;
+        if (currentImage < 0) {
+            currentImage = userSetImages.length - 1;
         } 
+        userImage.setImage(userSetImages[currentImage]);
     }
 
     @FXML
@@ -80,4 +91,5 @@ public class aboutPersonController {
         aboutName();
         aboutAge();
     }
+
 }

@@ -2,6 +2,6 @@
     "username": "Jamal",
     "online": false,
     "chats": ["chat1.json"],
-    "imagePaths":[],
+    "imagePaths":["data/users/userimage1.jpg", "data/users/userimage2.jpg"], 
     "musicUrls": ["https://www.youtube.com/watch?v=UYeV7jLBXvA"] 
 }
