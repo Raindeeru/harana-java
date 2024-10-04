@@ -12,6 +12,10 @@ import javafx.scene.layout.VBox;
 
 public class ChatMenuController {
     User user;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     ArrayList<Chat> chats;
 
     @FXML VBox chats_pane;
@@ -32,6 +36,37 @@ public class ChatMenuController {
             Label nameLabel = new Label(name);
             Label messageLabel = new Label(chat.getMessages().get(chat.getMessages().size() - 1).getMessage());
             VBox chatHead = new VBox();
+            chatHead.setOnMouseClicked(event -> 
+                {
+                    try{App.SwitchToChat(chat, user);}
+                    catch(IOException e){throw new RuntimeException(e);}
+                }
+            );
+            chatHead.getChildren().addAll(nameLabel, messageLabel);
+            chats_pane.getChildren().add(chatHead);
+        }
+    }
+
+    private void initializeChats() throws IOException{
+        chats = new ArrayList<Chat>();
+        getChats();
+        for(Chat chat: chats){
+            String name;
+            if (user.getUsername().equals(chat.getUser1())) {
+                name = chat.getUser2();
+            }
+            else{
+                name = chat.getUser1();
+            }
+            Label nameLabel = new Label(name);
+            Label messageLabel = new Label(chat.getMessages().get(chat.getMessages().size() - 1).getMessage());
+            VBox chatHead = new VBox();
+            chatHead.setOnMouseClicked(event -> 
+                {
+                    try{App.SwitchToChat(chat, user);}
+                    catch(IOException e){throw new RuntimeException(e);}
+                }
+            );
             chatHead.getChildren().addAll(nameLabel, messageLabel);
             chats_pane.getChildren().add(chatHead);
         }

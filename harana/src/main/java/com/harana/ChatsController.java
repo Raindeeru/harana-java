@@ -96,7 +96,7 @@ public class ChatsController {
         chatChecker.start();        
     }
     
-    public void initializeChats(){
+    public void initializeChats() throws IOException{
         if (user.getUsername().equals(chat.getUser1())) {
             isUser1 = true;
         }else{
