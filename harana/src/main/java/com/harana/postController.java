@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
-import javafx.event.ActionEvent;
 import javafx.stage.Stage;;
 
 public class postController {
@@ -27,6 +26,4 @@ public class postController {
         post = postArea.getText(); 
         postArea.clear(); 
     }
-
-    
 }
