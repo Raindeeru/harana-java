@@ -1,7 +1,23 @@
 package com.harana;
 
 import com.google.gson.Gson;
+import com.harana.users.User;
+import java.io.*;
 
 public class JsonParser {
-    Gson gson = new Gson();
+    private static String users_loc = "data/users/";
+    private static String images_loc = "data/images/";
+    private static String cred_loc = "data/credentials/";
+
+
+    public static User getUser(String userURL)throws IOException{
+        Gson gson = new Gson();
+        BufferedReader bufferedReader = new BufferedReader(
+            new FileReader(users_loc + userURL)
+        );
+        User user = gson.fromJson(bufferedReader, User.class);
+        return user;
+    }
+    
+
 }

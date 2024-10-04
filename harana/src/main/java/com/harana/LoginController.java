@@ -16,7 +16,7 @@ public class LoginController {
     
     @FXML
     void loginBtn(ActionEvent event) {
-
+        System.out.println("bobo");
     }
 
     
