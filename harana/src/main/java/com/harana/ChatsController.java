@@ -17,44 +17,53 @@ public class ChatsController {
     ArrayList<Message> messages = new ArrayList<Message>();
 
     @FXML
-    TextField message_field;
+    private TextField message_field;
 
     @FXML
-    VBox user1_chat;
+    private  VBox user1_chat;
     @FXML 
-    Label user1_name;
+    private Label user1_name;
     @FXML 
-    Label user1_message;
+    private Label user1_message;
 
     @FXML
-    VBox user2_chat;
+    private VBox user2_chat;
     @FXML 
-    Label user2_name;
+    private Label user2_name;
     @FXML 
-    Label user2_message;
+    private Label user2_message;
 
     @FXML 
-    VBox chat_screen;
+    private VBox chat_screen;
 
     @FXML
-    Label typing_label;
+    private Label typing_label;
 
     @FXML
-    ScrollPane chat_scroll;
+    private ScrollPane chat_scroll;
 
-    Chat chat;
+    private Chat chat;
 
-    User user;
+    private User user;
 
-    boolean isUser1;
+    public void setChat(Chat chat) {
+        this.chat = chat;
+    }
 
-    Task<Void> checkChats;
-    Thread chatChecker;
 
-    VBox intermediarryBox;
+    public void setUser(User user) {
+        this.user = user;
+    }
 
-    boolean typing = false;
-    int oldi = 0;
+    private boolean isUser1;
+
+    private  Task<Void> checkChats;
+    private Thread chatChecker;
+
+    private VBox intermediarryBox;
+
+    private boolean typing = false;
+    private int oldi = 0;
 
     @FXML
     public void initialize() throws IOException{
@@ -84,9 +93,10 @@ public class ChatsController {
         };
         chatChecker = new Thread(checkChats);
         chatChecker.setDaemon(true);
-        chatChecker.start();
-        chat = JsonParser.getChat("chat1.json");
-        user = JsonParser.getUser("user1.json");
+        chatChecker.start();        
+    }
+    
+    public void initializeChats(){
         if (user.getUsername().equals(chat.getUser1())) {
             isUser1 = true;
         }else{
@@ -105,7 +115,6 @@ public class ChatsController {
         chat_screen.getChildren().remove(user2_name);
 
     }
-    
 
     @FXML
     private void Send() throws IOException{
