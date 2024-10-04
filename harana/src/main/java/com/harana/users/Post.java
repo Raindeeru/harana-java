@@ -1,5 +1,8 @@
 package com.harana.users;
 
-public class Post {
+import java.util.Date;
 
+public class Post {
+    String postContent;
+    Date postDate;
 }
