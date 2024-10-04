@@ -3,6 +3,16 @@ package com.harana.users;
 import java.time.LocalDateTime;
 
 public class Message {
+    String sender;
     String message;
-    LocalDateTime messageTimeStamp;
+    public Message(String sender, String message) {
+        this.sender = sender;
+        this.message = message;
+    }
+    public String getSender() {
+        return sender;
+    }
+    public String getMessage() {
+        return message;
+    }
 }

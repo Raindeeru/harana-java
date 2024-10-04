@@ -4,5 +4,4 @@ import java.util.Date;
 
 public class Post {
     String postContent;
-    Date postDate;
 }

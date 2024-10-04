@@ -9,4 +9,24 @@ public class User {
     private ArrayList<Post> posts;
     private ArrayList<String> imagePaths;
     private ArrayList<String> musicUrls;
+    public String getUsername() {
+        return username;
+    }
+    public boolean isOnline() {
+        return online;
+    }
+    public ArrayList<Chat> getChats() {
+        return chats;
+    }
+    public ArrayList<Post> getPosts() {
+        return posts;
+    }
+    public ArrayList<String> getImagePaths() {
+        return imagePaths;
+    }
+    public ArrayList<String> getMusicUrls() {
+        return musicUrls;
+    }
+
+    
 }

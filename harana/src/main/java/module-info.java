@@ -4,5 +4,6 @@ module com.harana {
     requires com.google.gson;
 
     opens com.harana to javafx.fxml, com.google.gson;
+    opens com.harana.users to com.google.gson;
     exports com.harana;
 }
