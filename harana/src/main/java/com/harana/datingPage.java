@@ -31,7 +31,6 @@ public class datingPage
     private boolean isPlaying = false;
     private double progress = 0.0;
     private Thread progressThread;
-    private User user;
 
     @FXML
     public void handlePlayButtonClick() 
