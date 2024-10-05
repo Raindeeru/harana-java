@@ -15,7 +15,7 @@ public class MusicController {
 
     @FXML
     private void initialize() throws IOException, InterruptedException, ParseException, SpotifyWebApiException{
-        MusicManager.getMusicFile("https://youtu.be/BZTSB8Ox4Kc?si=GxLIeuE8h5PvMX5z&t=127", "test.mp3");
+        MusicManager.getSpotifyTopSearch("Too many nights Metro boomin", "testPreview.mp3", "test.png");
     }
     @FXML 
     private void song_stop(){}

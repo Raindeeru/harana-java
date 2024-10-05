@@ -1,12 +1,25 @@
 {
-  "username": "si kwan",
+  "username": "UwU",
   "online": false,
   "chats": [
     "chat1.json"
   ],
+  "posts": [
+    {
+      "postContent": "BOBO MO DERVEN 🤬🤬🤬"
+    },
+    {
+      "postContent": "hahahahahahahaahahahahah"
+    },
+    {
+      "postContent": "hahahahahahahaahahahahah"
+    }
+  ],
   "imagePaths": [
     "userimage1.jpg",
-    "userimage2.jpg"
+    "userimage2.jpg",
+    "pogi.png"
   ],
-  "musicUrls": "https://www.youtube.com/watch?v\u003dY14gG9IJ230"
+  "musicUrls": "https://www.youtube.com/watch?v\u003dUYeV7jLBXvA",
+  "userId": "user1.json"
 }
