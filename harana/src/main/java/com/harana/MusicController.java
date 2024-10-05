@@ -11,6 +11,6 @@ public class MusicController {
 
     @FXML
     private void initialize() throws IOException, InterruptedException{
-        MusicManager.getMusicFile("https://www.youtube.com/watch?v=MZA7W6n6bBA", "\test.mp3");
+        MusicManager.getMusicFile("https://www.youtube.com/watch?v=lajnSJZpI34", "test.mp3");
     }
 }

@@ -4,6 +4,9 @@
   "chats": [
     "chat1.json"
   ],
-  "imagePaths": ["userimage1.jpg", "userimage2.jpg"],
+  "imagePaths": [
+    "userimage1.jpg",
+    "userimage2.jpg"
+  ],
   "musicUrls": "https://www.youtube.com/watch?v\u003dY14gG9IJ230"
 }

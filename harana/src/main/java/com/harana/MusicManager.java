@@ -16,6 +16,8 @@ public class MusicManager {
         MusicResponse musicRes = JsonParser.getMusicResponse(res.body());
         System.out.println(res.body());
         System.out.println(musicRes.getDownloadUrl());
+
+        Thread.sleep(10000);
         
         ReadableByteChannel readableByteChannel = Channels.newChannel(URI.create(musicRes.getDownloadUrl()).toURL().openStream());
         FileOutputStream fileOutputStream = new FileOutputStream(FilePath);
