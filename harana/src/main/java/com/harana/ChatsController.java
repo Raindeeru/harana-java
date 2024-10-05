@@ -10,7 +10,11 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+
 import com.harana.users.*;
+import com.harana.users.Message;
+
 
 public class ChatsController {
     //Test Message
@@ -74,7 +78,6 @@ public class ChatsController {
                     Thread.sleep(100);
                     Chat checkChat = JsonParser.getChat(chat.getChatid() + ".json");
                     if (isUser1){
-                        System.out.println("hahah");
                         if (checkChat.isUser2_typing()) {
                             typing_label.setVisible(true);
                         }else{
@@ -93,7 +96,59 @@ public class ChatsController {
         };
         chatChecker = new Thread(checkChats);
         chatChecker.setDaemon(true);
-        chatChecker.start();        
+        chatChecker.start();    
+        
+        Task<Void> checkOwnTyping = new Task<Void>() {
+
+            @Override
+            protected Void call() throws Exception {
+                while (true) {
+                    boolean insidetyping = typing;
+                    Thread.sleep(100);
+                    if (insidetyping == true) {
+                        System.out.println(typing);
+                        if (isUser1) {
+                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat.setUser1_typing(typing);
+                        }else{
+                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat.setUser2_typing(typing);
+                        }
+                        JsonParser.setChat(chat.getChatid() + ".json", chat);
+                        Thread.sleep(1000);
+                        typing = false;
+                        if (isUser1) {
+                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat.setUser1_typing(typing);
+                        }else{
+                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat.setUser2_typing(typing);
+                        }
+                        JsonParser.setChat(chat.getChatid() + ".json", chat);   
+                    }
+                }
+            }
+            
+        };
+        Thread typingChecker = new Thread(checkOwnTyping);
+        typingChecker.setDaemon(true);
+        typingChecker.start();  
+        
+        Task<Void> chatUpadte = new Task<Void>() {
+
+            @Override
+            protected Void call() throws Exception {
+                while (true) {
+                    Thread.sleep(1000);
+                    NewChat(new Message("user1", "heheehe"));
+                    System.out.println("hhahahaah");
+                }
+            }
+            
+        };
+        Thread chatUpdate = new Thread(chatUpadte);
+        chatUpdate.setDaemon(true);
+        chatUpdate.start(); 
     }
     
     public void initializeChats() throws IOException{
@@ -135,39 +190,8 @@ public class ChatsController {
 
     @FXML 
     private void Typing(){
-        System.out.println("Typing si koya");
-        if (!typing) {
-               Task<Void> checkOwnTyping = new Task<Void>() {
-
-                @Override
-                protected Void call() throws Exception {
-                    typing = true;
-                    if (isUser1) {
-                        chat = JsonParser.getChat(chat.getChatid() + ".json");
-                        chat.setUser1_typing(typing);
-                    }else{
-                        chat = JsonParser.getChat(chat.getChatid() + ".json");
-                        chat.setUser2_typing(typing);
-                    }
-                    JsonParser.setChat(chat.getChatid() + ".json", chat);
-                    Thread.sleep(1000);
-                    typing = false;
-                    System.out.println("Di na typing");
-                    if (isUser1) {
-                        chat = JsonParser.getChat(chat.getChatid() + ".json");
-                        chat.setUser1_typing(typing);
-                    }else{
-                        chat = JsonParser.getChat(chat.getChatid() + ".json");
-                        chat.setUser2_typing(typing);
-                    }
-                    JsonParser.setChat(chat.getChatid() + ".json", chat);
-                    return null;
-                }
-                
-            };
-            Thread typingChecker = new Thread(checkOwnTyping);
-            typingChecker.start();    
-        }
+        typing = true;
+        System.out.println("hahaha");
     }
 
     @FXML 

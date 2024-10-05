@@ -1,18 +1,21 @@
 {
-    "username": "Abdullah",
-    "online": false,
-    "chats": ["chat1.json"],
-    "posts": [
-        {
-            "postContent": "hahahahahahahaahahahahah"
-        },
-        {
-            "postContent": "hahahahahahahaahahahahah"
-        },
-        {
-            "postContent": "hahahahahahahaahahahahah"
-        }
-    ],
-    "imagePaths":[],
-    "musicUrls": ["https://www.youtube.com/watch?v=UYeV7jLBXvA"]
+  "username": "Jessica Flor",
+  "online": false,
+  "chats": [
+    "chat1.json"
+  ],
+  "posts": [
+    {
+      "postContent": "hahahahahahahaahahahahah"
+    },
+    {
+      "postContent": "hahahahahahahaahahahahah"
+    },
+    {
+      "postContent": "hahahahahahahaahahahahah"
+    }
+  ],
+  "imagePaths": [],
+  "musicUrls": "https://www.youtube.com/watch?v\u003dUYeV7jLBXvA",
+  "userId": "user2.json"
 }

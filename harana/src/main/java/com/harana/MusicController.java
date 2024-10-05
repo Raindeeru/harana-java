@@ -15,6 +15,8 @@ public class MusicController {
 
     @FXML
     private void initialize() throws IOException, InterruptedException, ParseException, SpotifyWebApiException{
-        MusicManager.getMusicFile("https://www.youtube.com/watch?v=TtqAUOxwh-k", "test.mp3");
+        MusicManager.getSpotifyTopSearch("Heavy is the crown linkin park", "testPreview.mp3", "test.png");
     }
+    @FXML 
+    private void song_stop(){}
 }

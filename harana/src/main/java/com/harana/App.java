@@ -24,7 +24,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("loginGUI"), 400, 550);
+        scene = new Scene(loadFXML("LoginGUI"), 250, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -39,12 +39,21 @@ public class App extends Application {
     }
 
     static void switchToDating() throws IOException{
-        setRoot("datingPage");
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("datingPage.fxml"));
+        Parent Parent = fxmlLoader.load();
+        MusicController Controller = fxmlLoader.getController();
+        scene.setRoot(Parent);
     }
 
-    static void switchToProfilePage() throws IOException{
-        setRoot("profilePage");
+    static void switchToProfilePage(User user) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("profilePage.fxml"));
+        Parent chatParent = fxmlLoader.load();
+        profilePageController pController = fxmlLoader.getController();
+        pController.setUser(user);
+        pController.initializeData();
+        scene.setRoot(chatParent);
     }
+
     public static void SwitchToChat(Chat chat, User user) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("chats.fxml"));
         Parent chatParent = fxmlLoader.load();
@@ -60,6 +69,7 @@ public class App extends Application {
         Parent chatParent = fxmlLoader.load();
         ChatMenuController chatMenuController = fxmlLoader.getController();
         chatMenuController.setUser(user);
+        chatMenuController.initializeChats();
         scene.setRoot(chatParent);
     }
 
