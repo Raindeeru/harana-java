@@ -19,6 +19,7 @@ import com.harana.users.User;
 public class App extends Application {
 
     private static Scene scene;
+    private static User currentUser;
     Gson gson = new Gson();
 
     
@@ -39,7 +40,7 @@ public class App extends Application {
     }
 
     static void switchToDating() throws IOException{
-        setRoot("datingPage");
+        setRoot("dating");
     }
 
     static void switchToProfilePage() throws IOException{
@@ -56,13 +57,17 @@ public class App extends Application {
     }
 
     public static void SwitchToChatMenu(User user) throws IOException{
+        currentUser = user;
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("chatmenu.fxml"));
         Parent chatParent = fxmlLoader.load();
         ChatMenuController chatMenuController = fxmlLoader.getController();
         chatMenuController.setUser(user);
         scene.setRoot(chatParent);
     }
-
+    public static User getCurrentUser()
+    {
+        return currentUser;
+    }
     public static void main(String[] args) {
         launch();
     }

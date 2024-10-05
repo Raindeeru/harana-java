@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPage">
    <children>
       <VBox alignment="CENTER" prefHeight="150.0" prefWidth="232.0">
          <children>
@@ -79,7 +78,7 @@
                   </HBox>
                   <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="67.0">
                      <children>
-                        <Button mnemonicParsing="false" text="Home" />
+                        <Button mnemonicParsing="false" text="Dating" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="46.0" prefWidth="104.0">
