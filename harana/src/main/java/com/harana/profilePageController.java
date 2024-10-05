@@ -4,6 +4,7 @@ package com.harana;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
 
 import java.io.IOException;
 
@@ -21,6 +22,15 @@ public class profilePageController {
 
     @FXML
     private TextField musicTexfField;
+
+     @FXML
+    private HBox imageContainer;
+
+    @FXML
+    private Button nextButton;
+
+    @FXML
+    private Button prevButton;
 
     @FXML
     public void initialize() throws IOException{
