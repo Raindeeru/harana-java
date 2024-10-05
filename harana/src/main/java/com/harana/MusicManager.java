@@ -9,6 +9,8 @@ import java.nio.channels.*;
 
 import org.apache.hc.core5.http.ParseException;
 
+import com.neovisionaries.i18n.CountryCode;
+
 import se.michaelthelin.spotify.SpotifyApi;
 import se.michaelthelin.spotify.enums.ModelObjectType;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
@@ -79,6 +81,7 @@ public class MusicManager {
         System.out.println(topResult.getName());
         System.out.println(topResult.getArtists().clone()[0].getName());
         System.out.println(topResult.getAlbum().getImages()[0].getUrl());
+        System.out.println(topResult.getAvailableMarkets().clone()[0]);
 
         ReadableByteChannel readableByteChannel = Channels.newChannel(URI.create(topResult.getPreviewUrl()).toURL().openStream());
         FileOutputStream fileOutputStream = new FileOutputStream(FilePath);
@@ -92,7 +95,7 @@ public class MusicManager {
         FileChannel fileChannelImage = fileOutputStreamImage.getChannel();
         
         fileChannelImage.transferFrom(readableByteChanneImage, 0, Long.MAX_VALUE);
-        fileOutputStream.close();
+        fileOutputStreamImage.close();
 
         return topResult;
     }
