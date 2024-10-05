@@ -3,10 +3,6 @@
     {
       "sender": "user1",
       "message": "Hello"
-    },
-    {
-      "sender": "user1",
-      "message": "   a"
     }
   ],
   "user1": "Jr Gayagoy",
