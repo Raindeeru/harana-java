@@ -10,6 +10,7 @@
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="250.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatsController">
    <children>
       <Label prefHeight="18.0" prefWidth="264.0" text="Label" />
+      <Button mnemonicParsing="false" onAction="#Back" text="Back" />
       <Button mnemonicParsing="false" onAction="#Switch" text="switch user (for debugging only)" />
       <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" prefHeight="406.0" prefWidth="250.0" vvalue="1.0">
          <content>

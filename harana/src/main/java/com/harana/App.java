@@ -22,7 +22,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("moreAboutPerson"), 250, 480);
+        scene = new Scene(loadFXML("dating"), 250, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -51,7 +51,6 @@ public class App extends Application {
         Parent chatParent = fxmlLoader.load();
         ChatMenuController chatMenuController = fxmlLoader.getController();
         chatMenuController.setUser(user);
-        chatMenuController.initialize();
         scene.setRoot(chatParent);
     }
 
