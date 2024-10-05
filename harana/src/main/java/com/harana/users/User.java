@@ -10,7 +10,11 @@ public class User {
     private ArrayList<Post> posts;
     private ArrayList<String> imagePaths;
     private String musicUrls;
+    private String userId;
     
+    public String getUserId() {
+        return userId;
+    }
     public void setUsername(String username) {
         this.username = username;
     }

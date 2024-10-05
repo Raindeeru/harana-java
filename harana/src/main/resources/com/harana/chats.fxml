@@ -11,7 +11,6 @@
    <children>
       <Label prefHeight="18.0" prefWidth="264.0" text="Label" />
       <Button mnemonicParsing="false" onAction="#Back" text="Back" />
-      <Button mnemonicParsing="false" onAction="#Switch" text="switch user (for debugging only)" />
       <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" prefHeight="406.0" prefWidth="250.0" vvalue="1.0">
          <content>
             <VBox fx:id="chat_screen" alignment="BOTTOM_LEFT" prefHeight="400.0" prefWidth="250.0">
@@ -28,14 +27,14 @@
                         <Label fx:id="user2_message" text="Other Person Chat" />
                      </children>
                   </VBox>
-                  <Label fx:id="typing_label" text="User Typing" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
+      <Label fx:id="typing_label" text="User Typing" />
       <HBox prefHeight="38.0" prefWidth="250.0">
          <children>
-            <TextField fx:id="message_field" onKeyTyped="#Typing" text="aaaaa" />
+            <TextField fx:id="message_field" onKeyTyped="#Typing" />
             <Button fx:id="send_btn" mnemonicParsing="false" onAction="#Send" text="send" />
          </children>
       </HBox>

@@ -19,13 +19,12 @@ import com.harana.users.User;
 public class App extends Application {
 
     private static Scene scene;
-    private static User currentUser;
     Gson gson = new Gson();
 
     
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("dating"), 250, 480);
+        scene = new Scene(loadFXML("LoginGUI"), 250, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -40,12 +39,21 @@ public class App extends Application {
     }
 
     static void switchToDating() throws IOException{
-        setRoot("dating");
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("datingPage.fxml"));
+        Parent Parent = fxmlLoader.load();
+        MusicController Controller = fxmlLoader.getController();
+        scene.setRoot(Parent);
     }
 
-    static void switchToProfilePage() throws IOException{
-        setRoot("profilePage");
+    static void switchToProfilePage(User user) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("profilePage.fxml"));
+        Parent chatParent = fxmlLoader.load();
+        profilePageController pController = fxmlLoader.getController();
+        pController.setUser(user);
+        pController.initializeData();
+        scene.setRoot(chatParent);
     }
+
     public static void SwitchToChat(Chat chat, User user) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("chats.fxml"));
         Parent chatParent = fxmlLoader.load();
@@ -57,17 +65,14 @@ public class App extends Application {
     }
 
     public static void SwitchToChatMenu(User user) throws IOException{
-        currentUser = user;
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("chatmenu.fxml"));
         Parent chatParent = fxmlLoader.load();
         ChatMenuController chatMenuController = fxmlLoader.getController();
         chatMenuController.setUser(user);
+        chatMenuController.initializeChats();
         scene.setRoot(chatParent);
     }
-    public static User getCurrentUser()
-    {
-        return currentUser;
-    }
+
     public static void main(String[] args) {
         launch();
     }

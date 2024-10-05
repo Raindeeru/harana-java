@@ -21,41 +21,17 @@ public class ChatMenuController {
     @FXML VBox chats_pane;
     @FXML Label chat_name;
     @FXML Label chat_message;
-
-    @FXML
-    void initialize() throws IOException{
-        user = JsonParser.getUser("user1.json");
-        chats = new ArrayList<Chat>();
-        getChats();
-        for(Chat chat: chats){
-            String name;
-            if (user.getUsername().equals(chat.getUser1())) {
-                name = chat.getUser2();
-            }
-            else{
-                name = chat.getUser1();
-            }
-            Label nameLabel = new Label(name);
-            Label messageLabel = new Label(chat.getMessages().get(chat.getMessages().size() - 1).getMessage());
-            VBox chatHead = new VBox();
-            chatHead.setOnMouseClicked(event -> 
-                {
-                    try{App.SwitchToChat(chat, user);}
-                    catch(IOException e){throw new RuntimeException(e);}
-                }
-            );
-            chatHead.getChildren().addAll(nameLabel, messageLabel);
-            chats_pane.getChildren().add(chatHead);
-        }
-    }
+    @FXML VBox chat_head;
 
     public void initializeChats() throws IOException{
         chats = new ArrayList<Chat>();
+        chats_pane.getChildren().remove(chat_head);
         getChats();
         for(Chat chat: chats){
             String name;
             if (user.getUsername().equals(chat.getUser1())) {
                 name = chat.getUser2();
+                System.out.println("Hahaha");
             }
             else{
                 name = chat.getUser1();
@@ -71,6 +47,7 @@ public class ChatMenuController {
             );
             chatHead.getChildren().addAll(nameLabel, messageLabel);
             chats_pane.getChildren().add(chatHead);
+
         }
     }
 
@@ -78,5 +55,15 @@ public class ChatMenuController {
         for(String chatString: user.getChats()){
             chats.add(JsonParser.getChat(chatString));
         }
+    }
+
+    @FXML
+    public void SwitchToDatingPage() throws IOException{
+        App.switchToDating();
+    }
+
+    @FXML 
+    public void SwitchToProfilePage() throws IOException{
+        App.switchToProfilePage(user);
     }
 }
