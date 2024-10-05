@@ -1,7 +1,7 @@
 package com.harana;
 
+import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 
 import com.harana.users.*;
-import com.harana.users.Message;
 
 
 public class ChatsController {
@@ -140,8 +139,26 @@ public class ChatsController {
             protected Void call() throws Exception {
                 while (true) {
                     Thread.sleep(1000);
-                    NewChat(new Message("user1", "heheehe"));
-                    System.out.println("hhahahaah");
+                    Platform.runLater(
+                        ()->{
+                            try {
+                                Chat newChat = JsonParser.getChat(chat.getChatid() + ".json");
+                                if (newChat.getMessages().size() > chat.getMessages().size()) {
+                                    for(int i = chat.getMessages().size(); i < newChat.getMessages().size(); i++){
+                                        String user = isUser1 ? "user1": "user2";
+                                        if (!newChat.getMessages().get(i).getSender().equals(user)) {
+                                            String name = isUser1 ? chat.getUser2(): chat.getUser1();
+                                            NewChat(new Message(name, newChat.getMessages().get(i).getMessage()));
+                                            chat = newChat;
+                                            setScroll();
+                                        }
+                                    }
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    );
                 }
             }
             
@@ -149,6 +166,8 @@ public class ChatsController {
         Thread chatUpdate = new Thread(chatUpadte);
         chatUpdate.setDaemon(true);
         chatUpdate.start(); 
+
+        
     }
     
     public void initializeChats() throws IOException{
@@ -214,16 +233,12 @@ public class ChatsController {
         String name;
         if (message.getSender().equals("user1") && isUser1) {
             name = "You";
-            System.out.println("hhahaha");
         }else if(message.getSender().equals("user1") && !isUser1){
             name = chat.getUser2();
-            System.out.println("iiiii");
         }else if (message.getSender().equals("user2") && !isUser1) {
             name = "You";
-            System.out.println("kakkakakaka");
         }else {
             name = chat.getUser2();
-            System.out.println("ooooooooo");
         }
         Label userName = new Label(name);
         Label messageLabel = new Label(message.getMessage());
@@ -231,5 +246,28 @@ public class ChatsController {
         userChat.setStyle("-fx-border-color:red");
         userChat.getChildren().addAll(userName, messageLabel);
         chat_screen.getChildren().add(userChat);
+        setScroll();
+    }
+
+    private void setScroll(){
+        Thread thread = new Thread(
+           new Runnable() {
+
+            @Override
+            public void run() {
+                Platform.runLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        chat_scroll.setVvalue(1);
+                    }
+                    
+                });
+            }
+
+           }
+        );
+        thread.start();
+
     }
 }

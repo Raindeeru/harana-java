@@ -27,14 +27,14 @@
                         <Label fx:id="user2_message" text="Other Person Chat" />
                      </children>
                   </VBox>
-                  <Label fx:id="typing_label" text="User Typing" />
                </children>
             </VBox>
          </content>
       </ScrollPane>
+      <Label fx:id="typing_label" text="User Typing" />
       <HBox prefHeight="38.0" prefWidth="250.0">
          <children>
-            <TextField fx:id="message_field" onKeyTyped="#Typing" text="aaaaa" />
+            <TextField fx:id="message_field" onKeyTyped="#Typing" />
             <Button fx:id="send_btn" mnemonicParsing="false" onAction="#Send" text="send" />
          </children>
       </HBox>
