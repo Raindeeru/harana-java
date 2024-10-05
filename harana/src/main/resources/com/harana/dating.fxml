@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.MusicController" />
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.MusicController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@userimage2.jpg" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" onMouseClicked="#song_stop" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@purple-heart.png" />
+               </image>
+            </ImageView>
+            <ProgressBar prefWidth="200.0" progress="0.0" />
+         </children>
+      </VBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="161.0">
+         <children>
+            <Button mnemonicParsing="false" text="YES" />
+            <Button mnemonicParsing="false" text="NO" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
