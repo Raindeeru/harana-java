@@ -13,10 +13,16 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.net.URI;
 import java.util.*;
+
+import org.apache.hc.core5.http.ParseException;
 
 import com.harana.users.Cred;
 import com.harana.users.User;
@@ -37,10 +43,13 @@ public class LoginController {
 
 
 
-    public void initialize() throws IOException{
+    public void initialize() throws IOException, ParseException, SpotifyWebApiException{
         cred = JsonParser.getCredentials("credentials.json");
-        
-        
+        MusicManager.getSpotifyTopSearch("Rob Deniel RomCom", "testPreview.mp3", "testImage.png");
+        Media media = new Media("file:///C:/dev/gui/harana-java/testPreview.mp3");
+        MediaPlayer player = new MediaPlayer(media); 
+        player.setCycleCount(10);
+        player.play();
     }
 
     @FXML
