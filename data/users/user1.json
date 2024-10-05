@@ -1,18 +1,9 @@
 {
-    "username": "Jamal",
-    "online": false,
-    "chats": ["chat1.json"],
-    "posts": [
-        {
-            "postContent": "hahahahahahahaahahahahah"
-        },
-        {
-            "postContent": "hahahahahahahaahahahahah"
-        },
-        {
-            "postContent": "hahahahahahahaahahahahah"
-        }
-    ],
-    "imagePaths":[],
-    "musicUrls": ["https://www.youtube.com/watch?v=UYeV7jLBXvA"] 
+  "username": "Jr Gayagoy",
+  "online": false,
+  "chats": [
+    "chat1.json"
+  ],
+  "imagePaths": ["userimage1.jpg", "userimage2.jpg"],
+  "musicUrls": "https://www.youtube.com/watch?v\u003dY14gG9IJ230"
 }

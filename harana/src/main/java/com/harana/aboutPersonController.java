@@ -8,6 +8,11 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.harana.users.*;
+
 public class aboutPersonController {
     @FXML Button backPButton; 
     @FXML Button likeButton; 
@@ -21,31 +26,53 @@ public class aboutPersonController {
 
     Stage stage; 
 
-    private Image[] userSetImages = new Image[6]; 
+    private ArrayList<Image> userSetImages;  
     private int currentImage = 0; 
+    private User profile; 
 
     @FXML
-    public void userImage() {
-       for (int i = 0; i < 2; i++) {
-            userSetImages[i] = new Image(getClass().getResourceAsStream("userimage" + (i + 1) + ".jpg"));
+    public void initialize() throws IOException{
+        profile = JsonParser.getUser("user1.json");
+        aboutPName.setText(profile.getUsername());
+        userSetImages = new ArrayList<>(); 
+        
+        for (String imagePath : profile.getImagePaths()) {
+            userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
         }
-        userImage.setImage(userSetImages[0]);
+        userImage.setImage(userSetImages.get(0));
+    }
+    
+    @FXML
+    public void userImage() {
+        userImage.setImage(userSetImages.get(currentImage));
     }
 
     @FXML
     public void nextImage() { 
-        if (currentImage <= userSetImages.length - 1) {
-            currentImage++;
-            userImage.setImage(userSetImages[currentImage]);
+        currentImage++;
+        if (currentImage >= userSetImages.size()) {
+            currentImage = 0;
         } 
+        userImage.setImage(userSetImages.get(currentImage));
     }
 
     @FXML
     public void backImage() { 
-        if (currentImage > 0) {
-            currentImage--;
-            userImage.setImage(userSetImages[currentImage]);
+        currentImage--;
+        if (currentImage < 0) {
+            currentImage = userSetImages.size() - 1;
         } 
+        userImage.setImage(userSetImages.get(currentImage));
+    }
+
+    @FXML
+    public void aboutName() { 
+        aboutPName.setText(profile.getUsername());
+    }
+
+    @FXML
+    public void aboutAge() { 
+        aboutPAge.setText("eyy");
     }
 
     @FXML
@@ -64,20 +91,10 @@ public class aboutPersonController {
         System.out.println("Yew");
     }
 
-    @FXML
-    public void aboutName() { 
-        aboutPName.setText("ello");
-    }
-
-    @FXML
-    public void aboutAge() { 
-        aboutPAge.setText("eyy");
-    }
-
-    @FXML
-    private void initialize() {
-        userImage();
-        aboutName();
-        aboutAge();
-    }
+    //@FXML
+    //private void initialize() {
+     //   userImage();
+    //    aboutName();
+    //    aboutAge();
+    //}
 }
