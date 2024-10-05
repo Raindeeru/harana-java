@@ -3,6 +3,22 @@
     {
       "sender": "user1",
       "message": "Hello"
+    },
+    {
+      "sender": "user1",
+      "message": "hello"
+    },
+    {
+      "sender": "user2",
+      "message": "Hello rin"
+    },
+    {
+      "sender": "user2",
+      "message": "Pakyu"
+    },
+    {
+      "sender": "user2",
+      "message": "Pakyu"
     }
   ],
   "user1": "Jr Gayagoy",
