@@ -22,14 +22,20 @@ public class profilePageController {
     @FXML
     private TextField musicTexfField;
 
-    @FXML
-    public void initialize() throws IOException{
-        account = JsonParser.getUser("user1.json");
+    private User user;
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void initializeData()throws IOException{
+        account = user;
         editUsernameTextField.setText(account.getUsername());
         musicTexfField.setText(account.getMusicUrls());
         editUsernameTextField.setDisable(true);
         musicTexfField.setDisable(true);
-    }
+    } 
+
     @FXML
     void editChangeBTN(ActionEvent event) throws IOException {
         editUsernameTextField.setDisable(!editUsernameTextField.isDisable());
@@ -48,7 +54,7 @@ public class profilePageController {
         
         account.setUsername(newName);
         account.setMusicUrls(newMusic);
-        JsonParser.setUser("user1.json", account);
+        JsonParser.setUser(user.getUserId(), account);
         
     }
 

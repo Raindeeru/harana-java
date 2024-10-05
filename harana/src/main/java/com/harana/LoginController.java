@@ -53,7 +53,7 @@ public class LoginController {
         
         System.out.println(verify);
         if(verify != null){
-            App.switchToProfilePage();
+            App.SwitchToChatMenu(verify);
         }
     }
 
