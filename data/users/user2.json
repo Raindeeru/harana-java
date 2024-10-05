@@ -2,6 +2,17 @@
     "username": "Abdullah",
     "online": false,
     "chats": ["chat1.json"],
+    "posts": [
+        {
+            "postContent": "hahahahahahahaahahahahah"
+        },
+        {
+            "postContent": "hahahahahahahaahahahahah"
+        },
+        {
+            "postContent": "hahahahahahahaahahahahah"
+        }
+    ],
     "imagePaths":[],
     "musicUrls": ["https://www.youtube.com/watch?v=UYeV7jLBXvA"]
 }

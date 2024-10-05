@@ -63,4 +63,10 @@ public class JsonParser {
         writer.close(); 
     }
 
+    public static MusicResponse getMusicResponse(String json){
+        Gson gson = new Gson();
+        MusicResponse music = gson.fromJson(json, MusicResponse.class);
+        return music;
+    }
+
 }

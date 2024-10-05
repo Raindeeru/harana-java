@@ -125,6 +125,9 @@ public class ChatsController {
         else{
             message = new Message("user2", message_field.getText());
         }
+        if (message.getMessage().isBlank()) {
+            return;
+        }
         NewChat(message);
         chat.getMessages().add(message);
         JsonParser.setChat(chat.getChatid() + ".json", chat);
@@ -176,6 +179,11 @@ public class ChatsController {
             user = JsonParser.getUser("user1.json");
             isUser1 = true;
         }
+    }
+
+    @FXML
+    private void Back() throws IOException{
+        App.SwitchToChatMenu(user);
     }
 
     private void NewChat(Message message){

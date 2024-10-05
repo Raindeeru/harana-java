@@ -60,7 +60,6 @@ public class App extends Application {
         Parent chatParent = fxmlLoader.load();
         ChatMenuController chatMenuController = fxmlLoader.getController();
         chatMenuController.setUser(user);
-        chatMenuController.initialize();
         scene.setRoot(chatParent);
     }
 

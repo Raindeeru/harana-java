@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.harana.users.*;
 
@@ -25,7 +26,7 @@ public class aboutPersonController {
 
     Stage stage; 
 
-    private Image[] userSetImages =  new Image[2]; //di pa ito taposs
+    private ArrayList<Image> userSetImages;  
     private int currentImage = 0; 
     private User profile; 
 
@@ -33,34 +34,35 @@ public class aboutPersonController {
     public void initialize() throws IOException{
         profile = JsonParser.getUser("user1.json");
         aboutPName.setText(profile.getUsername());
-        userImage();
+        userSetImages = new ArrayList<>(); 
+        
+        for (String imagePath : profile.getImagePaths()) {
+            userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
+        }
+        userImage.setImage(userSetImages.get(0));
     }
-
+    
     @FXML
     public void userImage() {
-        for (int i = 0; i < profile.getImagePaths().size(); i++) { 
-            userSetImages[i] = new Image(getClass().getResourceAsStream(profile.getImagePaths().get(i)));
-        }
-        userImage.setImage(userSetImages[0]);
+        userImage.setImage(userSetImages.get(currentImage));
     }
-
 
     @FXML
     public void nextImage() { 
         currentImage++;
-        if (currentImage >= userSetImages.length) {
+        if (currentImage >= userSetImages.size()) {
             currentImage = 0;
         } 
-        userImage.setImage(userSetImages[currentImage]);
+        userImage.setImage(userSetImages.get(currentImage));
     }
 
     @FXML
     public void backImage() { 
         currentImage--;
         if (currentImage < 0) {
-            currentImage = userSetImages.length - 1;
+            currentImage = userSetImages.size() - 1;
         } 
-        userImage.setImage(userSetImages[currentImage]);
+        userImage.setImage(userSetImages.get(currentImage));
     }
 
     @FXML
@@ -95,5 +97,4 @@ public class aboutPersonController {
     //    aboutName();
     //    aboutAge();
     //}
-
 }

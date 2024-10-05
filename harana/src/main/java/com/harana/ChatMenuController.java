@@ -19,6 +19,8 @@ public class ChatMenuController {
     ArrayList<Chat> chats;
 
     @FXML VBox chats_pane;
+    @FXML Label chat_name;
+    @FXML Label chat_message;
 
     @FXML
     void initialize() throws IOException{
