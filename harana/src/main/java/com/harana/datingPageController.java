@@ -135,5 +135,11 @@ public class datingPageController
     {
         profileImage.setImage(new Image(getClass().getResourceAsStream(user.getImagePaths().get(0))));
         profileName.setText(user.getUsername());
+        
+        MusicManager.getSpotifyTopSearch(user.getMusicPath(), "testPreview.mp3", "testImage.png");
+        Media media = new Media("file:///C:/dev/gui/harana-java/testPreview.mp3");
+        MediaPlayer player = new MediaPlayer(media); 
+        player.setCycleCount(10);
+        player.play();
     }
 }
