@@ -5,12 +5,14 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.image.Image;
@@ -46,7 +48,9 @@ public class datingPageController
     private ImageView profileImage;
     @FXML
     private Label profileName;
-    
+    @FXML 
+    private HBox matchNotif;
+
     private boolean isPlaying = false;
     private double progress = 0.0;
     private Thread progressThread;
@@ -179,7 +183,34 @@ public class datingPageController
             progressThread.interrupt();
         }
     }
-    
+    @FXML
+    private void initialize(){
+        startNotifThread(matchNotif, user);
+    }
+    public static void startNotifThread(Node node, User user){
+        Task<Void> startNotif = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                
+                int initialMatchesNumber = user.getChats().size();
+                int currentMatchesNumber = user.getChats().size();
+                Thread.sleep(1000);
+                System.out.println("hahahaha");
+                while (initialMatchesNumber == currentMatchesNumber) {
+                    currentMatchesNumber = user.getChats().size();
+                }                
+                node.setVisible(true);
+                Thread.sleep(3000);
+                node.setVisible(false);
+                return null;
+            }
+            
+        };
+        
+        Thread startNotifThread = new Thread(startNotif);
+        startNotifThread.setDaemon(true);
+        startNotifThread.start();
+    }
     public void initializePage() throws IOException, ParseException, SpotifyWebApiException
     {
         setUserList();
@@ -280,7 +311,6 @@ public class datingPageController
                 cachedUser = JsonParser.getUser(cachedUserString);
                 cachedMusic = getMusic("cachedImage.png", "cachedAudio.mp3", cachedUser.getMusicUrls());
                 cacheAvailable = true;
-                System.out.println("Hello");
                 return null;
             }
 
