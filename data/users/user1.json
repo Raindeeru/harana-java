@@ -1,21 +1,18 @@
 {
   "username": "Jr Gayagoy",
   "online": false,
-  "userId": "user1.json",
   "chats": [
     "chat1.json"
   ],
   "posts": [
     {
-      "postContent": "hahahahahahahaahahahahah"
-    },
-    {
-      "postContent": "hahahahahahahaahahahahah"
-    },
-    {
-      "postContent": "hahahahahahahaahahahahah"
+      "userPostC": "stan red velvet "
     }
   ],
-  "imagePaths": ["userimage1.jpg"],
-  "musicUrls": "Melancholy Hill Gorillaz"
+  "imagePaths": [
+    "userimage1.jpg",
+    "userimage2.jpg"
+  ],
+  "musicUrls": "Melancholy Hill Gorillaz",
+  "userId": "user1.json"
 }

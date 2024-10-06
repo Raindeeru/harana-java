@@ -24,9 +24,11 @@ public class aboutPersonController {
     @FXML Label aboutPName; 
     @FXML Label aboutPAge; 
 
+
     Stage stage; 
 
     private ArrayList<Image> userSetImages;  
+    //private ArrayList<Label> userPosts;  
     private int currentImage = 0; 
     private User profile; 
 
