@@ -1,6 +1,7 @@
 package com.harana;
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,10 +15,14 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import se.michaelthelin.spotify.model_objects.specification.Track;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -44,6 +49,12 @@ public class datingPageController
     private User displayingProfile;
     private UserList userList;
     private MediaPlayer player;
+
+    private int maxCached = 3;
+    private int cacheIndex = 0;
+
+    private ArrayList<Music> musicCache = new ArrayList<Music>();
+
 
     public void setUser(User user) {
         this.user = user;
@@ -88,15 +99,19 @@ public class datingPageController
         System.out.println("Previous Song");
     }
     @FXML
-    private void handlenextButton()
+    private void handlenextButton() throws ParseException, SpotifyWebApiException, IOException
     {
         System.out.println("Next Song");
+        if (userList.getUsers().isEmpty()) {
+            return;
+        }
+        changeProfile();
     }
     @FXML
     private void handleChatButton() throws IOException
     {
         App.SwitchToChatMenu(user);
-        player.stop();
+        player.dispose();
     }
     @FXML
     private void handledatingButtonClick()
@@ -107,7 +122,7 @@ public class datingPageController
     private void handleprofileButtonClick() throws IOException
     {
         App.switchToProfilePage(user);  
-        player.stop();
+        player.dispose();
     }
     private void startProgressBar()
     {
@@ -148,25 +163,58 @@ public class datingPageController
     {
         System.out.println(JsonParser.getUsers());
         userList = JsonParser.getUsers();
+        Collections.shuffle(userList.getUsers());
+
         String displayProfileString = userList.getUsers().get(0);
         userList.getUsers().remove(displayProfileString);
         if (displayProfileString.equals(user.getUserId())) {
             displayProfileString = userList.getUsers().get(0);
+            userList.getUsers().remove(displayProfileString);
         }
-        
         displayingProfile = JsonParser.getUser(displayProfileString);
-        MusicManager.getSpotifyTopSearch(displayingProfile.getMusicUrls(), "testPreview.mp3", "testImage.png");
+        Music firstDisplay = getMusic("testImage.png", "testPreview.mp3", displayingProfile.getMusicUrls());
+
+        System.out.println(userList.getUsers());
 
         profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
 
-        File cover = new File("testImage.png");
+        File cover = new File(firstDisplay.getImagePath());
         albumCover.setImage(new Image(cover.toURI().toString()));
         
-        File music = new File("testPreview.mp3");
+        File music = new File(firstDisplay.getAudioPath());
         Media media = new Media(music.toURI().toString());
         player = new MediaPlayer(media); 
         player.play();
+    }
+    
+    private void changeProfile() throws ParseException, SpotifyWebApiException, IOException{
+        player.dispose();
+        String displayProfileString = userList.getUsers().get(0);
+        displayingProfile = JsonParser.getUser(displayProfileString);
+        Music firstDisplay = getMusic("testImage.png", "testPreview.mp3", displayingProfile.getMusicUrls());
+        userList.getUsers().remove(displayProfileString);
+        if (displayProfileString.equals(user.getUserId())) {
+            displayProfileString = userList.getUsers().get(0);
+            userList.getUsers().remove(displayProfileString);
+        }
 
+        System.out.println(userList.getUsers());
+
+        profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
+        profileName.setText(displayingProfile.getUsername());
+
+        File cover = new File(firstDisplay.getImagePath());
+        albumCover.setImage(new Image(cover.toURI().toString()));
+        
+        File music = new File(firstDisplay.getAudioPath());
+        Media media = new Media(music.toURI().toString());
+        player = new MediaPlayer(media); 
+        player.play();
+    }
+
+    private Music getMusic(String imagePath, String audioPath, String query) throws ParseException, SpotifyWebApiException, IOException{
+        Track track = MusicManager.getSpotifyTopSearch(query, audioPath, imagePath);
+        return new Music(track, imagePath, audioPath);
     }
 }
