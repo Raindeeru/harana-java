@@ -1,12 +1,14 @@
 package com.harana;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
@@ -28,8 +30,9 @@ public class aboutPersonController {
     @FXML ScrollPane scrollPane; 
     @FXML Label aboutPName; 
     @FXML Label aboutPAge; 
-    @FXML VBox postBox;
-    @FXML AnchorPane wholePage;
+    @FXML VBox userContent;
+    @FXML VBox postsBox;
+    @FXML VBox wholePage;
 
     Stage stage; 
 
@@ -51,24 +54,27 @@ public class aboutPersonController {
         aboutPName.setText(profile.getUsername());
         userSetImages = new ArrayList<>(); 
         userPosts = new ArrayList<>();
-        scrollPane.setContent(wholePage);
         
         for(String imagePath : profile.getImagePaths()) {
             userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
         }
         userImage.setImage(userSetImages.get(0));
-
+        
         ArrayList<Post> posts = profile.getPosts(); 
         if(posts != null) {
             for(Post post : posts){
+                Label usernamePost = new Label(profile.getUsername());
+                usernamePost.setPadding(new Insets(0,0,0,7));
                 Label postL = new Label(post.getPostContent()); 
+                postL.setPadding(new Insets(0,0,7,15));
                 postL.setWrapText(true);
-                userPosts.add(postL);//aayusin pa ito inalis ko muna vbox kasi nagerror
+                VBox postsBox = new VBox();
+                postsBox.getChildren().addAll(usernamePost, postL);
+                userContent.getChildren().add(postsBox);
             }
+            
         }
-
-
-
+        scrollPane.setContent(wholePage);  
     }
     
     @FXML
@@ -124,7 +130,7 @@ public class aboutPersonController {
 
     //@FXML
     //private void initialize() {
-     //   userImage();
+    //    userImage();
     //    aboutName();
     //    aboutAge();
     //}

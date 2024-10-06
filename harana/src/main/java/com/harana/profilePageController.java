@@ -75,7 +75,6 @@ public class profilePageController {
         galleryIMG.setImage(userSetImages.get(0));
         
         for (Post prevPost : account.getPosts()){
-            
             VBox postBoxes = new VBox();
             postBoxes.setPrefSize(newPostBox.getPrefWidth(), newPostBox.getPrefHeight());
             Label usernamePostDisplay = new Label(account.getUsername());
