@@ -1,33 +1,7 @@
 {
-  "messages": [
-    {
-      "sender": "user1",
-      "message": "Hello"
-    },
-    {
-      "sender": "user1",
-      "message": "hello"
-    },
-    {
-      "sender": "user2",
-      "message": "Hello rin"
-    },
-    {
-      "sender": "user2",
-      "message": "Pakyu"
-    },
-    {
-      "sender": "user2",
-      "message": "Pakyu"
-    },
-    {
-      "sender": "user1",
-      "message": "aaaaa"
-    }
-  ],
-  "user1": "Jr Gayagoy",
-  "user2": "UwU",
-  "chatid": "chat1",
+  "messages": [],
+  "user1": "UwU",
+  "user2": "Jamal",
   "user1_typing": false,
   "user2_typing": false
 }

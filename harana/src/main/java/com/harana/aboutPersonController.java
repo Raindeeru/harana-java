@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.File;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -97,6 +98,18 @@ public class aboutPersonController {
         System.out.println("liked");
         user.getLikes().add(profile.getUserId());
         JsonParser.setUser(user.getUserId(), user);
+        
+        for(String likes: profile.getLikes()){
+            if (likes.equals(user.getUserId())) {
+                Chat newMatchChat = new Chat(profile.getUsername(), user.getUsername());
+                int fileCount = new File("data/chats").list().length;
+                String chatFileName = "chat" + Integer.toString(fileCount) + ".json";
+                JsonParser.setChat(chatFileName, newMatchChat); 
+                profile.getChats().add(chatFileName);
+                user.getChats().add(chatFileName);
+                System.out.println("MATCH!");
+            }
+        }
         App.switchToDating(user);
     }
 
