@@ -7,8 +7,14 @@ public class Chat {
     
     private String user1;
     private String user2;
+    private String chatid;
 
-    
+
+    public Chat(String user1, String user2, String chatid) {
+        this.user1 = user1;
+        this.user2 = user2;
+        this.chatid = chatid;
+    }
 
     public void setUser1(String user1) {
         this.user1 = user1;
@@ -18,7 +24,6 @@ public class Chat {
         this.user2 = user2;
     }
 
-    private String chatid;
 
     private boolean user1_typing = false;
     private boolean user2_typing = false;

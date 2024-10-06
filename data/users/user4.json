@@ -1,25 +1,27 @@
 {
-    "username": "Abdullah",
-    "online": false,
-    "chats": [
-      
-    ],
-    "posts": [
-      {
-        "userPostC": "hahahahahahahaahahahahah"
-      },
-      {
-        "userPostC": "hahahahahahahaahahahahah"
-      },
-      {
-        "userPostC": "hahahahahahahaahahahahah"
-      }
-    ],
-    "matches":[
-    
-    ],
-    "imagePaths": ["userimage2.jpg",
-      "userimage1.jpg"],
-    "musicUrls": "RomCom Rob Deniel",
-    "userId": "user4.json"
-  }
+  "username": "Abdullah",
+  "online": false,
+  "chats": [
+    "chat1.json"
+  ],
+  "posts": [
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    }
+  ],
+  "imagePaths": [
+    "userimage2.jpg",
+    "userimage1.jpg"
+  ],
+  "musicUrls": "RomCom Rob Deniel",
+  "userId": "user4.json",
+  "likes": [
+    "user1.json"
+  ]
+}

@@ -1,37 +1,29 @@
 {
   "messages": [
     {
-      "sender": "user1",
-      "message": "Hello"
-    },
-    {
-      "sender": "user1",
-      "message": "hello"
-    },
-    {
       "sender": "user2",
-      "message": "Hello rin"
-    },
-    {
-      "sender": "user2",
-      "message": "Pakyu"
-    },
-    {
-      "sender": "user2",
-      "message": "Pakyu"
+      "message": "1111"
     },
     {
       "sender": "user1",
       "message": "aaaaa"
     },
     {
+      "sender": "user1",
+      "message": "aaaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaaaaaaaa"
+    },
+    {
       "sender": "user2",
-      "message": "dwadwa"
+      "message": "3333333"
     }
   ],
   "user1": "Jr Gayagoy",
-  "user2": "Jessica Flor",
-  "chatid": "chat1",
+  "user2": "Abdullah",
+  "chatid": "chat1.json",
   "user1_typing": false,
   "user2_typing": false
 }

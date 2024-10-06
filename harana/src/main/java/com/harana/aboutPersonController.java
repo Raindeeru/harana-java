@@ -5,12 +5,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.File;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -26,22 +29,16 @@ public class aboutPersonController {
     @FXML ScrollPane scrollPane; 
     @FXML Label aboutPName; 
     @FXML Label aboutPAge; 
-
+    @FXML VBox postBox;
+    @FXML AnchorPane wholePage;
 
     Stage stage; 
 
     private ArrayList<Image> userSetImages;  
-    //private ArrayList<Label> userPosts;  
+    private ArrayList<Label> userPosts;  
     private int currentImage = 0; 
     private User profile; 
     private User user;
-
-    public void setUserList(UserList userList) {
-        this.userList = userList;
-    }
-
-    private UserList userList;
-
 
     public void setUser(User user) {
         this.user = user;
@@ -54,11 +51,25 @@ public class aboutPersonController {
     public void initializeProfile(){
         aboutPName.setText(profile.getUsername());
         userSetImages = new ArrayList<>(); 
+        userPosts = new ArrayList<>();
+        scrollPane.setContent(wholePage);
         
-        for (String imagePath : profile.getImagePaths()) {
+        for(String imagePath : profile.getImagePaths()) {
             userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
         }
         userImage.setImage(userSetImages.get(0));
+
+        ArrayList<Post> posts = profile.getPosts(); 
+        if(posts != null) {
+            for(Post post : posts){
+                Label postL = new Label(post.getPostContent()); 
+                postL.setWrapText(true);
+                userPosts.add(postL);//aayusin pa ito inalis ko muna vbox kasi nagerror
+            }
+        }
+
+
+
     }
     
     @FXML
@@ -96,14 +107,28 @@ public class aboutPersonController {
 
     @FXML
     public void backPButton() throws ParseException, SpotifyWebApiException, IOException { 
-        App.switchToDating(user, userList);
+        App.switchToDating(user);
     }
 
     @FXML
     public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
         System.out.println("liked");
-        user.getMatches().add(profile.getUserId());
-        App.switchToDating(user, userList);
+        user.getLikes().add(profile.getUserId());
+        
+        for(String likes: profile.getLikes()){
+            if (likes.equals(user.getUserId())) {
+                int fileCount = new File("data/chats").list().length;
+                String chatFileName = "chat" + Integer.toString(fileCount) + ".json";
+                Chat newMatchChat = new Chat(profile.getUsername(), user.getUsername(), chatFileName);
+                JsonParser.setChat(chatFileName, newMatchChat); 
+                profile.getChats().add(chatFileName);
+                user.getChats().add(chatFileName);
+                System.out.println("MATCH!");
+            }
+        }
+        JsonParser.setUser(profile.getUserId(), profile);
+        JsonParser.setUser(user.getUserId(), user);
+        App.switchToDating(user);
     }
 
     @FXML

@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 
 import java.io.IOException;
+import java.io.File;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -41,12 +42,11 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    static void switchToDating(User user, UserList userList) throws IOException, ParseException, SpotifyWebApiException{
+    static void switchToDating(User user) throws IOException, ParseException, SpotifyWebApiException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("dating.fxml"));
         Parent Parent = fxmlLoader.load();
         datingPageController Controller = fxmlLoader.getController();
         Controller.setUser(user);
-        Controller.setUserList(userList);
         Controller.initializePage();
         scene.setRoot(Parent);
     }
@@ -79,13 +79,12 @@ public class App extends Application {
         scene.setRoot(chatParent);
     }
 
-    public static void SwitchToAboutPerson(User user, User profile, UserList userList) throws IOException{
+    public static void SwitchToAboutPerson(User user, User profile) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("moreAboutPerson.fxml"));
         Parent parent = fxmlLoader.load();
         aboutPersonController controller = fxmlLoader.getController();
         controller.setProfile(profile);
         controller.setUser(user);
-        controller.setUserList(userList);
         controller.initializeProfile();
         scene.setRoot(parent);
     }

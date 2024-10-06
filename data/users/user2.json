@@ -2,7 +2,7 @@
   "username": "Jessica Flor",
   "online": false,
   "chats": [
-    "chat1.json"
+    "chat0.json"
   ],
   "posts": [
     {
@@ -21,6 +21,10 @@
   "imagePaths": [
     "userimage1.jpg",
     "userimage2.jpg"
+    
+  ],
+  "likes":[
+    
   ],
   "musicUrls": "anybody can find love (except you) hkmori",
   "userId": "user2.json",
