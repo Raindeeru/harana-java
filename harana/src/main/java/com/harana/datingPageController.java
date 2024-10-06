@@ -203,8 +203,10 @@ public class datingPageController
         File music = new File(firstDisplay.getAudioPath());
         Media media = new Media(music.toURI().toString());
         CreateCache();
+        isPlaying = true;
+        playButton.setText("❚❚");
         player = new MediaPlayer(media); 
-        //player.play();
+        player.play();
 
         timer = new Timer();
         timer.schedule(new TimerTask() 
@@ -256,9 +258,9 @@ public class datingPageController
         Media media = new Media(music.toURI().toString());
         player = new MediaPlayer(media); 
         CreateCache();
-        //player.play();
-        isPlaying = false;
-        playButton.setText("▶");
+        player.play();
+        isPlaying = true;
+        playButton.setText("❚❚");
         cacheAvailable = false;
         CreateCache();    
     }
