@@ -6,8 +6,11 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 
 import java.io.IOException;
+
+import org.apache.hc.core5.http.ParseException;
 
 import com.google.gson.Gson;
 import com.harana.users.Chat;
@@ -38,7 +41,7 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    static void switchToDating(User user) throws IOException{
+    static void switchToDating(User user) throws IOException, ParseException, SpotifyWebApiException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("dating.fxml"));
         Parent Parent = fxmlLoader.load();
         datingPageController Controller = fxmlLoader.getController();

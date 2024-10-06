@@ -9,10 +9,18 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import org.apache.hc.core5.http.ParseException;
+
 import com.harana.users.User;
 
 public class datingPageController
@@ -33,6 +41,9 @@ public class datingPageController
     private Thread progressThread;
 
     private User user;
+    private User displayingProfile;
+    private UserList userList;
+    private MediaPlayer player;
 
     public void setUser(User user) {
         this.user = user;
@@ -85,6 +96,7 @@ public class datingPageController
     private void handleChatButton() throws IOException
     {
         App.SwitchToChatMenu(user);
+        player.stop();
     }
     @FXML
     private void handledatingButtonClick()
@@ -94,7 +106,8 @@ public class datingPageController
     @FXML
     private void handleprofileButtonClick() throws IOException
     {
-        App.switchToProfilePage(user);   
+        App.switchToProfilePage(user);  
+        player.stop();
     }
     private void startProgressBar()
     {
@@ -131,15 +144,29 @@ public class datingPageController
         }
     }
     
-    public void initializePage() throws IOException
+    public void initializePage() throws IOException, ParseException, SpotifyWebApiException
     {
-        profileImage.setImage(new Image(getClass().getResourceAsStream(user.getImagePaths().get(0))));
-        profileName.setText(user.getUsername());
+        System.out.println(JsonParser.getUsers());
+        userList = JsonParser.getUsers();
+        String displayProfileString = userList.getUsers().get(0);
+        userList.getUsers().remove(displayProfileString);
+        if (displayProfileString.equals(user.getUserId())) {
+            displayProfileString = userList.getUsers().get(0);
+        }
         
-        MusicManager.getSpotifyTopSearch(user.getMusicPath(), "testPreview.mp3", "testImage.png");
-        Media media = new Media("file:///C:/dev/gui/harana-java/testPreview.mp3");
-        MediaPlayer player = new MediaPlayer(media); 
-        player.setCycleCount(10);
+        displayingProfile = JsonParser.getUser(displayProfileString);
+        MusicManager.getSpotifyTopSearch(displayingProfile.getMusicUrls(), "testPreview.mp3", "testImage.png");
+
+        profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
+        profileName.setText(displayingProfile.getUsername());
+
+        File cover = new File("testImage.png");
+        albumCover.setImage(new Image(cover.toURI().toString()));
+        
+        File music = new File("testPreview.mp3");
+        Media media = new Media(music.toURI().toString());
+        player = new MediaPlayer(media); 
         player.play();
+
     }
 }

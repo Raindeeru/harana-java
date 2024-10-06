@@ -69,4 +69,12 @@ public class JsonParser {
         return music;
     }
 
+    public static UserList getUsers() throws FileNotFoundException{
+        Gson gson = new Gson();
+        BufferedReader bufferedReader = new BufferedReader(
+            new FileReader("data/userlist.json")
+        );
+        UserList userList = gson.fromJson(bufferedReader, UserList.class);
+        return userList;
+    }
 }
