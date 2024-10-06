@@ -11,7 +11,14 @@ public class User {
     private ArrayList<String> imagePaths;
     private String musicUrls;
     private String userId;
+    private ArrayList<String> likes;
     
+    public ArrayList<String> getLikes() {
+        return likes;
+    }
+    public void setLikes(ArrayList<String> likes) {
+        this.likes = likes;
+    }
     public String getUserId() {
         return userId;
     }

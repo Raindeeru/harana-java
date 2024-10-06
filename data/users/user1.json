@@ -1,10 +1,16 @@
 {
-  "username": "Jr Gayagoy",
+  "username": "UwU",
   "online": false,
   "chats": [
     "chat1.json"
   ],
   "posts": [
+    {
+      "userPostC": "BOBO MO DERVEN 🤬🤬🧁🧁"
+    },
+    {
+      "userPostC": "hatdog"
+    },
     {
       "userPostC": "stan red velvet "
     },
@@ -14,8 +20,10 @@
   ],
   "imagePaths": [
     "userimage1.jpg",
-    "userimage2.jpg"
+    "userimage2.jpg",
+    "pogi.png"
   ],
   "musicUrls": "Melancholy Hill Gorillaz",
-  "userId": "user1.json"
+  "userId": "user1.json",
+  "likes": []
 }

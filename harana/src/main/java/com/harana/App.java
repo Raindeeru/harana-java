@@ -78,6 +78,16 @@ public class App extends Application {
         scene.setRoot(chatParent);
     }
 
+    public static void SwitchToAboutPerson(User user, User profile) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("moreAboutPerson.fxml"));
+        Parent parent = fxmlLoader.load();
+        aboutPersonController controller = fxmlLoader.getController();
+        controller.setProfile(profile);
+        controller.setUser(user);
+        controller.initializeProfile();
+        scene.setRoot(parent);
+    }
+
     public static void main(String[] args) {
         launch();
     }
