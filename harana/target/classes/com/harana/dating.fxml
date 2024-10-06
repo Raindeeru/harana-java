@@ -83,7 +83,7 @@
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="46.0" prefWidth="104.0">
                      <children>
-                        <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#CheckProfile" text="Profile" />
+                        <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" text="Profile" />
                      </children>
                   </HBox>
                </children>

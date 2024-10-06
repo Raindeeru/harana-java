@@ -2,6 +2,7 @@ package com.harana;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,6 +19,7 @@ import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import se.michaelthelin.spotify.model_objects.specification.Track;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -62,8 +64,24 @@ public class datingPageController
         this.user = user;
     }
 
-    public void setUserList(UserList userList) {
-        this.userList = userList;
+    public void setUserList() throws FileNotFoundException {
+        this.userList = JsonParser.getUsers();
+        ArrayList<String> toRemove = new ArrayList<String>();
+        for(String otheruser: userList.getUsers()){
+            if (user.getUserId().equals(otheruser)) {
+                toRemove.add(otheruser);
+                continue;
+            }
+            for(String like: user.getLikes()){
+                if (otheruser.equals(like)) {
+                    toRemove.add(otheruser);
+                }
+            }
+        }
+        if (toRemove != null) {
+            userList.getUsers().removeAll(toRemove);
+        }
+        Collections.shuffle(userList.getUsers());
     }
     @FXML
     public void handlePlayButtonClick() 
@@ -108,9 +126,7 @@ public class datingPageController
     private void handlenextButton() throws ParseException, SpotifyWebApiException, IOException
     {
         System.out.println("Next Song");
-        if (userList.getUsers().isEmpty()) {
-            return;
-        }
+        
         changeProfile();
     }
     @FXML
@@ -133,7 +149,12 @@ public class datingPageController
 
     @FXML
     private void CheckProfile() throws IOException{
-        App.SwitchToAboutPerson(user, displayingProfile, userList);
+        App.SwitchToAboutPerson(user, displayingProfile);;
+        player.dispose();
+    }
+    @FXML
+    void OpenUserProfile(ActionEvent event) throws IOException {
+        App.switchToProfilePage(user);
         player.dispose();
     }
 
@@ -174,23 +195,9 @@ public class datingPageController
     
     public void initializePage() throws IOException, ParseException, SpotifyWebApiException
     {
-        System.out.println(JsonParser.getUsers());
-        Collections.shuffle(userList.getUsers());
-
-        ArrayList<String> toRemove = new ArrayList<String>();
-        for(String otheruser: userList.getUsers()){
-            if (user.getUserId().equals(otheruser)) {
-                toRemove.add(otheruser);
-                continue;
-            }
-            for(String match: user.getMatches()){
-                if (otheruser.equals(match)) {
-                    toRemove.add(otheruser);
-                }
-            }
-        }
-        if (toRemove != null) {
-            userList.getUsers().removeAll(toRemove);
+        setUserList();
+        if (userList.getUsers().isEmpty()) {
+            return;
         }
         System.out.println(userList.getUsers());
         
@@ -216,6 +223,10 @@ public class datingPageController
     
     private void changeProfile() throws ParseException, SpotifyWebApiException, IOException{
         player.dispose();
+
+        if (userList.getUsers().isEmpty()) {
+            return;
+        }
 
         System.out.println(userList.getUsers());
         String displayProfileString = userList.getUsers().get(0);
