@@ -13,10 +13,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;
+
+import org.apache.hc.core5.http.ParseException;
 
 import com.harana.users.Cred;
 import com.harana.users.User;
@@ -44,7 +47,7 @@ public class LoginController {
     }
 
     @FXML
-    void loginBtn(ActionEvent event) throws IOException {
+    void loginBtn(ActionEvent event) throws IOException, ParseException, SpotifyWebApiException {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
         
@@ -53,7 +56,7 @@ public class LoginController {
         
         System.out.println(verify);
         if(verify != null){
-            App.SwitchToChatMenu(verify);
+            App.switchToDating(verify);;
         }
     }
 

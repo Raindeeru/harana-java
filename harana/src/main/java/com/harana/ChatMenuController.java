@@ -3,12 +3,15 @@ package com.harana;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.hc.core5.http.ParseException;
+
 import com.harana.users.Chat;
 import com.harana.users.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 
 public class ChatMenuController {
     User user;
@@ -58,8 +61,8 @@ public class ChatMenuController {
     }
 
     @FXML
-    public void SwitchToDatingPage() throws IOException{
-        App.switchToDating();
+    public void SwitchToDatingPage() throws IOException, ParseException, SpotifyWebApiException{
+        App.switchToDating(user);
     }
 
     @FXML 

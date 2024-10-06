@@ -10,6 +10,14 @@ public class Chat {
 
     
 
+    public void setUser1(String user1) {
+        this.user1 = user1;
+    }
+
+    public void setUser2(String user2) {
+        this.user2 = user2;
+    }
+
     private String chatid;
 
     private boolean user1_typing = false;
