@@ -25,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -48,6 +50,7 @@ public class datingPageController
     private boolean isPlaying = false;
     private double progress = 0.0;
     private Thread progressThread;
+    private Timer timer;
 
     private User user;
     private User displayingProfile;
@@ -90,42 +93,25 @@ public class datingPageController
         {
             isPlaying = true;
             playButton.setText("❚❚");
+            player.play();
             startProgressBar();
         }
         else
         {
             isPlaying = false;
             playButton.setText("▶");
+            player.stop();
             stopProgressBar();
         }
     }
     @FXML
-    private void handlereverseButtonClick()
+    private void handlepreviousButton() throws ParseException, SpotifyWebApiException, IOException
     {
-        double songDuration = 2000.0;
-        double progressPerSecond = 1.0 / songDuration;
-        double tenSecondsBehind = progress - (10*progressPerSecond);
-        progress = Math.max(tenSecondsBehind, 0.0);
-        progressBar.setProgress(progress);
-    }
-    @FXML
-    private void handleforwardButtonClick()
-    {
-        double songDuration = 2000.0;
-        double progressPerSecond = 1.0 / songDuration;
-        double tenSecondsAhead = progress + (10*progressPerSecond);
-        progress = Math.min(tenSecondsAhead, 1.0);
-        progressBar.setProgress(progress);
-    }
-    @FXML
-    private void handlepreviousButton()
-    {
-        System.out.println("Previous Song");
+        changeProfile();
     }
     @FXML
     private void handlenextButton() throws ParseException, SpotifyWebApiException, IOException
     {
-        System.out.println("Next Song");
         
         changeProfile();
     }
@@ -218,7 +204,24 @@ public class datingPageController
         Media media = new Media(music.toURI().toString());
         CreateCache();
         player = new MediaPlayer(media); 
-        player.play();
+        //player.play();
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() 
+        {
+            @Override
+            public void run() 
+            {
+                Platform.runLater(() -> 
+                {
+                    try {
+                        changeProfile();
+                    } catch (ParseException | SpotifyWebApiException | IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+        }, 30000);
     }
     
     private void changeProfile() throws ParseException, SpotifyWebApiException, IOException{
@@ -253,7 +256,9 @@ public class datingPageController
         Media media = new Media(music.toURI().toString());
         player = new MediaPlayer(media); 
         CreateCache();
-        player.play();
+        //player.play();
+        isPlaying = false;
+        playButton.setText("▶");
         cacheAvailable = false;
         CreateCache();    
     }
