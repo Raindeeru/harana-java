@@ -192,13 +192,15 @@ public class datingPageController
             @Override
             protected Void call() throws Exception {
                 
-                int initialMatchesNumber = user.getChats().size();
-                int currentMatchesNumber = user.getChats().size();
+                User initialUser = user;
+                User currentUser = user;
+                int initialMatchesNumber = initialUser.getChats().size();
+                int currentMatchesNumber = currentUser.getChats().size();
                 Thread.sleep(1000);
+                System.out.println("hahahaha");
                 while (initialMatchesNumber == currentMatchesNumber) {
                     currentMatchesNumber = user.getChats().size();
                 }                
-                System.out.println("hahahaha");
                 node.setVisible(true);
                 Thread.sleep(3000);
                 node.setVisible(false);
