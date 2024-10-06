@@ -7,6 +7,7 @@ import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
+import com.harana.users.Chat;
 import com.harana.users.User;
 
 import javafx.event.ActionEvent;
@@ -52,6 +53,16 @@ public class profilePageController {
         String newName = editUsernameTextField.getText();
         String newMusic = musicTexfField.getText();
         
+        for(String chatString: account.getChats()){
+            Chat chat= JsonParser.getChat(chatString);
+            if (account.getUsername().equals(chat.getUser1())) {
+                chat.setUser1(newName);
+            }else{
+                chat.setUser2(newName);
+            }
+            JsonParser.setChat(chat.getChatid() +".json", chat);
+        }
+
         account.setUsername(newName);
         account.setMusicUrls(newMusic);
         JsonParser.setUser(user.getUserId(), account);

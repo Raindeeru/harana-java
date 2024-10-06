@@ -56,7 +56,7 @@ public class LoginController {
         
         System.out.println(verify);
         if(verify != null){
-            App.switchToDating(verify);;
+            App.switchToDating(verify, JsonParser.getUsers());;
         }
     }
 

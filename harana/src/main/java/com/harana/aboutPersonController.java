@@ -36,6 +36,13 @@ public class aboutPersonController {
     private User profile; 
     private User user;
 
+    public void setUserList(UserList userList) {
+        this.userList = userList;
+    }
+
+    private UserList userList;
+
+
     public void setUser(User user) {
         this.user = user;
     }
@@ -89,12 +96,14 @@ public class aboutPersonController {
 
     @FXML
     public void backPButton() throws ParseException, SpotifyWebApiException, IOException { 
-        App.switchToDating(user);
+        App.switchToDating(user, userList);
     }
 
     @FXML
-    public void likeButton() { 
+    public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
         System.out.println("liked");
+        user.getMatches().add(profile.getUserId());
+        App.switchToDating(user, userList);
     }
 
     @FXML

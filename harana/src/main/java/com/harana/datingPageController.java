@@ -50,17 +50,20 @@ public class datingPageController
     private User user;
     private User displayingProfile;
     private UserList userList;
+    
+
     private MediaPlayer player;
 
     private boolean cacheAvailable  = false;
     private User cachedUser;
     private Music cachedMusic;
 
-    private ArrayList<Music> musicCache = new ArrayList<Music>();
-
-
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public void setUserList(UserList userList) {
+        this.userList = userList;
     }
     @FXML
     public void handlePlayButtonClick() 
@@ -130,7 +133,7 @@ public class datingPageController
 
     @FXML
     private void CheckProfile() throws IOException{
-        App.SwitchToAboutPerson(user, displayingProfile);
+        App.SwitchToAboutPerson(user, displayingProfile, userList);
         player.dispose();
     }
 
@@ -172,17 +175,22 @@ public class datingPageController
     public void initializePage() throws IOException, ParseException, SpotifyWebApiException
     {
         System.out.println(JsonParser.getUsers());
-        userList = JsonParser.getUsers();
         Collections.shuffle(userList.getUsers());
 
-        String toRemove = null;
+        ArrayList<String> toRemove = new ArrayList<String>();
         for(String otheruser: userList.getUsers()){
             if (user.getUserId().equals(otheruser)) {
-                toRemove = otheruser;
+                toRemove.add(otheruser);
+                continue;
+            }
+            for(String match: user.getMatches()){
+                if (otheruser.equals(match)) {
+                    toRemove.add(otheruser);
+                }
             }
         }
         if (toRemove != null) {
-            userList.getUsers().remove(toRemove);
+            userList.getUsers().removeAll(toRemove);
         }
         System.out.println(userList.getUsers());
         

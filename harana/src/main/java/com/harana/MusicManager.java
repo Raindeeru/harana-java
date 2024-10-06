@@ -81,7 +81,6 @@ public class MusicManager {
         System.out.println(topResult.getName());
         System.out.println(topResult.getArtists().clone()[0].getName());
         System.out.println(topResult.getAlbum().getImages()[0].getUrl());
-        System.out.println(topResult.getAvailableMarkets().clone()[0]);
 
         ReadableByteChannel readableByteChannel = Channels.newChannel(URI.create(topResult.getPreviewUrl()).toURL().openStream());
         FileOutputStream fileOutputStream = new FileOutputStream(FilePath);

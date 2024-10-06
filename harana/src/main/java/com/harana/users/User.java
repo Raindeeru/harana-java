@@ -11,7 +11,14 @@ public class User {
     private ArrayList<String> imagePaths;
     private String musicUrls;
     private String userId;
+    private ArrayList<String> matches;
     
+    public ArrayList<String> getMatches() {
+        return matches;
+    }
+    public void setMatches(ArrayList<String> matches) {
+        this.matches = matches;
+    }
     public String getUserId() {
         return userId;
     }
