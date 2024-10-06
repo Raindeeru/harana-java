@@ -190,20 +190,15 @@ public class datingPageController
     public static void startNotifThread(Node node, User user){
         Task<Void> startNotif = new Task<Void>() {
             @Override
-            protected Void call(){
+            protected Void call() throws Exception {
                 
                 int initialMatchesNumber = user.getChats().size();
                 int currentMatchesNumber = user.getChats().size();
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-                System.out.println("hahahaha");
+                Thread.sleep(1000);
                 while (initialMatchesNumber == currentMatchesNumber) {
                     currentMatchesNumber = user.getChats().size();
                 }                
+                System.out.println("hahahaha");
                 node.setVisible(true);
                 Thread.sleep(3000);
                 node.setVisible(false);
