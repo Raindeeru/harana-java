@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 
 import java.io.IOException;
+import java.io.File;
 
 import org.apache.hc.core5.http.ParseException;
 

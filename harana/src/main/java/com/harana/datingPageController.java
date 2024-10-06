@@ -62,6 +62,7 @@ public class datingPageController
     private boolean cacheAvailable  = false;
     private User cachedUser;
     private Music cachedMusic;
+    private Thread newCache;
 
     public void setUser(User user) {
         this.user = user;
@@ -243,6 +244,7 @@ public class datingPageController
             displayingProfile = cachedUser;
             firstDisplay = cachedMusic;
         }else{
+            newCache.interrupt();
             displayingProfile = JsonParser.getUser(displayProfileString);
             firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
         }
@@ -283,7 +285,7 @@ public class datingPageController
             }
 
         };
-        Thread newCache = new Thread(createCache);
+        newCache = new Thread(createCache);
         newCache.start(); 
     }
 }

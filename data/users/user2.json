@@ -2,12 +2,24 @@
   "username": "Jessica Flor",
   "online": false,
   "chats": [
-    "chat1.json"
+    "chat0.json"
   ],
   "posts": [
+<<<<<<< HEAD
     {},
     {},
     {}
+=======
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    }
+>>>>>>> 40413b468a16a4f145f3d2b7b032c534f1ae9199
   ],
   "likes":[
     
