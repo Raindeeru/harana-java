@@ -34,6 +34,8 @@ import com.google.gson.GsonBuilder;
 import com.harana.users.Chat;
 import com.harana.users.Post;
 import com.harana.users.User;
+
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -110,7 +112,9 @@ public class profilePageController {
     public void refreshImage() throws IOException{
         user = JsonParser.getUser(user.getUserId());
         account = user;
+        
         for (String imagePath : account.getImagePaths()){
+            System.out.println(imagePath + ":" + getClass().getResourceAsStream(imagePath));
             userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
         }
         galleryIMG.setImage(userSetImages.get(0));
