@@ -55,7 +55,7 @@ public class ChatMenuController {
             );
             chatHead.getChildren().addAll(nameLabel, messageLabel);
             chats_pane.getChildren().add(chatHead);
-
+                
         }
     }
 
