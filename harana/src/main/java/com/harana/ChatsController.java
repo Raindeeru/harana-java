@@ -73,7 +73,7 @@ public class ChatsController {
             protected Void call() throws Exception {
                 while (true) { 
                     Thread.sleep(100);
-                    Chat checkChat = JsonParser.getChat(chat.getChatid() + ".json");
+                    Chat checkChat = JsonParser.getChat(chat.getChatid());
                     if (isUser1){
                         if (checkChat.isUser2_typing()) {
                             typing_label.setVisible(true);
@@ -105,23 +105,23 @@ public class ChatsController {
                     if (insidetyping == true) {
                         System.out.println(typing);
                         if (isUser1) {
-                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat = JsonParser.getChat(chat.getChatid());
                             chat.setUser1_typing(typing);
                         }else{
-                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat = JsonParser.getChat(chat.getChatid());
                             chat.setUser2_typing(typing);
                         }
-                        JsonParser.setChat(chat.getChatid() + ".json", chat);
+                        JsonParser.setChat(chat.getChatid(), chat);
                         Thread.sleep(1000);
                         typing = false;
                         if (isUser1) {
-                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat = JsonParser.getChat(chat.getChatid());
                             chat.setUser1_typing(typing);
                         }else{
-                            chat = JsonParser.getChat(chat.getChatid() + ".json");
+                            chat = JsonParser.getChat(chat.getChatid());
                             chat.setUser2_typing(typing);
                         }
-                        JsonParser.setChat(chat.getChatid() + ".json", chat);   
+                        JsonParser.setChat(chat.getChatid(), chat);   
                     }
                 }
             }
@@ -140,7 +140,7 @@ public class ChatsController {
                     Platform.runLater(
                         ()->{
                             try {
-                                Chat newChat = JsonParser.getChat(chat.getChatid() + ".json");
+                                Chat newChat = JsonParser.getChat(chat.getChatid());
                                 if (newChat.getMessages().size() > chat.getMessages().size()) {
                                     for(int i = chat.getMessages().size(); i < newChat.getMessages().size(); i++){
                                         String user = isUser1 ? "user1": "user2";
@@ -174,7 +174,6 @@ public class ChatsController {
         }else{
             isUser1 = false;
         }
-        chat = JsonParser.getChat("chat1.json");
         chat_screen.setStyle("-fx-border-color:blue");
         for(Message message: chat.getMessages()){
             NewChat(message);
@@ -202,7 +201,7 @@ public class ChatsController {
         }
         NewChat(message);
         chat.getMessages().add(message);
-        JsonParser.setChat(chat.getChatid() + ".json", chat);
+        JsonParser.setChat(chat.getChatid(), chat);
     }
 
     @FXML 

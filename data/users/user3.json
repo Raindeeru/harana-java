@@ -1,12 +1,9 @@
 {
   "username": "Jamal",
   "online": false,
-  "chats": [],
-  "posts": [
-    {},
-    {},
-    {}
+  "chats": [
   ],
+  "posts": [],
   "imagePaths": [
     "userimage2.jpg",
     "userimage1.jpg"
@@ -14,6 +11,5 @@
   "musicUrls": "Everlong Foo Fighters",
   "userId": "user3.json",
   "likes": [
-    "user1.json"
   ]
 }

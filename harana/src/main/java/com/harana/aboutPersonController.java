@@ -97,19 +97,20 @@ public class aboutPersonController {
     public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
         System.out.println("liked");
         user.getLikes().add(profile.getUserId());
-        JsonParser.setUser(user.getUserId(), user);
         
         for(String likes: profile.getLikes()){
             if (likes.equals(user.getUserId())) {
-                Chat newMatchChat = new Chat(profile.getUsername(), user.getUsername());
                 int fileCount = new File("data/chats").list().length;
                 String chatFileName = "chat" + Integer.toString(fileCount) + ".json";
+                Chat newMatchChat = new Chat(profile.getUsername(), user.getUsername(), chatFileName);
                 JsonParser.setChat(chatFileName, newMatchChat); 
                 profile.getChats().add(chatFileName);
                 user.getChats().add(chatFileName);
                 System.out.println("MATCH!");
             }
         }
+        JsonParser.setUser(profile.getUserId(), profile);
+        JsonParser.setUser(user.getUserId(), user);
         App.switchToDating(user);
     }
 
