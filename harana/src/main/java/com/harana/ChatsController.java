@@ -63,10 +63,8 @@ public class ChatsController {
     private  Task<Void> checkChats;
     private Thread chatChecker;
 
-    private VBox intermediarryBox;
 
     private boolean typing = false;
-    private int oldi = 0;
 
     @FXML
     public void initialize() throws IOException{

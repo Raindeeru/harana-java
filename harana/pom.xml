@@ -12,6 +12,13 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>23</version>
+        </dependency>
+
+
+        <dependency>
             <groupId>se.michaelthelin.spotify</groupId>
             <artifactId>spotify-web-api-java</artifactId>
             <version>8.4.1</version>
@@ -27,12 +34,12 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>13</version>
+            <version>23</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>13</version>
+            <version>23</version>
         </dependency>
 
         <dependency>
@@ -46,6 +53,9 @@
         <artifactId>mail</artifactId>
         <version>1.5.0-b01</version>
       </dependency>
+
+        
+
     </dependencies>
     <build>
         <plugins>

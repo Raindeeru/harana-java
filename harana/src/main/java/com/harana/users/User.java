@@ -40,6 +40,7 @@ public class User {
         return musicUrls;
     }
 
-
-    
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
+    }
 }

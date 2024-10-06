@@ -2,10 +2,14 @@ package com.harana;
 
 import java.io.IOException;
 
+import com.harana.users.Post;
+import com.harana.users.User;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;;
+import javafx.stage.Stage;
+import java.util.ArrayList;
 
 public class postController {
     @FXML TextArea postArea; 
@@ -25,5 +29,13 @@ public class postController {
         String post = new String(); 
         post = postArea.getText(); 
         postArea.clear(); 
+
+        User user = JsonParser.getUser("user1.json");
+
+        ArrayList<Post> uPost = user.getPosts(); 
+        uPost.add(new Post(post));
+        user.setPosts(uPost); 
+
+        JsonParser.setUser("user1.json", user); 
     }
 }

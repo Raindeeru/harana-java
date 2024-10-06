@@ -6,13 +6,16 @@
   ],
   "posts": [
     {
-      "postContent": "BOBO MO DERVEN 🤬🤬🤬"
+      "userPostC": "BOBO MO DERVEN 🤬🤬🧁🧁"
     },
     {
-      "postContent": "hatdog"
+      "userPostC": "hatdog"
     },
     {
-      "postContent": "hahahahahahahaahahahahah"
+      "userPostC": "stan red velvet "
+    },
+    {
+      "userPostC": "aaaa"
     }
   ],
   "imagePaths": [
@@ -20,6 +23,6 @@
     "userimage2.jpg",
     "pogi.png"
   ],
-  "musicUrls": "https://www.youtube.com/watch?v\u003dUYeV7jLBXvA",
+  "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json"
 }
