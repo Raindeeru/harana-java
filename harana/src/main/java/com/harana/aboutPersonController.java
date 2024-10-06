@@ -54,8 +54,9 @@ public class aboutPersonController {
         userPosts = new ArrayList<>();
         scrollPane.setContent(wholePage);
         
-        for(String imagePath : profile.getImagePaths()) {
-            userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
+        for (String imagePath : profile.getImagePaths()){
+            File file = new File("data/images/"+imagePath);
+            userSetImages.add(new Image(file.toURI().toString()));
         }
         userImage.setImage(userSetImages.get(0));
 

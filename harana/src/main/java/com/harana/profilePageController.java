@@ -89,7 +89,8 @@ public class profilePageController {
         musicTexfField.setDisable(true);
 
         for (String imagePath : account.getImagePaths()){
-            userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
+            File file = new File("data/images/"+imagePath);
+            userSetImages.add(new Image(file.toURI().toString()));
         }
         galleryIMG.setImage(userSetImages.get(0));
         
@@ -108,10 +109,12 @@ public class profilePageController {
     }
 
     public void refreshImage() throws IOException{
+        userSetImages.clear();
         user = JsonParser.getUser(user.getUserId());
         account = user;
         for (String imagePath : account.getImagePaths()){
-            userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
+            File file = new File("data/images/"+imagePath);
+            userSetImages.add(new Image(file.toURI().toString()));
         }
         galleryIMG.setImage(userSetImages.get(0));
     }
@@ -135,7 +138,7 @@ public class profilePageController {
 
         if (selectedFile != null) {
             String src = selectedFile.getAbsolutePath();
-            Path destDirectory = Path.of("harana/src/main/resources/com/harana");
+            Path destDirectory = Path.of("data/images/");
             Path destFile = destDirectory.resolve(selectedFile.getName());
             System.out.println("Selected image path: " + src);
 
