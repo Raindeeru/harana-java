@@ -227,8 +227,11 @@ public class datingPageController
         displayingProfile = JsonParser.getUser(displayProfileString);
         Music firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
 
+        File file = new File("data/images/"+user.getImagePaths().get(0));
+        profileImage.setImage(new Image(file.toURI().toString()));
+        
+            
 
-        profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
 
         File cover = new File(firstDisplay.getImagePath());
