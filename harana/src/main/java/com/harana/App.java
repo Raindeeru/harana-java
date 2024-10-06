@@ -90,6 +90,14 @@ public class App extends Application {
         scene.setRoot(parent);
     }
 
+    static void switchToPost(User user) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("usersPost.fxml"));
+        Parent chatParent = fxmlLoader.load();
+        postController pstController = fxmlLoader.getController();
+        pstController.setUser(user);
+        scene.setRoot(chatParent);
+    }
+    
     public static void main(String[] args) {
         launch();
     }

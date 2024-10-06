@@ -45,7 +45,7 @@ public class LoginController {
         
         
     }
-
+    
     @FXML
     void loginBtn(ActionEvent event) throws IOException, ParseException, SpotifyWebApiException {
         String username = usernameTextField.getText();
@@ -56,7 +56,7 @@ public class LoginController {
         
         System.out.println(verify);
         if(verify != null){
-            App.switchToDating(verify, JsonParser.getUsers());;
+            App.switchToProfilePage(verify);
         }
     }
 
