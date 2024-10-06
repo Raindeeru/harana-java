@@ -15,8 +15,8 @@
         "postContent": "hahahahahahahaahahahahah"
       }
     ],
-    "imagePaths": ["userimage1.jpg",
-      "userimage2.jpg"],
+    "imagePaths": ["userimage2.jpg",
+      "userimage1.jpg"],
     "musicUrls": "Everlong Foo Fighters",
     "userId": "user2.json"
   }
