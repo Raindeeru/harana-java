@@ -184,6 +184,7 @@ public class datingPageController
         if (toRemove != null) {
             userList.getUsers().remove(toRemove);
         }
+        System.out.println(userList.getUsers());
         
         String displayProfileString = userList.getUsers().get(0);
         userList.getUsers().remove(displayProfileString);
@@ -191,7 +192,6 @@ public class datingPageController
         displayingProfile = JsonParser.getUser(displayProfileString);
         Music firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
 
-        System.out.println(userList.getUsers());
 
         profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
@@ -209,6 +209,7 @@ public class datingPageController
     private void changeProfile() throws ParseException, SpotifyWebApiException, IOException{
         player.dispose();
 
+        System.out.println(userList.getUsers());
         String displayProfileString = userList.getUsers().get(0);
         userList.getUsers().remove(displayProfileString);
         
@@ -222,7 +223,6 @@ public class datingPageController
             firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
         }
         
-        System.out.println(userList.getUsers());
         
         profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
