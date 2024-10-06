@@ -98,7 +98,6 @@ public class profilePageController {
         
         
         for (Post prevPost : account.getPosts()){
-            
             VBox postBoxes = new VBox();
             postBoxes.setPrefSize(newPostBox.getPrefWidth(), newPostBox.getPrefHeight());
             Label usernamePostDisplay = new Label(account.getUsername());
