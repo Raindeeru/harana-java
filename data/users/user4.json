@@ -1,5 +1,5 @@
 {
-    "username": "Jamal",
+    "username": "Abdullah",
     "online": false,
     "chats": [
       
@@ -17,6 +17,6 @@
     ],
     "imagePaths": ["userimage2.jpg",
       "userimage1.jpg"],
-    "musicUrls": "Everlong Foo Fighters",
-    "userId": "user3.json"
+    "musicUrls": "RomCom Rob Deniel",
+    "userId": "user4.json"
   }

@@ -6,10 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import org.apache.hc.core5.http.ParseException;
 
 import com.harana.users.*;
 
@@ -31,10 +34,17 @@ public class aboutPersonController {
     //private ArrayList<Label> userPosts;  
     private int currentImage = 0; 
     private User profile; 
+    private User user;
 
-    @FXML
-    public void initialize() throws IOException{
-        profile = JsonParser.getUser("user1.json");
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public void setProfile(User profile) {
+        this.profile = profile;
+    }
+
+    public void initializeProfile(){
         aboutPName.setText(profile.getUsername());
         userSetImages = new ArrayList<>(); 
         
@@ -78,9 +88,8 @@ public class aboutPersonController {
     }
 
     @FXML
-    public void backPButton() { 
-        stage = (Stage) backPButton.getScene().getWindow();
-        stage.close();
+    public void backPButton() throws ParseException, SpotifyWebApiException, IOException { 
+        App.switchToDating(user);
     }
 
     @FXML
