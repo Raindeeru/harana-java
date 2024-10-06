@@ -4,14 +4,17 @@ package com.harana;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.harana.users.Post;
 import com.harana.users.User;
 
 import javafx.event.ActionEvent;
@@ -31,17 +34,21 @@ public class profilePageController {
     private ImageView galleryIMG;
 
     @FXML
-    private Button nextButton;
+    private ScrollPane postScroll;
 
     @FXML
-    private Label postDesc;
+    private Button nextButton;
+
     
     @FXML
     private Button prevButton;
     
     @FXML
-    private Label usernamePostDisplay;
-    
+    private VBox parentPostBox;
+
+    @FXML
+    private VBox newPostBox;
+
     private User user;
     private ArrayList<Image> userSetImages; 
     private int currentImage = 0; 
@@ -55,17 +62,29 @@ public class profilePageController {
     public void initializeData()throws IOException{
         account = user;
         userSetImages = new ArrayList<>();
-        editUsernameTextField.setText(user.getUsername());
+        editUsernameTextField.setText(account.getUsername());
         musicTexfField.setText(account.getMusicUrls());
         editUsernameTextField.setDisable(true);
         musicTexfField.setDisable(true);
 
-        for (String imagePath : user.getImagePaths()){
+        for (String imagePath : account.getImagePaths()){
             userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
         }
         galleryIMG.setImage(userSetImages.get(0));
+        
+        for (Post prevPost : account.getPosts()){
+            
+            VBox postBoxes = new VBox();
+            postBoxes.setPrefSize(newPostBox.getPrefWidth(), newPostBox.getPrefHeight());
+            Label usernamePostDisplay = new Label(account.getUsername());
+            Label postDesc = new Label(prevPost.getPostContent());
+            postBoxes.getChildren().addAll(usernamePostDisplay, postDesc);
+            parentPostBox.getChildren().add(postBoxes);
+        }
+        parentPostBox.getChildren().remove(newPostBox);
     }
 
+    
     @FXML
     public void galleryIMG() {
         galleryIMG.setImage(userSetImages.get(currentImage));

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
    <children>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
@@ -21,13 +21,17 @@
       <TextField fx:id="editUsernameTextField" />
       <Label text="Label" />
       <TextField fx:id="musicTexfField" />
-      <Button mnemonicParsing="false" onAction="#editChangeBTN" text="Edit" />
-      <ScrollPane prefHeight="266.0" prefWidth="600.0">
+      <Button mnemonicParsing="false" onAction="#editChangeBTN" text="Button" />
+      <ScrollPane fx:id="postScroll" prefHeight="200.0" prefWidth="200.0">
          <content>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox fx:id="parentPostBox" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Label fx:id="usernamePostDisplay" text="Label" />
-                  <Label fx:id="postDesc" text="Label" />
+                  <VBox fx:id="newPostBox" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label fx:id="usernameLabel" text="Username" />
+                        <Label fx:id="postDescLabel" text="PostDesc" />
+                     </children>
+                  </VBox>
                </children>
             </VBox>
          </content>
