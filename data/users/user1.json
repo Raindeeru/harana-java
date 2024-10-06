@@ -27,10 +27,6 @@
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",
   "likes": [
-<<<<<<< HEAD
-    "user3.json"
-=======
     "user4.json"
->>>>>>> 40413b468a16a4f145f3d2b7b032c534f1ae9199
   ]
 }
