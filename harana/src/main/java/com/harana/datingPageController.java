@@ -184,26 +184,38 @@ public class datingPageController
         }
     }
     @FXML
-    private void initialize(){
-        startNotifThread(matchNotif, user);
-    }
     public static void startNotifThread(Node node, User user){
         Task<Void> startNotif = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
                 
-                User initialUser = user;
-                User currentUser = user;
-                int initialMatchesNumber = initialUser.getChats().size();
-                int currentMatchesNumber = currentUser.getChats().size();
-                Thread.sleep(1000);
-                System.out.println("hahahaha");
-                while (initialMatchesNumber == currentMatchesNumber) {
-                    currentMatchesNumber = user.getChats().size();
-                }                
-                node.setVisible(true);
-                Thread.sleep(3000);
-                node.setVisible(false);
+                Platform.runLater(()->{
+                    User initialUser = user;
+                    User currentUser = user;
+                    int initialMatchesNumber;
+                    int currentMatchesNumber;
+                    System.out.println("hahahaha");
+                    initialMatchesNumber = initialUser.getChats().size();
+                    currentMatchesNumber = currentUser.getChats().size();
+                    while (initialMatchesNumber == currentMatchesNumber) {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        currentMatchesNumber = user.getChats().size();
+                        node.setVisible(true);
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        node.setVisible(false);
+                    }  
+                });         
+                
                 return null;
             }
             
