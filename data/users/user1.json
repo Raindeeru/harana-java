@@ -3,7 +3,8 @@
   "online": false,
   "chats": [
     "chat0.json",
-    "chat1.json"
+    "chat1.json",
+    "chat2.json"
   ],
   "posts": [
     {
@@ -37,11 +38,12 @@
   "imagePaths": [
     "userimage1.jpg",
     "userimage2.jpg",
-    "pogi.png"
+    "image.png"
   ],
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",
   "likes": [
-    "user4.json"
+    "user4.json",
+    "user3.json"
   ]
 }
