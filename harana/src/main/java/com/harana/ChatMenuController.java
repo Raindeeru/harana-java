@@ -59,7 +59,7 @@ public class ChatMenuController {
 
     @FXML
     public void SwitchToDatingPage() throws IOException{
-        App.switchToDating();
+        App.switchToDating(user);
     }
 
     @FXML 

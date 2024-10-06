@@ -24,7 +24,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("LoginGUI"), 250, 480);
+        scene = new Scene(loadFXML("loginGUI"), 250, 480);
         stage.setScene(scene);
         stage.show();
     }
@@ -38,10 +38,12 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    static void switchToDating() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("datingPage.fxml"));
+    static void switchToDating(User user) throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("dating.fxml"));
         Parent Parent = fxmlLoader.load();
-        MusicController Controller = fxmlLoader.getController();
+        datingPageController Controller = fxmlLoader.getController();
+        Controller.setUser(user);
+        Controller.initializePage();
         scene.setRoot(Parent);
     }
 

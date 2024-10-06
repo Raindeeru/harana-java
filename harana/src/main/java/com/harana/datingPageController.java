@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import com.harana.users.User;
 
-public class datingPage
+public class datingPageController
 {
     @FXML
     private Button playButton, reverseButton, forwardButton, previousButton, nextButton;
@@ -32,6 +32,11 @@ public class datingPage
     private double progress = 0.0;
     private Thread progressThread;
 
+    private User user;
+
+    public void setUser(User user) {
+        this.user = user;
+    }
     @FXML
     public void handlePlayButtonClick() 
     {
@@ -77,44 +82,19 @@ public class datingPage
         System.out.println("Next Song");
     }
     @FXML
-    private void handleChatButton()
+    private void handleChatButton() throws IOException
     {
-        try
-        {
-            User currentUser = App.getCurrentUser();
-            App.SwitchToChatMenu(currentUser);
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        App.SwitchToChatMenu(user);
     }
     @FXML
     private void handledatingButtonClick()
     {
-        try
-        {
-            Stage stage = (Stage) datingButton.getScene().getWindow();
-            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("dating.fxml")), 250,480);
-            stage.setScene(scene);
-            stage.show();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        
     }
     @FXML
-    private void handleprofileButtonClick()
+    private void handleprofileButtonClick() throws IOException
     {
-        try
-        {
-            App.switchToProfilePage();
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
-        }
+        App.switchToProfilePage(user);   
     }
     private void startProgressBar()
     {
@@ -151,10 +131,8 @@ public class datingPage
         }
     }
     
-    @FXML
-    public void initialize() throws IOException
+    public void initializePage() throws IOException
     {
-        user = JsonParser.getUser("user1.json");
         profileImage.setImage(new Image(getClass().getResourceAsStream(user.getImagePaths().get(0))));
         profileName.setText(user.getUsername());
     }
