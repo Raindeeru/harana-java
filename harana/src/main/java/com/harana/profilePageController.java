@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -78,6 +79,7 @@ public class profilePageController {
             postBoxes.setPrefSize(newPostBox.getPrefWidth(), newPostBox.getPrefHeight());
             Label usernamePostDisplay = new Label(account.getUsername());
             Label postDesc = new Label(prevPost.getPostContent());
+            postDesc.setFont(new Font("Segoe UI Emoji", 20));
             postBoxes.getChildren().addAll(usernamePostDisplay, postDesc);
             parentPostBox.getChildren().add(postBoxes);
         }
