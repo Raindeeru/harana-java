@@ -40,7 +40,12 @@ public class ChatMenuController {
                 name = chat.getUser1();
             }
             Label nameLabel = new Label(name);
-            Label messageLabel = new Label(chat.getMessages().get(chat.getMessages().size() - 1).getMessage());
+            Label messageLabel;
+            if (chat.getMessages().size() > 0) {
+                messageLabel = new Label(chat.getMessages().get(chat.getMessages().size() - 1).getMessage());
+            }else{
+                messageLabel = new Label("");
+            }
             VBox chatHead = new VBox();
             chatHead.setOnMouseClicked(event -> 
                 {
@@ -50,7 +55,7 @@ public class ChatMenuController {
             );
             chatHead.getChildren().addAll(nameLabel, messageLabel);
             chats_pane.getChildren().add(chatHead);
-
+                
         }
     }
 

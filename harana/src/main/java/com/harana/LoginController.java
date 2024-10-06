@@ -41,11 +41,9 @@ public class LoginController {
 
 
     public void initialize() throws IOException{
-        cred = JsonParser.getCredentials("credentials.json");
-        
-        
+        cred = JsonParser.getCredentials("credentials.json");        
     }
-
+    
     @FXML
     void loginBtn(ActionEvent event) throws IOException, ParseException, SpotifyWebApiException {
         String username = usernameTextField.getText();
@@ -56,7 +54,7 @@ public class LoginController {
         
         System.out.println(verify);
         if(verify != null){
-            App.switchToDating(verify);;
+            App.switchToDating(verify);
         }
     }
 

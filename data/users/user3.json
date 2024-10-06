@@ -1,25 +1,15 @@
 {
-    "username": "Jamal",
-    "online": false,
-    "chats": [
-      
-    ],
-    "posts": [
-      {
-        "postContent": "hahahahahahahaahahahahah"
-      },
-      {
-        "postContent": "hahahahahahahaahahahahah"
-      },
-      {
-        "postContent": "hahahahahahahaahahahahah"
-      }
-    ],
-    "likes":[
-    
+  "username": "Jamal",
+  "online": false,
+  "chats": [
   ],
-    "imagePaths": ["userimage2.jpg",
-      "userimage1.jpg"],
-    "musicUrls": "Everlong Foo Fighters",
-    "userId": "user3.json"
-  }
+  "posts": [],
+  "imagePaths": [
+    "userimage2.jpg",
+    "userimage1.jpg"
+  ],
+  "musicUrls": "Everlong Foo Fighters",
+  "userId": "user3.json",
+  "likes": [
+  ]
+}

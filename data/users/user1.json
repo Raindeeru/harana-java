@@ -1,9 +1,7 @@
 {
-  "username": "UwU",
+  "username": "Jr Gayagoy",
   "online": false,
-  "chats": [
-    "chat1.json"
-  ],
+  "chats": [],
   "posts": [
     {
       "userPostC": "BOBO MO DERVEN 🤬🤬🧁🧁"
@@ -16,12 +14,26 @@
     },
     {
       "userPostC": "aaaa"
+    },
+    {
+      "userPostC": "hatdog"
+    },
+    {
+      "userPostC": "lol"
+    },
+    {
+      "userPostC": "Hatdog"
+    },
+    {
+      "userPostC": "PAKYU"
+    },
+    {
+      "userPostC": "Gusto kong pumunta cosmania :\u003c\u003c\u003c"
     }
   ],
   "imagePaths": [
     "userimage1.jpg",
-    "userimage2.jpg",
-    "pogi.png"
+    "userimage2.jpg"
   ],
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",

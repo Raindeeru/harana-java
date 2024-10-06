@@ -5,12 +5,14 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.image.Image;
@@ -25,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -44,10 +48,13 @@ public class datingPageController
     private ImageView profileImage;
     @FXML
     private Label profileName;
-    
+    @FXML 
+    private HBox matchNotif;
+
     private boolean isPlaying = false;
     private double progress = 0.0;
     private Thread progressThread;
+    private Timer timer;
 
     private User user;
     private User displayingProfile;
@@ -59,6 +66,7 @@ public class datingPageController
     private boolean cacheAvailable  = false;
     private User cachedUser;
     private Music cachedMusic;
+    private Thread newCache;
 
     public void setUser(User user) {
         this.user = user;
@@ -90,42 +98,25 @@ public class datingPageController
         {
             isPlaying = true;
             playButton.setText("❚❚");
+            player.play();
             startProgressBar();
         }
         else
         {
             isPlaying = false;
             playButton.setText("▶");
+            player.stop();
             stopProgressBar();
         }
     }
     @FXML
-    private void handlereverseButtonClick()
+    private void handlepreviousButton() throws ParseException, SpotifyWebApiException, IOException
     {
-        double songDuration = 2000.0;
-        double progressPerSecond = 1.0 / songDuration;
-        double tenSecondsBehind = progress - (10*progressPerSecond);
-        progress = Math.max(tenSecondsBehind, 0.0);
-        progressBar.setProgress(progress);
-    }
-    @FXML
-    private void handleforwardButtonClick()
-    {
-        double songDuration = 2000.0;
-        double progressPerSecond = 1.0 / songDuration;
-        double tenSecondsAhead = progress + (10*progressPerSecond);
-        progress = Math.min(tenSecondsAhead, 1.0);
-        progressBar.setProgress(progress);
-    }
-    @FXML
-    private void handlepreviousButton()
-    {
-        System.out.println("Previous Song");
+        changeProfile();
     }
     @FXML
     private void handlenextButton() throws ParseException, SpotifyWebApiException, IOException
     {
-        System.out.println("Next Song");
         
         changeProfile();
     }
@@ -192,7 +183,36 @@ public class datingPageController
             progressThread.interrupt();
         }
     }
-    
+    @FXML
+    private void initialize(){
+        startNotifThread(matchNotif, user);
+    }
+    public static void startNotifThread(Node node, User user){
+        Task<Void> startNotif = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                
+                User initialUser = user;
+                User currentUser = user;
+                int initialMatchesNumber = initialUser.getChats().size();
+                int currentMatchesNumber = currentUser.getChats().size();
+                Thread.sleep(1000);
+                System.out.println("hahahaha");
+                while (initialMatchesNumber == currentMatchesNumber) {
+                    currentMatchesNumber = user.getChats().size();
+                }                
+                node.setVisible(true);
+                Thread.sleep(3000);
+                node.setVisible(false);
+                return null;
+            }
+            
+        };
+        
+        Thread startNotifThread = new Thread(startNotif);
+        startNotifThread.setDaemon(true);
+        startNotifThread.start();
+    }
     public void initializePage() throws IOException, ParseException, SpotifyWebApiException
     {
         setUserList();
@@ -207,8 +227,11 @@ public class datingPageController
         displayingProfile = JsonParser.getUser(displayProfileString);
         Music firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
 
+        File file = new File("data/images/"+user.getImagePaths().get(0));
+        profileImage.setImage(new Image(file.toURI().toString()));
+        
+            
 
-        profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
 
         File cover = new File(firstDisplay.getImagePath());
@@ -217,8 +240,27 @@ public class datingPageController
         File music = new File(firstDisplay.getAudioPath());
         Media media = new Media(music.toURI().toString());
         CreateCache();
+        isPlaying = true;
+        playButton.setText("❚❚");
         player = new MediaPlayer(media); 
         player.play();
+
+        timer = new Timer();
+        timer.schedule(new TimerTask() 
+        {
+            @Override
+            public void run() 
+            {
+                Platform.runLater(() -> 
+                {
+                    try {
+                        changeProfile();
+                    } catch (ParseException | SpotifyWebApiException | IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+            }
+        }, 30000);
     }
     
     private void changeProfile() throws ParseException, SpotifyWebApiException, IOException{
@@ -238,6 +280,7 @@ public class datingPageController
             displayingProfile = cachedUser;
             firstDisplay = cachedMusic;
         }else{
+            newCache.interrupt();
             displayingProfile = JsonParser.getUser(displayProfileString);
             firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
         }
@@ -254,6 +297,8 @@ public class datingPageController
         player = new MediaPlayer(media); 
         CreateCache();
         player.play();
+        isPlaying = true;
+        playButton.setText("❚❚");
         cacheAvailable = false;
         CreateCache();    
     }
@@ -271,12 +316,11 @@ public class datingPageController
                 cachedUser = JsonParser.getUser(cachedUserString);
                 cachedMusic = getMusic("cachedImage.png", "cachedAudio.mp3", cachedUser.getMusicUrls());
                 cacheAvailable = true;
-                System.out.println("Hello");
                 return null;
             }
 
         };
-        Thread newCache = new Thread(createCache);
+        newCache = new Thread(createCache);
         newCache.start(); 
     }
 }

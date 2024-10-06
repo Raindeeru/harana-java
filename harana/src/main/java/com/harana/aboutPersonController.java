@@ -15,6 +15,7 @@ import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.io.File;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -55,8 +56,9 @@ public class aboutPersonController {
         userSetImages = new ArrayList<>(); 
         userPosts = new ArrayList<>();
         
-        for(String imagePath : profile.getImagePaths()) {
-            userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
+        for (String imagePath : profile.getImagePaths()){
+            File file = new File("data/images/"+imagePath);
+            userSetImages.add(new Image(file.toURI().toString()));
         }
         userImage.setImage(userSetImages.get(0));
         
@@ -119,6 +121,19 @@ public class aboutPersonController {
     public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
         System.out.println("liked");
         user.getLikes().add(profile.getUserId());
+        
+        for(String likes: profile.getLikes()){
+            if (likes.equals(user.getUserId())) {
+                int fileCount = new File("data/chats").list().length;
+                String chatFileName = "chat" + Integer.toString(fileCount) + ".json";
+                Chat newMatchChat = new Chat(profile.getUsername(), user.getUsername(), chatFileName);
+                JsonParser.setChat(chatFileName, newMatchChat); 
+                profile.getChats().add(chatFileName);
+                user.getChats().add(chatFileName);
+                System.out.println("MATCH!");
+            }
+        }
+        JsonParser.setUser(profile.getUserId(), profile);
         JsonParser.setUser(user.getUserId(), user);
         App.switchToDating(user);
     }

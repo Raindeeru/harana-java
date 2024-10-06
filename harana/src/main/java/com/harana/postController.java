@@ -16,6 +16,8 @@ public class postController {
     @FXML Button backButton; 
     @FXML Button postButton; 
 
+    User user;
+
     Stage stage; 
 
     @FXML
@@ -24,18 +26,25 @@ public class postController {
         stage.close();
     }
 
+    
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @FXML
     public void postB() throws IOException{ 
+        
         String post = new String(); 
         post = postArea.getText(); 
         postArea.clear(); 
 
-        User user = JsonParser.getUser("user1.json");
 
         ArrayList<Post> uPost = user.getPosts(); 
         uPost.add(new Post(post));
         user.setPosts(uPost); 
 
-        JsonParser.setUser("user1.json", user); 
+        JsonParser.setUser(user.getUserId(), user); 
+
+        App.switchToProfilePage(user);
     }
 }
