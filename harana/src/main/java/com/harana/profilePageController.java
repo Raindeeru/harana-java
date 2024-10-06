@@ -14,6 +14,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -21,6 +23,9 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+
+import org.apache.hc.core5.http.ParseException;
+
 import java.util.HashMap;
 import java.nio.file.Paths;
 
@@ -102,7 +107,14 @@ public class profilePageController {
         parentPostBox.getChildren().remove(newPostBox);
     }
 
-    
+    public void refreshImage() throws IOException{
+        user = JsonParser.getUser(user.getUserId());
+        account = user;
+        for (String imagePath : account.getImagePaths()){
+            userSetImages.add(new Image(getClass().getResourceAsStream(imagePath)));
+        }
+        galleryIMG.setImage(userSetImages.get(0));
+    }
     
     @FXML
     public void galleryIMG() {
@@ -130,15 +142,19 @@ public class profilePageController {
             try {
                 Files.copy(selectedFile.toPath(), destFile, StandardCopyOption.REPLACE_EXISTING);
                 System.out.println("Image saved successfully to: " + destFile.toString());
+                File rawImagFile = new File(destFile.toString());
+                user.getImagePaths().add(rawImagFile.getName());
+                JsonParser.setUser(user.getUserId(), user);
+                refreshImage();
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("Error saving the image.");
             }
-            // Continue to save the image path to JSON as before
+            
         } else {
             System.out.println("No image selected.");
         }
-        userSetImages.add(new Image(getClass().getResourceAsStream(destFile))
+        
         }
     
 
@@ -201,8 +217,8 @@ public class profilePageController {
     }
 
     @FXML
-    void openHomePage(ActionEvent event) throws IOException{
-        
+    void openHomePage(ActionEvent event) throws IOException, ParseException, SpotifyWebApiException{
+        App.switchToDating(user);
     }
 
     @FXML
