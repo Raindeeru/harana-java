@@ -6,12 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,6 +54,7 @@ public class aboutPersonController {
 
     public void initializeProfile(){
         aboutPName.setText(profile.getUsername());
+        aboutPAge.setText(String.valueOf(profile.getAge()));
         userSetImages = new ArrayList<>(); 
         userPosts = new ArrayList<>();
         
@@ -62,21 +64,25 @@ public class aboutPersonController {
         }
         userImage.setImage(userSetImages.get(0));
         
+        postsBox.getChildren().clear();
         ArrayList<Post> posts = profile.getPosts(); 
-        VBox temppostBox = new VBox();
-        userContent.getChildren().add(temppostBox);
-        if(posts != null) {
+        if(!posts.isEmpty()) {
             for(Post post : posts){
                 Label usernamePost = new Label(profile.getUsername());
                 usernamePost.setPadding(new Insets(0,0,0,7));
                 Label postL = new Label(post.getPostContent()); 
                 postL.setPadding(new Insets(0,0,7,15));
                 postL.setWrapText(true);
-                VBox postsBox = new VBox();
-                postsBox.getChildren().addAll(usernamePost, postL);
-                temppostBox.getChildren().add(0, postsBox);
+                VBox layoutPostBox = new VBox();
+                layoutPostBox.getChildren().addAll(usernamePost, postL);
+                postsBox.getChildren().add(0, layoutPostBox);
             }
-            
+            }  
+            else {
+                Label none = new Label(); 
+                none.setText(profile.getUsername() + " has no post yet.");
+                none.setPadding(new Insets(0,0,7,15));
+                postsBox.getChildren().add(0, none);
         }
         scrollPane.setContent(wholePage);  
     }
@@ -111,7 +117,7 @@ public class aboutPersonController {
 
     @FXML
     public void aboutAge() { 
-        aboutPAge.setText("eyy");
+        aboutPName.setText(String.valueOf(profile.getAge()));
     }
 
     @FXML
@@ -142,9 +148,15 @@ public class aboutPersonController {
     }
 
     @FXML
-    public void dislikeButton() { 
-        System.out.println("Yew");
-    }
+    public void dislikeButton() throws ParseException, SpotifyWebApiException, IOException {
+        System.out.println("Ewwww");
+        profile = JsonParser.getUser(profile.getUserId());
+        user.getDislikes().add(profile.getUserId()); 
+        JsonParser.setUser(profile.getUserId(), profile);
+        JsonParser.setUser(user.getUserId(), user);
+
+        App.switchToDating(user);
+        }
 
     //@FXML
     //private void initialize() {

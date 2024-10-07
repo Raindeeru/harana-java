@@ -1,8 +1,8 @@
 {
   "username": "Jessica Flor",
   "online": false,
-  "chats": [
-  ],
+  "age": 23, 
+  "chats": [],
   "posts": [
     {
       "userPostC": "hahahahahahahaahahahahah"
@@ -14,10 +14,13 @@
       "userPostC": "hahahahahahahaahahahahah"
     },
     {
-      "userPostC": "kase gusto ko bakit ba"
-    }, 
-    {
       "userPostC": "pakyu bat userpostc"
+    },
+    {
+      "userPostC": "kase gusto ko bakit ba"
+    },
+    {
+      "userPostC": "swipe right if u stan red velvet"
     }
   ],
   "imagePaths": [
@@ -25,9 +28,9 @@
     "userimage2.jpg"
   ],
   "musicUrls": "anybody can find love (except you) hkmori",
+  "userId": "user2.json",
+  "likes": [],
   "musicTitle": "anybody can find love (except you)",
   "musicArtist": "hkmori",
-  "userId": "user2.json",
-  "likes": [
-  ]
+  "dislikes": []
 }
