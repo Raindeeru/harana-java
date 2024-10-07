@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class User {
     private String username;
-    
     private boolean online;
     private ArrayList<String> chats;
     private ArrayList<Post> posts;
@@ -12,12 +11,19 @@ public class User {
     private String musicUrls;
     private String userId;
     private ArrayList<String> likes;
+    private ArrayList<String> dislikes;
     
     public ArrayList<String> getLikes() {
         return likes;
     }
     public void setLikes(ArrayList<String> likes) {
         this.likes = likes;
+    }
+    public ArrayList<String> getDislikes() {
+        return dislikes;
+    }
+    public void setDislikes(ArrayList<String> dislikes) {
+        this.dislikes = dislikes;
     }
     public String getUserId() {
         return userId;
