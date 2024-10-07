@@ -13,7 +13,21 @@ public class User {
     private String userId;
     private ArrayList<String> likes;
     private ArrayList<String> dislikes;
+    private String musicTitle;
+    private String musicArtist;
     
+    public String getMusicTitle() {
+        return musicTitle;
+    }
+    public void setMusicTitle(String musicTitle) {
+        this.musicTitle = musicTitle;
+    }
+    public String getMusicArtist() {
+        return musicArtist;
+    }
+    public void setMusicArtist(String musicArtist) {
+        this.musicArtist = musicArtist;
+    }
     public ArrayList<String> getLikes() {
         return likes;
     }

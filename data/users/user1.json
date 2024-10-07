@@ -24,6 +24,8 @@
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",
   "likes": [],
+  "musicTitle": "Melancholy Hill",
+  "musicArtist": "Gorillaz",
   "dislikes": [
   ]
 }
