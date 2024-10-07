@@ -120,6 +120,7 @@ public class aboutPersonController {
     @FXML
     public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
         System.out.println("liked");
+        profile = JsonParser.getUser(profile.getUserId());
         user.getLikes().add(profile.getUserId());
         
         for(String likes: profile.getLikes()){
