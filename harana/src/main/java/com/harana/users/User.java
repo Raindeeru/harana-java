@@ -34,7 +34,7 @@ public class User {
         this.likes = likes;
     }
     public ArrayList<String> getDislikes() {
-        return dislikes;
+        return this.dislikes;
     }
     public void setDislikes(ArrayList<String> dislikes) {
         this.dislikes = dislikes;
@@ -66,7 +66,6 @@ public class User {
     public String getMusicUrls() {
         return musicUrls;
     }
-
     public void setPosts(ArrayList<Post> posts) {
         this.posts = posts;
     }

@@ -24,5 +24,7 @@
   "userId": "user1.json",
   "likes": [],
   "musicTitle": "Melancholy Hill",
-  "musicArtist": "Gorillaz"
+  "musicArtist": "Gorillaz",
+  "dislikes": [
+  ]
 }

@@ -147,8 +147,14 @@ public class aboutPersonController {
     }
 
     @FXML
-    public void dislikeButton() {
+    public void dislikeButton() throws ParseException, SpotifyWebApiException, IOException {
         System.out.println("Ewwww");
+        profile = JsonParser.getUser(profile.getUserId());
+        user.getDislikes().add(profile.getUserId()); 
+        JsonParser.setUser(profile.getUserId(), profile);
+        JsonParser.setUser(user.getUserId(), user);
+
+        App.switchToDating(user);
         }
 
     //@FXML

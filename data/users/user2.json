@@ -30,5 +30,6 @@
   "userId": "user2.json",
   "likes": [],
   "musicTitle": "anybody can find love (except you)",
-  "musicArtist": "hkmori"
+  "musicArtist": "hkmori",
+  "dislikes": []
 }
