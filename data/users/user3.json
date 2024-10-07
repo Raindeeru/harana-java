@@ -12,6 +12,8 @@
     "userimage1.jpg"
   ],
   "musicUrls": "Everlong Foo Fighters",
+  "musicTitle": "Everlong",
+  "musicArtist": "Foo Fighters",
   "userId": "user3.json",
   "likes": []
 }
