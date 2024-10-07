@@ -12,9 +12,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.aboutPersonController">
    <children>
-      <HBox prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #5D2689;">
+      <HBox prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
          <children>
-            <Button fx:id="backPButton" mnemonicParsing="false" onAction="#backPButton" style="-fx-background-color: #F5BD1F;" text="Back">
+            <Button fx:id="backPButton" mnemonicParsing="false" onAction="#backPButton" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="Back">
                <HBox.margin>
                   <Insets left="14.0" top="10.0" />
                </HBox.margin>
@@ -31,20 +31,20 @@
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
-                                    <Button fx:id="backImage" mnemonicParsing="false" onAction="#backImage" style="-fx-background-color: #FFD93D;" text="&lt;">
+                                    <Button fx:id="backImage" mnemonicParsing="false" onAction="#backImage" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="&lt;">
                                        <HBox.margin>
                                           <Insets left="27.0" right="20.0" top="162.5" />
                                        </HBox.margin>
                                     </Button>
                                     <ImageView fx:id="userImage" fitHeight="325.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true" />
-                                    <Button fx:id="nextImage" mnemonicParsing="false" onAction="#nextImage" style="-fx-background-color: #FFD93D;" text="&gt;">
+                                    <Button fx:id="nextImage" mnemonicParsing="false" onAction="#nextImage" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="&gt;">
                                        <HBox.margin>
                                           <Insets left="20.0" top="162.5" />
                                        </HBox.margin>
                                     </Button>
                                  </children>
                               </HBox>
-                              <VBox fx:id="userContent" prefHeight="365.0" prefWidth="396.0" style="-fx-background-color: #F5BD1F;">
+                              <VBox fx:id="userContent" prefHeight="365.0" prefWidth="396.0" style="-fx-background-color: #0b4467;">
                                  <children>
                                     <Label fx:id="aboutPName" text="Name">
                                        <font>
@@ -85,15 +85,15 @@
             </ScrollPane>
          </children>
       </HBox>
-      <HBox prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #5D2689;">
+      <HBox prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
          <children>
-            <Button fx:id="dislikeButton" mnemonicParsing="false" onAction="#dislikeButton" style="-fx-background-color: #F5BD1F;" text="!Like">
+            <Button fx:id="dislikeButton" mnemonicParsing="false" onAction="#dislikeButton" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="!Like">
                <HBox.margin>
                   <Insets left="14.0" top="13.0" />
                </HBox.margin>
             </Button>
             <HBox prefHeight="55.0" prefWidth="291.0" />
-            <Button fx:id="likeButton" mnemonicParsing="false" onAction="#likeButton" style="-fx-background-color: #F5BD1F;" text="Like">
+            <Button fx:id="likeButton" mnemonicParsing="false" onAction="#likeButton" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="Like">
                <HBox.margin>
                   <Insets right="14.0" top="13.0" />
                </HBox.margin>
