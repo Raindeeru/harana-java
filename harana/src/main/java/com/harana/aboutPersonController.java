@@ -6,12 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -62,9 +63,8 @@ public class aboutPersonController {
         }
         userImage.setImage(userSetImages.get(0));
         
+        postsBox.getChildren().clear();
         ArrayList<Post> posts = profile.getPosts(); 
-        VBox temppostBox = new VBox();
-        userContent.getChildren().add(temppostBox);
         if(posts != null) {
             for(Post post : posts){
                 Label usernamePost = new Label(profile.getUsername());
@@ -72,9 +72,9 @@ public class aboutPersonController {
                 Label postL = new Label(post.getPostContent()); 
                 postL.setPadding(new Insets(0,0,7,15));
                 postL.setWrapText(true);
-                VBox postsBox = new VBox();
-                postsBox.getChildren().addAll(usernamePost, postL);
-                temppostBox.getChildren().add(0, postsBox);
+                VBox layoutPostBox = new VBox();
+                layoutPostBox.getChildren().addAll(usernamePost, postL);
+                postsBox.getChildren().add(0, layoutPostBox);
             }
             
         }
@@ -142,8 +142,8 @@ public class aboutPersonController {
     }
 
     @FXML
-    public void dislikeButton() { 
-        System.out.println("Yew");
+    public void dislikeButton() {
+        System.out.println("Ewwww");
     }
 
     //@FXML

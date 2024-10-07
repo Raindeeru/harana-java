@@ -2,7 +2,6 @@
   "username": "Jr Gayagoy",
   "online": false,
   "chats": [
-    "chat3.json"
   ],
   "posts": [
     {
@@ -13,6 +12,9 @@
     },
     {
       "userPostC": "stan red velvet "
+    },
+    {
+      "userPostC": "eyyyyyyyyyyyyyy"
     }
   ],
   "imagePaths": [
@@ -20,9 +22,14 @@
     "userimage2.jpg"
   ],
   "musicUrls": "Melancholy Hill Gorillaz",
+  "musicTitle": "Melancholy Hill",
+  "musicArtist": "Gorillaz",
   "userId": "user1.json",
   "likes": [
+<<<<<<< HEAD
     "user2.json",
     "user3.json"
+=======
+>>>>>>> a384d0cecd2d88c5b9edd6e0a0dac8e0df01e044
   ]
 }
