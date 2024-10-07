@@ -1,7 +1,9 @@
 {
   "username": "Jr Gayagoy",
   "online": false,
-  "chats": [],
+  "chats": [
+    "chat0.json"
+  ],
   "posts": [
     {
       "userPostC": "BOBO MO DERVEN 🤬🤬🧁🧁"
@@ -37,5 +39,8 @@
   ],
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",
-  "likes": []
+  "likes": [
+    "user2.json",
+    "user4.json"
+  ]
 }
