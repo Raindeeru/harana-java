@@ -2,7 +2,6 @@
   "username": "Jr Gayagoy",
   "online": false,
   "chats": [
-    "chat3.json"
   ],
   "posts": [
     {
@@ -22,6 +21,5 @@
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",
   "likes": [
-    "user2.json"
   ]
 }

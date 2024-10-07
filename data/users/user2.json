@@ -2,7 +2,6 @@
   "username": "Jessica Flor",
   "online": false,
   "chats": [
-    "chat3.json"
   ],
   "posts": [
     {
@@ -25,6 +24,5 @@
   "musicUrls": "anybody can find love (except you) hkmori",
   "userId": "user2.json",
   "likes": [
-    "user1.json"
   ]
 }
