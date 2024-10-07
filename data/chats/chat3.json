@@ -1,0 +1,21 @@
+{
+  "messages": [
+    {
+      "sender": "user2",
+      "message": "Hello"
+    },
+    {
+      "sender": "user1",
+      "message": "Hi"
+    },
+    {
+      "sender": "user1",
+      "message": "Supot"
+    }
+  ],
+  "user1": "Jr Gayagoy",
+  "user2": "Jessica Flor",
+  "chatid": "chat3.json",
+  "user1_typing": false,
+  "user2_typing": false
+}
