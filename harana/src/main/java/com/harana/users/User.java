@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class User {
     private String username;
     private boolean online;
+    private int age; 
     private ArrayList<String> chats;
     private ArrayList<Post> posts;
     private ArrayList<String> imagePaths;
@@ -12,7 +13,21 @@ public class User {
     private String userId;
     private ArrayList<String> likes;
     private ArrayList<String> dislikes;
+    private String musicTitle;
+    private String musicArtist;
     
+    public String getMusicTitle() {
+        return musicTitle;
+    }
+    public void setMusicTitle(String musicTitle) {
+        this.musicTitle = musicTitle;
+    }
+    public String getMusicArtist() {
+        return musicArtist;
+    }
+    public void setMusicArtist(String musicArtist) {
+        this.musicArtist = musicArtist;
+    }
     public ArrayList<String> getLikes() {
         return likes;
     }
@@ -20,7 +35,7 @@ public class User {
         this.likes = likes;
     }
     public ArrayList<String> getDislikes() {
-        return dislikes;
+        return this.dislikes;
     }
     public void setDislikes(ArrayList<String> dislikes) {
         this.dislikes = dislikes;
@@ -40,6 +55,12 @@ public class User {
     public boolean isOnline() {
         return online;
     }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
+    }
     public ArrayList<String> getChats() {
         return chats;
     }
@@ -52,7 +73,6 @@ public class User {
     public String getMusicUrls() {
         return musicUrls;
     }
-
     public void setPosts(ArrayList<Post> posts) {
         this.posts = posts;
     }

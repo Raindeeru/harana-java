@@ -72,6 +72,9 @@ public class profilePageController {
     @FXML
     private VBox newPostBox;
 
+    @FXML
+    private TextField artistTextField;
+
     private User user;
     private ArrayList<Image> userSetImages; 
     private int currentImage = 0; 
@@ -86,9 +89,8 @@ public class profilePageController {
         account = user;
         userSetImages = new ArrayList<>();
         editUsernameTextField.setText(account.getUsername());
-        musicTexfField.setText(account.getMusicUrls());
-        editUsernameTextField.setDisable(true);
-        musicTexfField.setDisable(true);
+        musicTexfField.setText(account.getMusicTitle());
+        artistTextField.setText(account.getMusicArtist());
 
         for (String imagePath : account.getImagePaths()){
             File file = new File("data/images/"+imagePath);
@@ -167,16 +169,19 @@ public class profilePageController {
     void editChangeBTN(ActionEvent event) throws IOException {
         editUsernameTextField.setDisable(!editUsernameTextField.isDisable());
         musicTexfField.setDisable(!musicTexfField.isDisable());
+        artistTextField.setDisable(!artistTextField.isDisable());
         if(editUsernameTextField.getText().isEmpty()){
             System.out.println("BOBO MAGSULAT KA");
             editUsernameTextField.setText(account.getUsername());
-            musicTexfField.setText(account.getMusicUrls());
+            musicTexfField.setText(account.getMusicTitle());
+            artistTextField.setText(account.getMusicArtist());
             
             return;
         }
         
         String newName = editUsernameTextField.getText();
         String newMusic = musicTexfField.getText();
+        String newArtist = artistTextField.getText();
         
         for(String chatString: account.getChats()){
             Chat chat= JsonParser.getChat(chatString);
@@ -189,7 +194,9 @@ public class profilePageController {
         }
 
         account.setUsername(newName);
-        account.setMusicUrls(newMusic);
+        account.setMusicUrls(newMusic + " "+ newArtist);
+        account.setMusicTitle(newMusic);
+        account.setMusicArtist(newArtist);
         JsonParser.setUser(user.getUserId(), account);
     }
 

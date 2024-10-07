@@ -54,6 +54,7 @@ public class aboutPersonController {
 
     public void initializeProfile(){
         aboutPName.setText(profile.getUsername());
+        aboutPAge.setText(String.valueOf(profile.getAge()));
         userSetImages = new ArrayList<>(); 
         userPosts = new ArrayList<>();
         
@@ -116,7 +117,7 @@ public class aboutPersonController {
 
     @FXML
     public void aboutAge() { 
-        aboutPAge.setText("eyy");
+        aboutPName.setText(String.valueOf(profile.getAge()));
     }
 
     @FXML
@@ -147,8 +148,14 @@ public class aboutPersonController {
     }
 
     @FXML
-    public void dislikeButton() {
+    public void dislikeButton() throws ParseException, SpotifyWebApiException, IOException {
         System.out.println("Ewwww");
+        profile = JsonParser.getUser(profile.getUserId());
+        user.getDislikes().add(profile.getUserId()); 
+        JsonParser.setUser(profile.getUserId(), profile);
+        JsonParser.setUser(user.getUserId(), user);
+
+        App.switchToDating(user);
         }
 
     //@FXML
