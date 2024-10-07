@@ -23,6 +23,7 @@ import se.michaelthelin.spotify.model_objects.specification.Track;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -105,7 +106,7 @@ public class datingPageController
         {
             isPlaying = false;
             playButton.setText("▶");
-            player.stop();
+            player.pause();
             stopProgressBar();
         }
     }
@@ -256,8 +257,8 @@ public class datingPageController
         playButton.setText("❚❚");
         player = new MediaPlayer(media); 
         player.play();
+        startProgressBar();
 
-        
         startNotifThread(matchNotif, user);
     }
     
@@ -265,6 +266,11 @@ public class datingPageController
         player.dispose();
 
         if (userList.getUsers().isEmpty()) {
+            isPlaying = false;
+            progress = 0;
+            progressBar.setProgress(0);
+            profileImage.setImage(null);
+            albumCover.setImage(new Image((new File("nomatches.jpg").toURI().toString())));
             return;
         }
 
@@ -298,6 +304,8 @@ public class datingPageController
         playButton.setText("❚❚");
         cacheAvailable = false;
         CreateCache();    
+        progress = 0;
+        startProgressBar();
     }
     
     private Music getMusic(String imagePath, String audioPath, String query) throws ParseException, SpotifyWebApiException, IOException{
