@@ -22,10 +22,8 @@ public class postController {
 
     @FXML
     public void backB() throws IOException{ 
-        stage = (Stage) backButton.getScene().getWindow();
-        stage.close();
+        App.switchToProfilePage(user);
     }
-
     
     public void setUser(User user) {
         this.user = user;

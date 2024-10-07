@@ -16,6 +16,9 @@
       "userPostC": "hahahahahahahaahahahahah"
     },
     {
+      "userPostC": "kase gusto ko bakit ba"
+    }, 
+    {
       "userPostC": "pakyu bat userpostc"
     }
   ],
@@ -25,7 +28,5 @@
   ],
   "musicUrls": "anybody can find love (except you) hkmori",
   "userId": "user2.json",
-  "likes": [
-    "user1.json"
-  ]
+  "likes": [ ]
 }
