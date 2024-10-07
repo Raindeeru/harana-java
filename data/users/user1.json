@@ -26,10 +26,5 @@
   "musicArtist": "Gorillaz",
   "userId": "user1.json",
   "likes": [
-<<<<<<< HEAD
-    "user2.json",
-    "user3.json"
-=======
->>>>>>> a384d0cecd2d88c5b9edd6e0a0dac8e0df01e044
   ]
 }
