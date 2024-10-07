@@ -10,13 +10,13 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="linear-grad-to-bottom" stylesheets="@loginStyle.css">
          <children>
-            <Button fx:id="prevButton" mnemonicParsing="false" onAction="#pressPrev" text="&lt;" />
-            <ImageView fx:id="galleryIMG" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" text="&gt;" />
+            <Button fx:id="prevButton" mnemonicParsing="false" onAction="#pressPrev" prefHeight="150.0" prefWidth="100.0" styleClass="prev-button" stylesheets="@loginStyle.css" />
+            <ImageView fx:id="galleryIMG" fitHeight="150.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" prefHeight="150.0" prefWidth="100.0" styleClass="next-button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
