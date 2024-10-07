@@ -25,14 +25,26 @@
          <children>
             <ScrollPane fx:id="scrollPane" prefHeight="502.0" prefWidth="401.0">
               <content>
-                <AnchorPane fx:id="wholePage" minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="398.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="442.0" prefWidth="398.0">
                      <children>
-                        <ImageView fx:id="userImage" fitHeight="228.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" />
-                        <Button fx:id="nextImage" layoutX="359.0" layoutY="104.0" mnemonicParsing="false" onAction="#nextImage" style="-fx-background-color: #FFD93D;" text="&gt;" />
-                        <Button fx:id="backImage" layoutX="14.0" layoutY="104.0" mnemonicParsing="false" onAction="#backImage" style="-fx-background-color: #FFD93D;" text="&lt;" />
-                        <VBox layoutY="227.0" prefHeight="223.0" prefWidth="400.0" style="-fx-background-color: #F5BD1F;">
+                        <VBox fx:id="wholePage" prefHeight="442.0" prefWidth="398.0">
                            <children>
-                              <VBox prefHeight="110.0" prefWidth="100.0">
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="backImage" mnemonicParsing="false" onAction="#backImage" style="-fx-background-color: #FFD93D;" text="&lt;">
+                                       <HBox.margin>
+                                          <Insets right="20.0" top="100.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <ImageView fx:id="userImage" fitHeight="228.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Button fx:id="nextImage" mnemonicParsing="false" onAction="#nextImage" style="-fx-background-color: #FFD93D;" text="&gt;">
+                                       <HBox.margin>
+                                          <Insets left="20.0" top="100.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <VBox fx:id="userContent" prefHeight="223.0" prefWidth="400.0" style="-fx-background-color: #F5BD1F;">
                                  <children>
                                     <Label fx:id="aboutPName" text="Name">
                                        <font>
@@ -44,27 +56,17 @@
                                           <Font size="20.0" />
                                        </font>
                                     </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </VBox.margin>
-                              </VBox>
-                              <VBox prefHeight="171.0" prefWidth="380.0">
-                                 <children>
                                     <Label text="Post">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
                                     </Label>
-                                    <VBox fx:id="postBox" prefHeight="200.0" prefWidth="100.0">
+                                    <VBox fx:id="postsBox" prefHeight="200.0" prefWidth="100.0">
                                        <VBox.margin>
                                           <Insets bottom="5.0" left="10.0" right="10.0" />
                                        </VBox.margin>
                                     </VBox>
                                  </children>
-                                 <VBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </VBox.margin>
                               </VBox>
                            </children>
                         </VBox>

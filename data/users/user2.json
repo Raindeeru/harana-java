@@ -13,13 +13,18 @@
     },
     {
       "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "pakyu bat userpostc"
     }
   ],
-  "likes":[
-    
+  "imagePaths": [
+    "userimage1.jpg",
+    "userimage2.jpg"
   ],
-  "imagePaths": ["userimage1.jpg",
-    "userimage2.jpg"],
   "musicUrls": "anybody can find love (except you) hkmori",
-  "userId": "user2.json"
+  "userId": "user2.json",
+  "likes": [
+    "user1.json"
+  ]
 }

@@ -5,12 +5,14 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.image.Image;
@@ -46,7 +48,9 @@ public class datingPageController
     private ImageView profileImage;
     @FXML
     private Label profileName;
-    
+    @FXML 
+    private HBox matchNotif;
+
     private boolean isPlaying = false;
     private double progress = 0.0;
     private Thread progressThread;
@@ -179,7 +183,48 @@ public class datingPageController
             progressThread.interrupt();
         }
     }
-    
+    @FXML
+    public static void startNotifThread(Node node, User user){
+        Task<Void> startNotif = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                
+                Platform.runLater(()->{
+                    User initialUser = user;
+                    User currentUser = user;
+                    int initialMatchesNumber;
+                    int currentMatchesNumber;
+                    System.out.println("hahahaha");
+                    initialMatchesNumber = initialUser.getChats().size();
+                    currentMatchesNumber = currentUser.getChats().size();
+                    while (initialMatchesNumber == currentMatchesNumber) {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        currentMatchesNumber = user.getChats().size();
+                        node.setVisible(true);
+                        try {
+                            Thread.sleep(3000);
+                        } catch (InterruptedException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
+                        node.setVisible(false);
+                    }  
+                });         
+                
+                return null;
+            }
+            
+        };
+        
+        Thread startNotifThread = new Thread(startNotif);
+        startNotifThread.setDaemon(true);
+        startNotifThread.start();
+    }
     public void initializePage() throws IOException, ParseException, SpotifyWebApiException
     {
         setUserList();
@@ -194,8 +239,11 @@ public class datingPageController
         displayingProfile = JsonParser.getUser(displayProfileString);
         Music firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
 
+        File file = new File("data/images/"+user.getImagePaths().get(0));
+        profileImage.setImage(new Image(file.toURI().toString()));
+        
+            
 
-        profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
 
         File cover = new File(firstDisplay.getImagePath());
@@ -250,7 +298,6 @@ public class datingPageController
         }
         
         
-        profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
 
         File cover = new File(firstDisplay.getImagePath());
@@ -280,7 +327,6 @@ public class datingPageController
                 cachedUser = JsonParser.getUser(cachedUserString);
                 cachedMusic = getMusic("cachedImage.png", "cachedAudio.mp3", cachedUser.getMusicUrls());
                 cacheAvailable = true;
-                System.out.println("Hello");
                 return null;
             }
 
