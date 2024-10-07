@@ -2,12 +2,14 @@ package com.harana;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.apache.hc.core5.http.ParseException;
 
 import com.harana.users.Chat;
 import com.harana.users.User;
 
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -19,7 +21,7 @@ public class ChatMenuController {
         this.user = user;
     }
 
-    ArrayList<Chat> chats;
+    ArrayList<Chat> chats = new ArrayList<Chat>();
 
     @FXML VBox chats_pane;
     @FXML Label chat_name;
@@ -27,9 +29,9 @@ public class ChatMenuController {
     @FXML VBox chat_head;
 
     public void initializeChats() throws IOException{
-        chats = new ArrayList<Chat>();
         chats_pane.getChildren().remove(chat_head);
         getChats();
+        Collections.reverse(chats); 
         for(Chat chat: chats){
             String name;
             if (user.getUsername().equals(chat.getUser1())) {
@@ -55,8 +57,8 @@ public class ChatMenuController {
             );
             chatHead.getChildren().addAll(nameLabel, messageLabel);
             chats_pane.getChildren().add(chatHead);
-                
         }
+       
     }
 
     private void getChats() throws IOException{

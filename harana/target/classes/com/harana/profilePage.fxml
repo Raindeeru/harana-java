@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="background-ID" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
+<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #800b29;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
    <children>
       <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="linear-grad-to-bottom" stylesheets="@loginStyle.css">
          <children>
@@ -19,7 +19,7 @@
             <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" prefHeight="150.0" prefWidth="100.0" styleClass="next-button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #cc1242;">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="background-ID">
          <children>
             <Button fx:id="addPhotoButton" mnemonicParsing="false" onAction="#addPhoto" text="Add Photo">
                <opaqueInsets>
@@ -35,12 +35,14 @@
       <TextField fx:id="editUsernameTextField" />
       <Label text="Music" />
       <TextField fx:id="musicTexfField" />
+      <Label text="Artist" />
+      <TextField fx:id="artistTextField" editable="false" />
       <Button mnemonicParsing="false" onAction="#editChangeBTN" text="Button" />
-      <StackPane prefHeight="443.0" prefWidth="350.0" style="-fx-background-color: #ef745b;">
+      <StackPane prefHeight="443.0" prefWidth="350.0" styleClass="post-ID">
          <children>
-            <ScrollPane fx:id="postScroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="351.0" style="-fx-background-color: #ef745b;">
+            <ScrollPane fx:id="postScroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="351.0" styleClass="post-ID">
                <content>
-                  <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" style="-fx-background-color: #ef745b;">
+                  <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" styleClass="post-ID">
                      <children>
                         <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="399.0">
                            <children>
