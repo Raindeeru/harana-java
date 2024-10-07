@@ -1,15 +1,17 @@
 {
   "username": "Jamal",
   "online": false,
-  "chats": [
+  "chats": [],
+  "posts": [
+    {
+      "userPostC": "Hello stan red velvet "
+    }
   ],
-  "posts": [],
   "imagePaths": [
     "userimage2.jpg",
     "userimage1.jpg"
   ],
   "musicUrls": "Everlong Foo Fighters",
   "userId": "user3.json",
-  "likes": [
-  ]
+  "likes": []
 }
