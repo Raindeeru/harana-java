@@ -3,15 +3,12 @@ package com.harana;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Dictionary;
-import java.util.Hashtable;
 
 import org.apache.hc.core5.http.ParseException;
 
 import com.harana.users.Chat;
 import com.harana.users.User;
 
-import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -26,12 +23,10 @@ public class ChatMenuController {
 
     ArrayList<Chat> chats = new ArrayList<Chat>();
 
-    @FXML private VBox chats_pane;
-    @FXML private Label chat_name;
-    @FXML private Label chat_message;
-    @FXML private VBox chat_head;
-
-    private Dictionary<Chat, Label> chatLabelDict = new Hashtable<>();
+    @FXML VBox chats_pane;
+    @FXML Label chat_name;
+    @FXML Label chat_message;
+    @FXML VBox chat_head;
 
     public void initializeChats() throws IOException{
         chats_pane.getChildren().remove(chat_head);
@@ -62,28 +57,7 @@ public class ChatMenuController {
             );
             chatHead.getChildren().addAll(nameLabel, messageLabel);
             chats_pane.getChildren().add(chatHead);
-            chatLabelDict.put(chat, messageLabel);
         }
-
-        Task<Void> checkChats = new Task<Void>() {
-
-            @Override
-            protected Void call() throws Exception {
-                while (true) {
-                    Thread.sleep(1000);
-                    for(Chat chat: chats){
-                        Chat chatcheck = JsonParser.getChat(chat.getChatid());
-                        Platform.runLater(()->{
-                            chatLabelDict.get(chat).setText(chatcheck.getMessages().get(chatcheck.getMessages().size() - 1).getMessage());
-                        });
-                    }
-                }
-            }
-            
-        };
-        Thread checker = new Thread(checkChats);
-        checker.setDaemon(true);
-        checker.start();
        
     }
 
@@ -99,7 +73,7 @@ public class ChatMenuController {
     }
 
     @FXML 
-    public void SwitchToProfilePage() throws IOException, ParseException, SpotifyWebApiException{
+    public void SwitchToProfilePage() throws IOException{
         App.switchToProfilePage(user);
     }
 }

@@ -51,7 +51,7 @@ public class App extends Application {
         scene.setRoot(Parent);
     }
 
-    static void switchToProfilePage(User user) throws IOException, ParseException, SpotifyWebApiException{
+    static void switchToProfilePage(User user) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("profilePage.fxml"));
         Parent chatParent = fxmlLoader.load();
         profilePageController pController = fxmlLoader.getController();

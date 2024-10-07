@@ -136,7 +136,7 @@ public class datingPageController
         
     }
     @FXML
-    private void handleprofileButtonClick() throws IOException, ParseException, SpotifyWebApiException
+    private void handleprofileButtonClick() throws IOException
     {
         user = JsonParser.getUser(user.getUserId());
         App.switchToProfilePage(user);  
@@ -150,7 +150,7 @@ public class datingPageController
         player.dispose();
     }
     @FXML
-    void OpenUserProfile(ActionEvent event) throws IOException, ParseException, SpotifyWebApiException {
+    void OpenUserProfile(ActionEvent event) throws IOException {
         user = JsonParser.getUser(user.getUserId());
 
         App.switchToProfilePage(user);

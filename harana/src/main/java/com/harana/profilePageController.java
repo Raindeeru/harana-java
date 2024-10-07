@@ -4,20 +4,16 @@ package com.harana;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import se.michaelthelin.spotify.model_objects.specification.Track;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 
 import java.nio.file.Files;
@@ -52,7 +48,7 @@ public class profilePageController {
     private TextField editUsernameTextField;
 
     @FXML
-    private ComboBox<Track> musicTexfField;
+    private TextField musicTexfField;
     
     @FXML
     private ImageView galleryIMG;
@@ -79,8 +75,6 @@ public class profilePageController {
     private User user;
     private ArrayList<Image> userSetImages; 
     private int currentImage = 0; 
-
-    private ArrayList<Track> searchSongsSuggestions = new ArrayList<Track>();
     
 
 
@@ -88,25 +82,11 @@ public class profilePageController {
         this.user = user;
     }
 
-    public void initializeData()throws IOException, ParseException, SpotifyWebApiException{
+    public void initializeData()throws IOException{
         account = user;
-        musicTexfField.setValue(MusicManager.getSpotify(account.getMusicUrls()));
-        musicTexfField.setConverter(new StringConverter<Track>() {
-
-            @Override
-            public String toString(Track object) {
-                return object.getName();
-            }
-        
-            @Override
-            public Track fromString(String string) {
-                return musicTexfField.getItems().stream().filter(ap -> 
-                    ap.getName().equals(string)).findFirst().orElse(null);
-            }
-        });
         userSetImages = new ArrayList<>();
         editUsernameTextField.setText(account.getUsername());
-        musicTexfField.setPromptText(account.getMusicUrls());
+        musicTexfField.setText(account.getMusicUrls());
         editUsernameTextField.setDisable(true);
         musicTexfField.setDisable(true);
 
@@ -139,12 +119,6 @@ public class profilePageController {
             userSetImages.add(new Image(file.toURI().toString()));
         }
         galleryIMG.setImage(userSetImages.get(0));
-    }
-
-    @FXML
-    void Searching(KeyEvent event) {
-        System.out.println(musicTexfField.getPromptText());
-        System.out.println("hahaah");
     }
     
     @FXML
@@ -190,21 +164,20 @@ public class profilePageController {
     
 
     @FXML
-    void editChangeBTN(ActionEvent event) throws IOException, ParseException, SpotifyWebApiException {
+    void editChangeBTN(ActionEvent event) throws IOException {
         editUsernameTextField.setDisable(!editUsernameTextField.isDisable());
         musicTexfField.setDisable(!musicTexfField.isDisable());
-
         if(editUsernameTextField.getText().isEmpty()){
             System.out.println("BOBO MAGSULAT KA");
             editUsernameTextField.setText(account.getUsername());
-            musicTexfField.setValue(MusicManager.getSpotify(account.getMusicUrls()));
+            musicTexfField.setText(account.getMusicUrls());
             
             return;
         }
         
         String newName = editUsernameTextField.getText();
-        Track newMusic = musicTexfField.getValue();
-        System.out.println(newMusic);
+        String newMusic = musicTexfField.getText();
+        
         for(String chatString: account.getChats()){
             Chat chat= JsonParser.getChat(chatString);
             if (account.getUsername().equals(chat.getUser1())) {
@@ -216,7 +189,7 @@ public class profilePageController {
         }
 
         account.setUsername(newName);
-        account.setMusicUrls(newMusic.getId());
+        account.setMusicUrls(newMusic);
         JsonParser.setUser(user.getUserId(), account);
     }
 
@@ -254,7 +227,7 @@ public class profilePageController {
     }
 
     @FXML
-    void openProfileButton(ActionEvent event) throws IOException, ParseException, SpotifyWebApiException {
+    void openProfileButton(ActionEvent event) throws IOException {
         App.switchToProfilePage(user);
     }
     
