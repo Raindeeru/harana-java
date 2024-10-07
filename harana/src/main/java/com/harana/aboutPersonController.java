@@ -63,6 +63,8 @@ public class aboutPersonController {
         userImage.setImage(userSetImages.get(0));
         
         ArrayList<Post> posts = profile.getPosts(); 
+        VBox temppostBox = new VBox();
+        userContent.getChildren().add(temppostBox);
         if(posts != null) {
             for(Post post : posts){
                 Label usernamePost = new Label(profile.getUsername());
@@ -72,7 +74,7 @@ public class aboutPersonController {
                 postL.setWrapText(true);
                 VBox postsBox = new VBox();
                 postsBox.getChildren().addAll(usernamePost, postL);
-                userContent.getChildren().add(postsBox);
+                temppostBox.getChildren().add(0, postsBox);
             }
             
         }
