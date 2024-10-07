@@ -91,8 +91,6 @@ public class profilePageController {
         editUsernameTextField.setText(account.getUsername());
         musicTexfField.setText(account.getMusicTitle());
         artistTextField.setText(account.getMusicArtist());
-        editUsernameTextField.setDisable(true);
-        musicTexfField.setDisable(true);
 
         for (String imagePath : account.getImagePaths()){
             File file = new File("data/images/"+imagePath);
@@ -171,6 +169,7 @@ public class profilePageController {
     void editChangeBTN(ActionEvent event) throws IOException {
         editUsernameTextField.setDisable(!editUsernameTextField.isDisable());
         musicTexfField.setDisable(!musicTexfField.isDisable());
+        artistTextField.setDisable(!artistTextField.isDisable());
         if(editUsernameTextField.getText().isEmpty()){
             System.out.println("BOBO MAGSULAT KA");
             editUsernameTextField.setText(account.getUsername());

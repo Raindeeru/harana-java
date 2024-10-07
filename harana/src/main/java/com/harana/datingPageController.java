@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -15,9 +16,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import se.michaelthelin.spotify.model_objects.specification.ArtistSimplified;
 import se.michaelthelin.spotify.model_objects.specification.Track;
 
 import java.io.File;
@@ -51,6 +55,10 @@ public class datingPageController
     private Label profileName;
     @FXML 
     private HBox matchNotif;
+    @FXML
+    private Label title;
+    @FXML 
+    private Label artist;
 
     private boolean isPlaying = false;
     private double progress = 0.0;
@@ -240,12 +248,17 @@ public class datingPageController
         displayingProfile = JsonParser.getUser(displayProfileString);
         Music firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
 
-        File file = new File("data/images/"+user.getImagePaths().get(0));
+        File file = new File("data/images/"+displayingProfile.getImagePaths().get(0));
         profileImage.setImage(new Image(file.toURI().toString()));
-        
-            
-
         profileName.setText(displayingProfile.getUsername());
+
+        title.setText(firstDisplay.getTrack().getName());
+        String artists = "";
+        for(ArtistSimplified artist: firstDisplay.getTrack().getArtists()){
+            artists = artist.getName() + ",";
+        }
+        artist.setText(artists);
+        
 
         File cover = new File(firstDisplay.getImagePath());
         albumCover.setImage(new Image(cover.toURI().toString()));
@@ -259,6 +272,9 @@ public class datingPageController
         player.play();
         startProgressBar();
 
+        Circle clip = new Circle(albumCover.getFitWidth() / 2, albumCover.getFitHeight() / 2, 150);
+        albumCover.setClip(clip);
+
         startNotifThread(matchNotif, user);
     }
     
@@ -271,6 +287,8 @@ public class datingPageController
             progressBar.setProgress(0);
             profileImage.setImage(null);
             albumCover.setImage(new Image((new File("nomatches.jpg").toURI().toString())));
+            title.setText("No more People to Match With");
+            artist.setText("Damn");
             return;
         }
 
@@ -292,9 +310,17 @@ public class datingPageController
         
         profileName.setText(displayingProfile.getUsername());
 
+        File file = new File("data/images/"+displayingProfile.getImagePaths().get(0));
+        profileImage.setImage(new Image(file.toURI().toString()));
+
         File cover = new File(firstDisplay.getImagePath());
         albumCover.setImage(new Image(cover.toURI().toString()));
-        
+        title.setText(firstDisplay.getTrack().getName());
+        String artists = "";
+        for(ArtistSimplified artist: firstDisplay.getTrack().getArtists()){
+            artists = artist.getName() + "\n";
+        }
+        artist.setText(artists);
         File music = new File(firstDisplay.getAudioPath());
         Media media = new Media(music.toURI().toString());
         player = new MediaPlayer(media); 

@@ -11,87 +11,95 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
+<StackPane prefHeight="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0">
+      <VBox>
          <children>
-            <VBox alignment="CENTER" prefHeight="150.0" prefWidth="232.0">
+            <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="400.0">
                <children>
-                  <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@IShowOten.jpg" />
-                     </image>
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label fx:id="profileName" text="IShowOten" />
-               </children>
-            </VBox>
-            <VBox alignment="CENTER" onMouseClicked="#CheckProfile" prefHeight="206.0" prefWidth="232.0">
-               <children>
-                  <Label text="Featured Song" />
-                  <ImageView fx:id="albumCover" fitHeight="142.0" fitWidth="152.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Vinly%20Record.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="200.0" progress="0.0" />
-                  <HBox prefHeight="22.0" prefWidth="232.0">
+                  <VBox alignment="CENTER" prefWidth="232.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handlepreviousButton" prefHeight="26.0" prefWidth="50.0" text="⏮">
-                           <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
-                           </HBox.margin>
-                        </Button>
-                        
-                        <Button fx:id="playButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePlayButtonClick" prefHeight="26.0" prefWidth="42.0" text="▶">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
-                        </Button>
-                        
-                        <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handlenextButton" prefHeight="26.0" prefWidth="50.0" text="⏭">
-                           <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
-                           </HBox.margin>
-                        </Button>
+                        <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@IShowOten.jpg" />
+                           </image>
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <Label fx:id="profileName" text="IShowOten">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </HBox>
-               </children>
-            </VBox>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="48.0" prefWidth="232.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
+                  </VBox>
+                  <VBox alignment="CENTER" onMouseClicked="#CheckProfile" prefWidth="432.0">
                      <children>
-                        <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="84.0">
+                        <ImageView fx:id="albumCover" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Vinly%20Record.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="200.0" progress="0.0" />
+                        <Label fx:id="title" text="Title" wrapText="true">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artist" text="Artist" />
+                        <HBox alignment="CENTER" prefWidth="232.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#handleChatButton" text="Chat" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="67.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#handledatingButtonClick" text="Home" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="104.0">
-                           <children>
-                              <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" text="Profile" />
+                              <Button mnemonicParsing="false" onAction="#handlepreviousButton" prefHeight="26.0" prefWidth="50.0" text="⏮">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              
+                              <Button fx:id="playButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePlayButtonClick" prefHeight="26.0" prefWidth="42.0" text="▶">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              
+                              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handlenextButton" prefHeight="26.0" prefWidth="50.0" text="⏭">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
                            </children>
                         </HBox>
                      </children>
-                  </HBox>
+                  </VBox>
                </children>
             </VBox>
+            <HBox alignment="CENTER" prefHeight="216.0" prefWidth="400.0">
+               <children>
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="134.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleChatButton" prefHeight="127.0" prefWidth="134.0" text="Chat" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="134.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handledatingButtonClick" prefHeight="100.0" prefWidth="134.0" text="Home" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="134.0">
+                     <children>
+                        <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" prefHeight="100.0" prefWidth="165.0" text="Profile" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
-      <HBox fx:id="matchNotif" prefHeight="100.0" prefWidth="200.0" visible="false">
+      <HBox fx:id="matchNotif" prefHeight="100.0" prefWidth="400.0" visible="false">
          <children>
-            <Label text="Match">
+            <Label prefHeight="58.0" prefWidth="435.0" text="Match">
                <font>
                   <Font size="32.0" />
                </font>
