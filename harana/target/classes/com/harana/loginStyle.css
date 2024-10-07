@@ -17,3 +17,6 @@
     -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/rightButtonProfile.png');
     -fx-background-color: transparent; 
 }
+.background-ID{
+    -fx-background-color: linear-gradient(to bottom, #cc1242 80%, #55081c 100%);
+}

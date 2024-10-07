@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
+<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="background-ID" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
    <children>
       <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="linear-grad-to-bottom" stylesheets="@loginStyle.css">
          <children>
@@ -19,7 +19,7 @@
             <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" prefHeight="150.0" prefWidth="100.0" styleClass="next-button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #cc1242;">
          <children>
             <Button fx:id="addPhotoButton" alignment="CENTER" mnemonicParsing="false" onAction="#addPhoto" text="Add Photo" />
          </children>
@@ -29,13 +29,13 @@
       <Label text="Music" />
       <TextField fx:id="musicTexfField" />
       <Button mnemonicParsing="false" onAction="#editChangeBTN" text="Button" />
-      <StackPane prefHeight="443.0" prefWidth="350.0">
+      <StackPane prefHeight="443.0" prefWidth="350.0" style="-fx-background-color: #ef745b;">
          <children>
-            <ScrollPane fx:id="postScroll" prefWidth="350.0">
+            <ScrollPane fx:id="postScroll" prefWidth="350.0" style="-fx-background-color: #ef745b;">
                <content>
-                  <VBox fx:id="parentPostBox" prefHeight="208.0" prefWidth="335.0">
+                  <VBox fx:id="parentPostBox" prefHeight="208.0" prefWidth="335.0" style="-fx-background-color: #ef745b;">
                      <children>
-                        <VBox fx:id="newPostBox" prefHeight="200.0">
+                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="409.0">
                            <children>
                               <Label fx:id="usernameLabel" text="Username" />
                               <Label fx:id="postDescLabel" text="PostDesc" />
