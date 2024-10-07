@@ -65,7 +65,7 @@ public class aboutPersonController {
         
         postsBox.getChildren().clear();
         ArrayList<Post> posts = profile.getPosts(); 
-        if(posts != null) {
+        if(!posts.isEmpty()) {
             for(Post post : posts){
                 Label usernamePost = new Label(profile.getUsername());
                 usernamePost.setPadding(new Insets(0,0,0,7));
@@ -76,7 +76,12 @@ public class aboutPersonController {
                 layoutPostBox.getChildren().addAll(usernamePost, postL);
                 postsBox.getChildren().add(0, layoutPostBox);
             }
-            
+            }  
+            else {
+                Label none = new Label(); 
+                none.setText(profile.getUsername() + " has no post yet.");
+                none.setPadding(new Insets(0,0,7,15));
+                postsBox.getChildren().add(0, none);
         }
         scrollPane.setContent(wholePage);  
     }
@@ -144,7 +149,7 @@ public class aboutPersonController {
     @FXML
     public void dislikeButton() {
         System.out.println("Ewwww");
-    }
+        }
 
     //@FXML
     //private void initialize() {
