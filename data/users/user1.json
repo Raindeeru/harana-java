@@ -1,8 +1,7 @@
 {
   "username": "Jr Gayagoy",
   "online": false,
-  "chats": [
-  ],
+  "chats": [],
   "posts": [
     {
       "userPostC": "BOBO MO DERVEN 🤬🤬🧁🧁"
@@ -19,9 +18,8 @@
     "userimage2.jpg"
   ],
   "musicUrls": "Melancholy Hill Gorillaz",
-  "musicTitle": "Melancholy Hill",
-  "musicArtist": "Gorillaz",
   "userId": "user1.json",
-  "likes": [
-  ]
+  "likes": [],
+  "musicTitle": "Melancholy Hill",
+  "musicArtist": "Gorillaz"
 }

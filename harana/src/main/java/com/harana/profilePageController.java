@@ -72,6 +72,9 @@ public class profilePageController {
     @FXML
     private VBox newPostBox;
 
+    @FXML
+    private TextField artistTextField;
+
     private User user;
     private ArrayList<Image> userSetImages; 
     private int currentImage = 0; 
@@ -86,7 +89,8 @@ public class profilePageController {
         account = user;
         userSetImages = new ArrayList<>();
         editUsernameTextField.setText(account.getUsername());
-        musicTexfField.setText(account.getMusicUrls());
+        musicTexfField.setText(account.getMusicTitle());
+        artistTextField.setText(account.getMusicArtist());
         editUsernameTextField.setDisable(true);
         musicTexfField.setDisable(true);
 
@@ -170,13 +174,15 @@ public class profilePageController {
         if(editUsernameTextField.getText().isEmpty()){
             System.out.println("BOBO MAGSULAT KA");
             editUsernameTextField.setText(account.getUsername());
-            musicTexfField.setText(account.getMusicUrls());
+            musicTexfField.setText(account.getMusicTitle());
+            artistTextField.setText(account.getMusicArtist());
             
             return;
         }
         
         String newName = editUsernameTextField.getText();
         String newMusic = musicTexfField.getText();
+        String newArtist = artistTextField.getText();
         
         for(String chatString: account.getChats()){
             Chat chat= JsonParser.getChat(chatString);
@@ -189,7 +195,9 @@ public class profilePageController {
         }
 
         account.setUsername(newName);
-        account.setMusicUrls(newMusic);
+        account.setMusicUrls(newMusic + " "+ newArtist);
+        account.setMusicTitle(newMusic);
+        account.setMusicArtist(newArtist);
         JsonParser.setUser(user.getUserId(), account);
     }
 
