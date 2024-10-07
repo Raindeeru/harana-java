@@ -1,16 +1,7 @@
 {
-  "messages": [
-    {
-      "sender": "user2",
-      "message": "akajsjsjdjhdssadjhds"
-    },
-    {
-      "sender": "user1",
-      "message": "hsksjhsada"
-    }
-  ],
-  "user1": "Jessica Flor",
-  "user2": "Jr Gayagoy",
+  "messages": [],
+  "user1": "Jr Gayagoy",
+  "user2": "Abdullah",
   "chatid": "chat0.json",
   "user1_typing": false,
   "user2_typing": false

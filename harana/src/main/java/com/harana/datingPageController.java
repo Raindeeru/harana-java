@@ -112,6 +112,7 @@ public class datingPageController
     @FXML
     private void handlepreviousButton() throws ParseException, SpotifyWebApiException, IOException
     {
+        
         changeProfile();
     }
     @FXML
@@ -123,6 +124,8 @@ public class datingPageController
     @FXML
     private void handleChatButton() throws IOException
     {
+        user = JsonParser.getUser(user.getUserId());
+
         App.SwitchToChatMenu(user);
         player.dispose();
     }
@@ -134,17 +137,21 @@ public class datingPageController
     @FXML
     private void handleprofileButtonClick() throws IOException
     {
+        user = JsonParser.getUser(user.getUserId());
         App.switchToProfilePage(user);  
         player.dispose();
     }
 
     @FXML
     private void CheckProfile() throws IOException{
+        user = JsonParser.getUser(user.getUserId());
         App.SwitchToAboutPerson(user, displayingProfile);;
         player.dispose();
     }
     @FXML
     void OpenUserProfile(ActionEvent event) throws IOException {
+        user = JsonParser.getUser(user.getUserId());
+
         App.switchToProfilePage(user);
         player.dispose();
     }
@@ -188,34 +195,27 @@ public class datingPageController
         Task<Void> startNotif = new Task<Void>() {
             @Override
             protected Void call() throws Exception {
+                     
+                User initialUser = user;
+                User currentUser = user;
+                int initialMatchesNumber;
+                int currentMatchesNumber;
+                initialMatchesNumber = initialUser.getChats().size();
+                currentMatchesNumber = currentUser.getChats().size();
                 
-                Platform.runLater(()->{
-                    User initialUser = user;
-                    User currentUser = user;
-                    int initialMatchesNumber;
-                    int currentMatchesNumber;
-                    System.out.println("hahahaha");
-                    initialMatchesNumber = initialUser.getChats().size();
-                    currentMatchesNumber = currentUser.getChats().size();
-                    while (initialMatchesNumber == currentMatchesNumber) {
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                        currentMatchesNumber = user.getChats().size();
-                        node.setVisible(true);
-                        try {
-                            Thread.sleep(3000);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                        }
-                        node.setVisible(false);
-                    }  
-                });         
+                  
+                System.out.println(initialMatchesNumber);
+                while (initialMatchesNumber == currentMatchesNumber) {
+                    currentMatchesNumber = JsonParser.getUser(user.getUserId()).getChats().size();
+                    Thread.sleep(100);
+                }
+
+                node.setVisible(true);
+                Thread.sleep(3000);
                 
+                node.setVisible(false);
+                User userIntermediary = user;
+                userIntermediary = JsonParser.getUser(user.getUserId());             
                 return null;
             }
             
@@ -257,22 +257,8 @@ public class datingPageController
         player = new MediaPlayer(media); 
         player.play();
 
-        timer = new Timer();
-        timer.schedule(new TimerTask() 
-        {
-            @Override
-            public void run() 
-            {
-                Platform.runLater(() -> 
-                {
-                    try {
-                        changeProfile();
-                    } catch (ParseException | SpotifyWebApiException | IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-        }, 30000);
+        
+        startNotifThread(matchNotif, user);
     }
     
     private void changeProfile() throws ParseException, SpotifyWebApiException, IOException{
