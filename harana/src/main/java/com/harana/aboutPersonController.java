@@ -54,6 +54,7 @@ public class aboutPersonController {
 
     public void initializeProfile(){
         aboutPName.setText(profile.getUsername());
+        aboutPAge.setText(String.valueOf(profile.getAge()));
         userSetImages = new ArrayList<>(); 
         userPosts = new ArrayList<>();
         
@@ -116,7 +117,7 @@ public class aboutPersonController {
 
     @FXML
     public void aboutAge() { 
-        aboutPAge.setText("eyy");
+        aboutPName.setText(String.valueOf(profile.getAge()));
     }
 
     @FXML

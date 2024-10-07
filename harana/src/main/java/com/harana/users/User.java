@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class User {
     private String username;
     private boolean online;
+    private int age; 
     private ArrayList<String> chats;
     private ArrayList<Post> posts;
     private ArrayList<String> imagePaths;
@@ -39,6 +40,12 @@ public class User {
     }
     public boolean isOnline() {
         return online;
+    }
+    public int getAge() {
+        return age;
+    }
+    public void setAge(int age) {
+        this.age = age;
     }
     public ArrayList<String> getChats() {
         return chats;

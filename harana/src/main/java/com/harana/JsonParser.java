@@ -17,8 +17,6 @@ public class JsonParser {
     private static String cred_loc = "data/credentials/";
     private static String chats_loc = "data/chats/";
 
-
-
     public static User getUser(String userURL)throws IOException{
         Gson gson = new Gson();
         BufferedReader bufferedReader = new BufferedReader(

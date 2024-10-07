@@ -1,6 +1,7 @@
 {
   "username": "Jamal",
   "online": false,
+  "age": 25, 
   "chats": [],
   "posts": [],
   "imagePaths": [
