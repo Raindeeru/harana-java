@@ -9,83 +9,137 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-
-<StackPane xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
+<StackPane maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #0B4467;">
          <children>
             <VBox alignment="CENTER" prefHeight="150.0" prefWidth="232.0">
                <children>
-                  <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@IShowOten.jpg" />
-                     </image>
-                     <VBox.margin>
-                        <Insets top="15.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <Label fx:id="profileName" text="IShowOten" />
+                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                     <children>
+                        <Circle fill="DODGERBLUE" radius="200.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #CC1242;">
+                           <StackPane.margin>
+                              <Insets bottom="-350.0" top="100.0" />
+                           </StackPane.margin>
+                        </Circle>
+                        <Circle fill="DODGERBLUE" radius="176.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #EF745B;">
+                           <StackPane.margin>
+                              <Insets bottom="-350.0" top="100.0" />
+                           </StackPane.margin>
+                        </Circle>
+                        <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@IShowOten.jpg" />
+                           </image>
+                           <StackPane.margin>
+                              <Insets bottom="-120.0" top="150.0" />
+                           </StackPane.margin>
+                        </ImageView>
+                        <Label fx:id="profileName" text="IShowOten">
+                           <StackPane.margin>
+                              <Insets bottom="-230.0" top="170.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
                </children>
             </VBox>
-            <VBox alignment="CENTER" onMouseClicked="#CheckProfile" prefHeight="206.0" prefWidth="232.0">
+            <VBox alignment="BOTTOM_CENTER" prefHeight="651.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
                <children>
-                  <Label text="Featured Song" />
-                  <ImageView fx:id="albumCover" fitHeight="142.0" fitWidth="152.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@Vinly%20Record.png" />
-                     </image>
+                  <VBox alignment="CENTER" onMouseClicked="#CheckProfile" prefHeight="206.0" prefWidth="232.0">
+                     <children>
+                        <Label text="Featured Song">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Label>
+                        <ImageView fx:id="albumCover" fitHeight="142.0" fitWidth="152.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Vinly%20Record.png" />
+                           </image>
+                           <VBox.margin>
+                              <Insets bottom="5.0" />
+                           </VBox.margin>
+                        </ImageView>
+                        <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="200.0" progress="0.0">
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </ProgressBar>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="22.0" prefWidth="232.0" style="-fx-background-color: #CC1242;">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handlepreviousButton" prefHeight="58.0" prefWidth="66.0" text="⏮">
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </Button>
+                        
+                              <Button fx:id="playButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePlayButtonClick" prefHeight="58.0" prefWidth="77.0" text="▶">
+                           <HBox.margin>
+                              <Insets left="81.0" right="100.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </Button>
+                        
+                              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handlenextButton" prefHeight="58.0" prefWidth="74.0" text="⏭">
+                           <HBox.margin>
+                              <Insets left="-30.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
+                        </Button>
+                     </children>
                      <VBox.margin>
-                        <Insets bottom="5.0" />
+                        <Insets bottom="100.0" top="50.0" />
                      </VBox.margin>
-                  </ImageView>
-                  <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="200.0" progress="0.0" />
-                  <HBox prefHeight="22.0" prefWidth="232.0">
+                  </HBox>
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="67.0" style="-fx-background-color: #CC1242;">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handlepreviousButton" prefHeight="26.0" prefWidth="50.0" text="⏮">
+                        <Button mnemonicParsing="false" onAction="#handleChatButton" prefHeight="58.0" prefWidth="66.0" text="Chat">
                            <HBox.margin>
-                              <Insets left="5.0" right="5.0" />
+                              <Insets left="-330.0" right="50.0" />
                            </HBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
                         </Button>
-                        
-                        <Button fx:id="playButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePlayButtonClick" prefHeight="26.0" prefWidth="42.0" text="▶">
+                        <Button mnemonicParsing="false" onAction="#handledatingButtonClick" prefHeight="58.0" prefWidth="77.0" text="Home">
                            <HBox.margin>
-                              <Insets left="10.0" />
+                              <Insets left="30.0" />
                            </HBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
                         </Button>
-                        
-                        <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handlenextButton" prefHeight="26.0" prefWidth="50.0" text="⏭">
+                        <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" text="Profile">
                            <HBox.margin>
-                              <Insets left="15.0" right="5.0" />
+                              <Insets left="70.0" right="-330.0" />
                            </HBox.margin>
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                           </padding>
                         </Button>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="-20.0" />
+                     </VBox.margin>
                   </HBox>
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="38.0" prefWidth="400.0" />
                </children>
-            </VBox>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="48.0" prefWidth="232.0">
-               <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="84.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#handleChatButton" text="Chat" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="67.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#handledatingButtonClick" text="Home" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="104.0">
-                           <children>
-                              <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" text="Profile" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-               </children>
+               <VBox.margin>
+                  <Insets top="150.0" />
+               </VBox.margin>
             </VBox>
          </children>
       </VBox>
