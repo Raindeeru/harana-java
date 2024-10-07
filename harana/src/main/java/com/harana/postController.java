@@ -9,7 +9,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+
 import java.util.ArrayList;
+
+import org.apache.hc.core5.http.ParseException;
 
 public class postController {
     @FXML TextArea postArea; 
@@ -21,7 +25,7 @@ public class postController {
     Stage stage; 
 
     @FXML
-    public void backB() throws IOException{ 
+    public void backB() throws IOException, ParseException, SpotifyWebApiException{ 
         App.switchToProfilePage(user);
     }
     
@@ -30,7 +34,7 @@ public class postController {
     }
 
     @FXML
-    public void postB() throws IOException{ 
+    public void postB() throws IOException, ParseException, SpotifyWebApiException{ 
         
         String post = new String(); 
         post = postArea.getText(); 

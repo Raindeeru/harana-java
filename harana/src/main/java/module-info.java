@@ -8,6 +8,7 @@ module com.harana {
     requires org.apache.httpcomponents.core5.httpcore5;
     requires javafx.media;
     requires nv.i18n;
+    requires javafx.base;
 
     opens com.harana to javafx.media, javafx.fxml, com.google.gson, se.michaelthelin.spotify, nv.i18n, org.apache.httpcomponents.core5.httpcore5;
     opens com.harana.users to com.google.gson;

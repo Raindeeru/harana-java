@@ -54,7 +54,7 @@ public class LoginController {
         
         System.out.println(verify);
         if(verify != null){
-            App.switchToDating(verify);
+            App.switchToProfilePage(verify);
         }
     }
 

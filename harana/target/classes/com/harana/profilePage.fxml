@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
@@ -34,9 +35,9 @@
       <Label text="Name" />
       <TextField fx:id="editUsernameTextField" />
       <Label text="Music" />
-      <TextField fx:id="musicTexfField" />
+      <ComboBox fx:id="musicTexfField" editable="true" onAction="#Searching" onKeyTyped="#Searching" onShown="#Searching" prefWidth="150.0" />
       <Label text="Artist" />
-      <TextField fx:id="artistTextField" editable="false" />
+      <ComboBox editable="true" prefWidth="150.0" />
       <Button mnemonicParsing="false" onAction="#editChangeBTN" text="Button" />
       <StackPane prefHeight="443.0" prefWidth="350.0" style="-fx-background-color: #ef745b;">
          <children>

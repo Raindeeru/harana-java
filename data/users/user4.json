@@ -1,7 +1,9 @@
 {
   "username": "Abdullah",
   "online": false,
-  "chats": [],
+  "chats": [
+    "chat0.json"
+  ],
   "posts": [
     {
       "userPostC": "hahahahahahahaahahahahah"
@@ -19,5 +21,7 @@
   ],
   "musicUrls": "RomCom Rob Deniel",
   "userId": "user4.json",
-  "likes": []
+  "likes": [
+    "user1.json"
+  ]
 }
