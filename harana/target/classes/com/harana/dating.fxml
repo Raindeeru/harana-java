@@ -9,12 +9,11 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
    <children>
-      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #0B4467;">
+      <VBox prefHeight="698.0" prefWidth="400.0">
          <children>
             <VBox alignment="CENTER" prefHeight="150.0" prefWidth="232.0">
                <children>
@@ -141,6 +140,25 @@
                   <Insets top="150.0" />
                </VBox.margin>
             </VBox>
+            <HBox alignment="CENTER" prefHeight="251.0" prefWidth="400.0">
+               <children>
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="134.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handleChatButton" prefHeight="127.0" prefWidth="134.0" text="Chat" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="134.0">
+                     <children>
+                        <Button mnemonicParsing="false" onAction="#handledatingButtonClick" prefHeight="100.0" prefWidth="134.0" text="Home" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="46.0" prefWidth="134.0">
+                     <children>
+                        <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" prefHeight="100.0" prefWidth="165.0" text="Profile" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
          </children>
       </VBox>
       <HBox fx:id="matchNotif" prefHeight="100.0" prefWidth="200.0" visible="false">

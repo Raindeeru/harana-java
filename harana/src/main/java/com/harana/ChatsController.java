@@ -3,10 +3,12 @@ package com.harana;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,6 +46,9 @@ public class ChatsController {
 
     @FXML
     private ScrollPane chat_scroll;
+
+    @FXML
+    private Label BigName;
 
     private Chat chat;
 
@@ -177,6 +182,7 @@ public class ChatsController {
         for(Message message: chat.getMessages()){
             NewChat(message);
         }
+        BigName.setText(isUser1? chat.getUser2(): chat.getUser1());
         chat_screen.getChildren().remove(user1_chat);
         chat_screen.getChildren().remove(user1_message);
         chat_screen.getChildren().remove(user1_name);
@@ -241,25 +247,34 @@ public class ChatsController {
         VBox userChat = new VBox();
         VBox userMessage = new VBox(messageLabel);
         VBox userName = new VBox(userNameLabel);
+        messageLabel.setFont(new Font(20));
+        userNameLabel.setFont(new Font(20));
+        messageLabel.setFont(new Font(20));
+
+        userChat.setPadding(user1_chat.getPadding());
+        messageLabel.setPadding(new Insets(5, 10, 5, 10));
 
         if (name.equals("You")) {
             userChat.setStyle(user1_chat.getStyle());
             userName.setStyle(user1_name.getStyle());
             messageLabel.setStyle(user1_message.getStyle());
 
-            userChat.setAlignment(user1_chat.getAlignment());
+
+            userName.setPrefWidth(user1_chat.getPrefWidth());
 
         }else{
             System.out.println("Ako amamamammsa");
             userChat.setStyle(user2_chat.getStyle());
             userName.setStyle(user2_name.getStyle());
             messageLabel.setStyle(user2_message.getStyle());
-            userChat.setAlignment(user2_chat.getAlignment());
+
+            userName.setPrefWidth(user2_chat.getPrefWidth());
 
         }
 
         userChat.getChildren().addAll(userName, messageLabel);
         chat_screen.getChildren().add(userChat);
+        message_field.setText("");
         setScroll();
     }
 
