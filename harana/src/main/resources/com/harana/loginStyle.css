@@ -49,15 +49,15 @@
     -fx-background-color: transparent;
 }
 .chat-Button{
-    -fx-graphic: url('chatsButtonProfilePage.png'); 
+    -fx-graphic: url('chat.svg'); 
     -fx-background-color: transparent;
 }
 .home-Button{
-    -fx-graphic: url('homeButtonProfilePage.png'); 
+    -fx-graphic: url('dating.svg'); 
     -fx-background-color: transparent;
 }
 .profile-Button{
-    -fx-graphic: url('profileButtonProfilePage.png'); 
+    -fx-graphic: url('profile.svg'); 
     -fx-background-color: transparent;
 }
 #editUsernameTextField {

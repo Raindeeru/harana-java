@@ -14,7 +14,10 @@
    <children>
       <HBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
          <children>
-            <Button mnemonicParsing="false" onAction="#Back" prefHeight="100.0" prefWidth="150.0" text="Back" />
+            <Button mnemonicParsing="false" onAction="#Back" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: transparent;" text="&lt;" textFill="WHITE">
+               <font>
+                  <Font size="40.0" />
+               </font></Button>
             <Label fx:id="BigName" prefHeight="100.0" prefWidth="350.0" text="Derven Gonzalez" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
                   <Font name="System Bold" size="24.0" />
