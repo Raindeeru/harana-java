@@ -150,7 +150,7 @@ public class aboutPersonController {
         for(String likes: profile.getLikes()){
             if (likes.equals(user.getUserId())) {
                 int fileCount = new File("data/chats").list().length;
-                String chatFileName = "chat" + Integer.toString(fileCount);
+                String chatFileName = "chat" + Integer.toString(fileCount) + ".json";
                 Chat newMatchChat = new Chat(profile.getUsername(), user.getUsername(), chatFileName);
                 JsonParser.setChat(chatFileName, newMatchChat); 
                 profile.getChats().add(chatFileName);
