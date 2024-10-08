@@ -1,7 +1,7 @@
 {
   "username": "Jr Gayagoy",
   "online": false,
-  "age": 20, 
+  "age": 20,
   "chats": [],
   "posts": [
     {
@@ -24,8 +24,7 @@
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",
   "likes": [],
+  "dislikes": [],
   "musicTitle": "Melancholy Hill",
-  "musicArtist": "Gorillaz",
-  "dislikes": [
-  ]
+  "musicArtist": "Gorillaz"
 }
