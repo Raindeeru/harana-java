@@ -1,7 +1,7 @@
 {
   "username": "Jessica Flor",
   "online": false,
-  "age": 23, 
+  "age": 23,
   "chats": [],
   "posts": [
     {
@@ -30,7 +30,7 @@
   "musicUrls": "anybody can find love (except you) hkmori",
   "userId": "user2.json",
   "likes": [],
+  "dislikes": [],
   "musicTitle": "anybody can find love (except you)",
-  "musicArtist": "hkmori",
-  "dislikes": []
+  "musicArtist": "hkmori"
 }

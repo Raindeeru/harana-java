@@ -4,30 +4,54 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Arc?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="210.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatMenuController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatMenuController">
    <children>
-      <Label text="Chats" />
-      <ScrollPane hbarPolicy="NEVER" prefHeight="380.0" prefWidth="210.0">
-         <content>
-            <VBox fx:id="chats_pane" prefHeight="33.0" prefWidth="206.0">
-               <children>
-                  <VBox fx:id="chat_head" prefHeight="200.0" prefWidth="100.0">
+      <StackPane prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Arc fill="#1f93ff" length="180.0" radiusX="200.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="410.0" text="Chats">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+      <StackPane prefWidth="400.0">
+         <children>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="842.0" prefWidth="400.0">
+               <content>
+                  <VBox fx:id="chats_pane" prefHeight="35.0" prefWidth="400.0">
                      <children>
-                        <Label fx:id="chat_name" text="Name" />
-                        <Label fx:id="chat_message" text="Chat hahahahah hpoppafdaaaaaaaaaaaaaaaaaaaa" />
+                        <VBox fx:id="chat_head" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="chat_name" text="Name">
+                                 <font>
+                                    <Font size="25.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="chat_message" prefHeight="5.0" prefWidth="380.0" text="Chat hahahahah hpoppafdaaaaaaaaaaaaaaaaaaaa">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </VBox>
-               </children>
-            </VBox>
-         </content>
-      </ScrollPane>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+               </content>
+            </ScrollPane>
+         </children>
+      </StackPane>
+      <HBox prefHeight="216.0" prefWidth="400.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#SwitchToDatingPage" text="Dating" />
-            <Button mnemonicParsing="false" onAction="#SwitchToProfilePage" text="Profile" />
-            <Button disable="true" mnemonicParsing="false" text="Chats" />
+            <Button disable="true" mnemonicParsing="false" prefHeight="216.0" prefWidth="134.0" text="Chats" />
+            <Button mnemonicParsing="false" onAction="#SwitchToDatingPage" prefHeight="216.0" prefWidth="134.0" text="Dating" />
+            <Button mnemonicParsing="false" onAction="#SwitchToProfilePage" prefHeight="216.0" prefWidth="134.0" text="Profile" />
          </children>
       </HBox>
    </children>

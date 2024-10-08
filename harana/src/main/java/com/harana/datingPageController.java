@@ -94,6 +94,11 @@ public class datingPageController
                     toRemove.add(otheruser);
                 }
             }
+            for(String dislike: user.getDislikes()){
+                if (otheruser.equals(dislike)) {
+                    toRemove.add(otheruser);
+                }
+            }
         }
         if (toRemove != null) {
             userList.getUsers().removeAll(toRemove);
