@@ -9,6 +9,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -81,9 +82,11 @@ public class aboutPersonController {
                 usernamePost.setAlignment(Pos.CENTER);
                 usernamePost.setPadding(new Insets(0,0,0,12));
                 usernamePost.setFont(Font.font(Font.getDefault().getFamily(), FontWeight.BOLD, 15));
+                usernamePost.setTextFill(Color.WHITE);
                 Label postL = new Label(post.getPostContent()); 
                 postL.setPadding(new Insets(0,0,7,15));
                 postL.setFont(Font.font(Font.getDefault().getFamily(), FontWeight.NORMAL, 12));
+                postL.setTextFill(Color.WHITE);
                 postL.setWrapText(true);
                 VBox layoutPostBox = new VBox();
                 layoutPostBox.getChildren().addAll(usernamePost, postL);
