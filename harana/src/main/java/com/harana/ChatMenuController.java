@@ -61,6 +61,21 @@ public class ChatMenuController {
                     catch(IOException e){throw new RuntimeException(e);}
                 }
             );
+
+            chatLabelDict.put(chat, messageLabel);
+            
+            chatHead.setStyle(chat_head.getStyle());
+            chatHead.setPadding(chat_head.getPadding());
+            chatHead.setPrefSize(chat_head.getPrefWidth(),chat_head.getPrefHeight());
+            chatHead.setMaxSize(chat_head.getMaxWidth(),chat_head.getMaxHeight());
+            chatHead.setSpacing(chatHead.getSpacing());
+            
+            nameLabel.setFont(chat_name.getFont());
+            nameLabel.setStyle(chat_name.getStyle());
+
+            messageLabel.setFont(chat_message.getFont());
+            messageLabel.setStyle(chat_message.getStyle());
+            
             chatHead.getChildren().addAll(nameLabel, messageLabel);
             chats_pane.getChildren().add(chatHead);
         }

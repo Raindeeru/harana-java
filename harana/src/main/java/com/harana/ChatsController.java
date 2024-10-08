@@ -25,16 +25,16 @@ public class ChatsController {
     @FXML
     private  VBox user1_chat;
     @FXML 
-    private Label user1_name;
+    private VBox user1_name;
     @FXML 
-    private Label user1_message;
+    private VBox user1_message;
 
     @FXML
     private VBox user2_chat;
     @FXML 
-    private Label user2_name;
+    private VBox user2_name;
     @FXML 
-    private Label user2_message;
+    private VBox user2_message;
 
     @FXML 
     private VBox chat_screen;
@@ -174,7 +174,6 @@ public class ChatsController {
         }else{
             isUser1 = false;
         }
-        chat_screen.setStyle("-fx-border-color:blue");
         for(Message message: chat.getMessages()){
             NewChat(message);
         }
@@ -237,10 +236,28 @@ public class ChatsController {
         }else {
             name = chat.getUser2();
         }
-        Label userName = new Label(name);
+        Label userNameLabel = new Label(name);
         Label messageLabel = new Label(message.getMessage());
         VBox userChat = new VBox();
-        userChat.setStyle("-fx-border-color:red");
+        VBox userMessage = new VBox(messageLabel);
+        VBox userName = new VBox(userNameLabel);
+
+        if (name.equals("You")) {
+            userChat.setStyle(user1_chat.getStyle());
+            userName.setStyle(user1_name.getStyle());
+            messageLabel.setStyle(user1_message.getStyle());
+
+            userChat.setAlignment(user1_chat.getAlignment());
+
+        }else{
+            System.out.println("Ako amamamammsa");
+            userChat.setStyle(user2_chat.getStyle());
+            userName.setStyle(user2_name.getStyle());
+            messageLabel.setStyle(user2_message.getStyle());
+            userChat.setAlignment(user2_chat.getAlignment());
+
+        }
+
         userChat.getChildren().addAll(userName, messageLabel);
         chat_screen.getChildren().add(userChat);
         setScroll();

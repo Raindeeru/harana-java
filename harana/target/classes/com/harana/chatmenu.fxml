@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -7,47 +8,69 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Arc?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatMenuController">
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
+      <StackPane>
          <children>
-            <Arc fill="#1f93ff" length="180.0" radiusX="200.0" radiusY="100.0" startAngle="180.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
-            <Label alignment="CENTER" prefHeight="46.0" prefWidth="410.0" text="Chats">
-               <font>
-                  <Font size="30.0" />
-               </font>
-            </Label>
-         </children>
-      </StackPane>
-      <StackPane prefWidth="400.0">
-         <children>
-            <ScrollPane hbarPolicy="NEVER" prefHeight="842.0" prefWidth="400.0">
-               <content>
-                  <VBox fx:id="chats_pane" prefHeight="35.0" prefWidth="400.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+            <VBox prefWidth="400.0" style="-fx-background-color: CC1242;">
+               <children>
+                  <StackPane style="-fx-background-color: #0A3C5A;">
                      <children>
-                        <VBox fx:id="chat_head" prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <Label fx:id="chat_name" text="Name">
-                                 <font>
-                                    <Font size="25.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="chat_message" prefHeight="5.0" prefWidth="380.0" text="Chat hahahahah hpoppafdaaaaaaaaaaaaaaaaaaaa">
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </VBox>
+                        <Arc fill="#cc1242" length="180.0" radiusX="200.0" radiusY="200.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Arc fill="#ef745b" layoutX="210.0" layoutY="210.0" length="180.0" radiusX="180.0" radiusY="180.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Label alignment="CENTER" prefHeight="97.0" prefWidth="400.0" text="Chats" textFill="#0a3b59" translateY="20.0">
+                           <font>
+                              <Font name="Calibri Bold" size="84.0" />
+                           </font>
+                        </Label>
                      </children>
-                  </VBox>
-               </content>
-            </ScrollPane>
+                  </StackPane>
+                  <ScrollPane hbarPolicy="NEVER" maxWidth="400.0" prefHeight="842.0" prefWidth="452.0" style="-fx-background: transparent; -fx-background-color: transparent;">
+                     <content>
+                        <VBox fx:id="chats_pane" alignment="TOP_CENTER" prefHeight="170.0" prefWidth="400.0" spacing="20.0">
+                           <children>
+                              <VBox fx:id="chat_head" maxWidth="350.0" prefHeight="75.0" prefWidth="290.0" spacing="10.0" style="-fx-background-color: #ef745b; -fx-background-radius: 20;">
+                                 <children>
+                                    <Label fx:id="chat_name" style="-fx-text-fill: #0a3b59;" text="Name" textFill="#0a3b59">
+                                       <font>
+                                          <Font name="Trebuchet MS Bold" size="25.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="chat_message" style="-fx-text-fill: #0a3b59;" text="Chat hahahahah hpoppafdaaaaaaaaaaaaaaaaaaaa" textFill="#0a3b59">
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets top="20.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ScrollPane>
+               </children>
+            </VBox>
          </children>
       </StackPane>
-      <HBox prefHeight="216.0" prefWidth="400.0">
+      <HBox prefHeight="90.0" prefWidth="400.0">
          <children>
             <Button disable="true" mnemonicParsing="false" prefHeight="216.0" prefWidth="134.0" text="Chats" />
             <Button mnemonicParsing="false" onAction="#SwitchToDatingPage" prefHeight="216.0" prefWidth="134.0" text="Dating" />
