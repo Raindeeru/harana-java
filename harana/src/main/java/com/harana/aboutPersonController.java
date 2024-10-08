@@ -43,6 +43,7 @@ public class aboutPersonController {
     private int currentImage = 0; 
     private User profile; 
     private User user;
+    private UserList userList; 
 
     public void setUser(User user) {
         this.user = user;
@@ -155,8 +156,20 @@ public class aboutPersonController {
         JsonParser.setUser(profile.getUserId(), profile);
         JsonParser.setUser(user.getUserId(), user);
 
-        App.switchToDating(user);
+        this.userList = JsonParser.getUsers();
+        ArrayList<String> toRemove = new ArrayList<String>();
+        for(String otheruser: userList.getUsers()){
+            if (user.getDislikes().contains(otheruser)) {
+                toRemove.add(otheruser);
+            }
         }
+        if (toRemove != null) {
+            userList.getUsers().removeAll(toRemove);
+        }
+
+        JsonParser.setUsers(userList);
+        App.switchToDating(user);
+    }
 
     //@FXML
     //private void initialize() {

@@ -10,6 +10,7 @@ import com.harana.users.Cred;
 import com.harana.users.User;
 import java.io.*;
 import java.util.ArrayList;
+import java.io.FileWriter;
 
 public class JsonParser {
     private static String users_loc = "data/users/";
@@ -74,5 +75,12 @@ public class JsonParser {
         );
         UserList userList = gson.fromJson(bufferedReader, UserList.class);
         return userList;
+    }
+
+    public static void setUsers(UserList userList) throws IOException{
+        Gson gson = new Gson();
+        FileWriter writer = new FileWriter("data/userList.json"); 
+        writer.write(gson.toJson(userList)); 
+        writer.close();
     }
 }
