@@ -46,3 +46,5 @@ public class postController {
         App.switchToProfilePage(user);
     }
 }
+
+

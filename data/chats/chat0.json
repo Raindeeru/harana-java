@@ -35,11 +35,23 @@
     {
       "sender": "user1",
       "message": "AAA"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "ddddd"
+    },
+    {
+      "sender": "user1",
+      "message": "bcbdbdbababasdasdasdghj"
     }
   ],
   "user1": "Jr Gayagoy",
   "user2": "Abdullah",
-  "chatid": "chat0",
+  "chatid": "chat0.json",
   "user1_typing": false,
   "user2_typing": false
 }

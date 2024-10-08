@@ -10,65 +10,84 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="800.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
+      <Circle fill="RED" radius="200.0" stroke="BLACK" strokeType="INSIDE" translateY="-20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="506.0" stroke="BLACK" strokeType="INSIDE" translateY="250.0" width="400.0" />
       <VBox>
          <children>
             <VBox alignment="CENTER" prefHeight="150.0" prefWidth="232.0">
                <children>
-                  <StackPane prefHeight="150.0" prefWidth="200.0">
+                  <StackPane>
                      <children>
-                        <Circle fill="DODGERBLUE" radius="200.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #CC1242;">
-                           <StackPane.margin>
-                              <Insets bottom="-350.0" top="100.0" />
-                           </StackPane.margin>
-                        </Circle>
-                        <Circle fill="DODGERBLUE" radius="176.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: #EF745B;">
-                           <StackPane.margin>
-                              <Insets bottom="-350.0" top="100.0" />
-                           </StackPane.margin>
-                        </Circle>
-                        <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@IShowOten.jpg" />
-                           </image>
-                           <StackPane.margin>
-                              <Insets bottom="-120.0" top="150.0" />
-                           </StackPane.margin>
-                        </ImageView>
-                        <Label fx:id="profileName" text="IShowOten">
-                           <StackPane.margin>
-                              <Insets bottom="-230.0" top="170.0" />
-                           </StackPane.margin>
-                        </Label>
+                        <Circle fill="#9ea5ac" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="DODGERBLUE" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+                        <VBox alignment="CENTER" prefWidth="232.0">
+                           <children>
+                              <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@IShowOten.jpg" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label fx:id="profileName" text="IShowOten">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
                      </children>
                   </StackPane>
-               </children>
-            </VBox>
-            <VBox alignment="BOTTOM_CENTER" prefHeight="651.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
-               <children>
-                  <VBox alignment="CENTER" onMouseClicked="#CheckProfile" prefHeight="206.0" prefWidth="232.0">
+                  <VBox alignment="CENTER" onMouseClicked="#CheckProfile" prefWidth="432.0">
                      <children>
-                        <Label text="Featured Song">
-                           <VBox.margin>
-                              <Insets bottom="10.0" />
-                           </VBox.margin>
-                        </Label>
-                        <ImageView fx:id="albumCover" fitHeight="142.0" fitWidth="152.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@Vinly%20Record.png" />
-                           </image>
+                        <StackPane>
                            <VBox.margin>
                               <Insets bottom="5.0" />
                            </VBox.margin>
-                        </ImageView>
-                        <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="200.0" progress="0.0">
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </ProgressBar>
+                           <children>
+                              <Circle fill="DODGERBLUE" radius="170.0" stroke="BLACK" strokeType="INSIDE" />
+                              <ImageView fx:id="albumCover" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Vinly%20Record.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                        <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="200.0" progress="0.0" />
+                        <Label fx:id="title" text="Title" wrapText="true">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="artist" text="Artist" />
+                        <HBox alignment="CENTER" prefWidth="232.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#handlepreviousButton" prefHeight="26.0" prefWidth="50.0" text="⏮">
+                                 <HBox.margin>
+                                    <Insets left="5.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              
+                              <Button fx:id="playButton" minWidth="-Infinity" mnemonicParsing="false" onAction="#handlePlayButtonClick" prefHeight="26.0" prefWidth="42.0" text="▶">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Button>
+                              
+                              <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handlenextButton" prefHeight="26.0" prefWidth="50.0" text="⏭">
+                                 <HBox.margin>
+                                    <Insets left="15.0" right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <HBox prefHeight="22.0" prefWidth="232.0" style="-fx-background-color: #CC1242;">
