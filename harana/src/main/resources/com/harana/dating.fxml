@@ -62,7 +62,7 @@
                                     <Insets top="15.0" />
                                  </VBox.margin>
                               </ImageView>
-                              <Label fx:id="profileName" text="IShowOten">
+                              <Label fx:id="profileName" text="IShowOten" style="-fx-text-fill: white;">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -91,12 +91,12 @@
                         </StackPane>
                         <VBox alignment="CENTER">
                            <children>
-                              <Label fx:id="title" text="Title">
+                              <Label fx:id="title" text="Title"  style="-fx-text-fill: white;">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="artist" text="Artist" />
+                              <Label fx:id="artist" text="Artist" style="-fx-text-fill: white;"/>
                            </children>
                         </VBox>
                         <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="368.0" progress="0.0">
