@@ -9,12 +9,12 @@
     -fx-background-color: linear-gradient(to bottom, #0b4467 80%, #000000 100%);
 }
 .prev-button {
-    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/leftButtonProfile.png'); 
+    -fx-graphic: url('leftButtonProfile.png'); 
     -fx-background-color: transparent; 
 }
 
 .next-button {
-    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/rightButtonProfile.png');
+    -fx-graphic: url('rightButtonProfile.png');
     -fx-background-color: transparent; 
 }
 .post-ID{
@@ -22,4 +22,41 @@
 }
 .background-ID{
     -fx-background-color: linear-gradient(to bottom, #a80f36 50%, #a80f36 45%, #800b29 100%);
+}
+#postArea {
+    /* Apply the gradient to the background */
+    -fx-background-color: transparent, linear-gradient(to bottom, #ef745b 80%, #401d16 100%) !important;
+
+    /* Text color */
+    -fx-text-fill: red;
+    
+    /* Font size */
+    -fx-font-size: 14px;
+
+    /* Set background insets to control how much of the gradient is visible */
+    -fx-background-insets: 0, 0;
+}
+.add-Photo-Button{
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/addProfileImageButtonProfilePage.png'); 
+    -fx-background-color: transparent;
+}
+.new-Post-Button{
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/newPostButtonProfilePage.png'); 
+    -fx-background-color: transparent;
+}
+.edit-Profile-Button{
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/editProfileInfoButtonProfilePage.png'); 
+    -fx-background-color: transparent;
+}
+.chat-Button{
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/chatsButtonProfilePage.png'); 
+    -fx-background-color: transparent;
+}
+.home-Button{
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/homeButtonProfilePage.png'); 
+    -fx-background-color: transparent;
+}
+.profile-Button{
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/profileButtonProfilePage.png'); 
+    -fx-background-color: transparent;
 }
