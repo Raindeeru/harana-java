@@ -94,7 +94,7 @@ public class profilePageController {
 
         for (String imagePath : account.getImagePaths()){
             File file = new File("data/images/"+imagePath);
-            userSetImages.add(new Image(file.toURI().toString()));
+            userSetImages.add(new Image(file.toURI().toString(),1000,1000,false,true));
         }
         galleryIMG.setImage(userSetImages.get(0));
         
@@ -118,7 +118,7 @@ public class profilePageController {
         
         for (String imagePath : account.getImagePaths()){
             File file = new File("data/images/"+imagePath);
-            userSetImages.add(new Image(file.toURI().toString()));
+            userSetImages.add(new Image(file.toURI().toString(),1000,1000,false,true));
         }
         galleryIMG.setImage(userSetImages.get(0));
     }
