@@ -43,6 +43,8 @@ import javafx.scene.control.TextField;
 import java.io.FileWriter;
 public class profilePageController {
 
+    Font font = Font.loadFont(getClass().getResourceAsStream("Kurale.ttf"), 14);
+
     private User account;
     @FXML
     private TextField editUsernameTextField;
@@ -104,7 +106,8 @@ public class profilePageController {
             postBoxes.setPrefSize(newPostBox.getPrefWidth(), newPostBox.getPrefHeight());
             Label usernamePostDisplay = new Label(account.getUsername());
             Label postDesc = new Label(prevPost.getPostContent());
-            postDesc.setFont(new Font("Segoe UI Emoji", 20));
+            usernamePostDisplay.setFont(new Font("Trebuchet MS", 20));
+            postDesc.setFont(new Font("Segoe UI Emoji", 14));
             postBoxes.getChildren().addAll(usernamePostDisplay, postDesc);
             parentPostBox.getChildren().add(0, postBoxes);
         }

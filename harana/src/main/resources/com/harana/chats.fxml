@@ -9,96 +9,90 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatsController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatsController">
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #CC1242;">
+      <HBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
          <children>
-            <VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="18.0" prefWidth="100.0">
-               <children>
-                  <Button mnemonicParsing="false" onAction="#Back" text="Back">
-                     <VBox.margin>
-                        <Insets left="3.0" top="5.0" />
-                     </VBox.margin>
-                  </Button>
-                  <Label contentDisplay="CENTER" prefHeight="18.0" prefWidth="128.0" text="Derven Gonzalez" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
-                     <VBox.margin>
-                        <Insets left="150.0" right="-200.0" top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-               </children>
-            </VBox>
+            <Button mnemonicParsing="false" onAction="#Back" prefHeight="100.0" prefWidth="150.0" text="Back" />
+            <Label prefHeight="100.0" prefWidth="350.0" text="Derven Gonzalez" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+               <padding>
+                  <Insets left="20.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="723.0" prefWidth="400.0">
          <children>
-            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="400.0" vvalue="1.0">
+            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="398.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%);" vbarPolicy="NEVER" vvalue="1.0">
                <content>
-                  <VBox fx:id="chat_screen" alignment="BOTTOM_LEFT" prefHeight="690.0" prefWidth="399.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%);">
+                  <VBox fx:id="chat_screen" alignment="BOTTOM_LEFT" prefHeight="690.0" prefWidth="380.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%); -fx-background: transparent;">
                      <children>
-                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="79.0">
+                        <VBox fx:id="user2_chat">
                            <children>
-                              <Label fx:id="user2_name" text="Other Person">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="2.0" />
-                                 </padding>
-                              </Label>
+                              <VBox fx:id="user2_name" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="79.0">
+                                 <children>
+                                    <Label text="Other Person">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="2.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="user2_message" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="116.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #0B4467; -fx-background-radius: 15;">
+                                 <children>
+                                    <Label text="Other Person Chat" textFill="WHITE">
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
                            </children>
-                           <VBox.margin>
-                              <Insets left="10.0" />
-                           </VBox.margin>
                         </VBox>
-                        <VBox fx:id="user2_chat" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="116.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #0B4467; -fx-background-radius: 15;">
+                        <VBox fx:id="user1_chat" alignment="TOP_RIGHT">
                            <children>
-                              <Label fx:id="user2_message" text="Other Person Chat" textFill="WHITE">
-                                 <padding>
-                                    <Insets left="5.0" />
-                                 </padding>
-                              </Label>
+                              <VBox fx:id="user1_name" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="30.0">
+                                 <children>
+                                    <Label text="You">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets bottom="2.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox fx:id="user1_message" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="21.0" prefWidth="83.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #CC1242; -fx-background-radius: 15;">
+                                 <children>
+                                    <Label nodeOrientation="RIGHT_TO_LEFT" text="Your Chat" textAlignment="RIGHT" textFill="WHITE">
+                                       <padding>
+                                          <Insets left="6.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
                            </children>
-                           <VBox.margin>
-                              <Insets left="5.0" />
-                           </VBox.margin>
-                        </VBox>
-                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="30.0">
-                           <children>
-                              <Label fx:id="user1_name" text="You">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets bottom="2.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets left="353.0" />
-                           </VBox.margin>
-                        </VBox>
-                        <VBox fx:id="user1_chat" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="21.0" prefWidth="83.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #CC1242; -fx-background-radius: 15;">
-                           <children>
-                              <Label fx:id="user1_message" nodeOrientation="RIGHT_TO_LEFT" text="Your Chat" textAlignment="RIGHT" textFill="WHITE">
-                                 <padding>
-                                    <Insets left="6.0" />
-                                 </padding>
-                              </Label>
-                           </children>
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="295.0" />
-                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" right="10.0" />
+                           </padding>
                         </VBox>
                      </children>
                   </VBox>
                </content>
+               <padding>
+                  <Insets left="10.0" right="10.0" />
+               </padding>
             </ScrollPane>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #EF745B; -fx-border-color: white;">
+      <HBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #EF745B; -fx-border-color: white; -fx-border-style: solid hidden hidden hidden;">
          <children>
             <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="322.0" style="-fx-background-color: #EF745B;">
                <children>

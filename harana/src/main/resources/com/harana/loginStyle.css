@@ -57,3 +57,54 @@
     -fx-graphic: url('profileButtonProfilePage.png'); 
     -fx-background-color: transparent;
 }
+#editUsernameTextField {
+    -fx-font-family: "Kurale.ttf";
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+
+#musicTexfField {
+    -fx-font-family: "Trebuchet MS";
+    -fx-font-size: 14px;
+}
+
+#artistTextField {
+    -fx-font-family: "Trebuchet MS";
+    -fx-font-size: 14px;
+}
+.text-field-style {
+    -fx-font-family: "Kurale";
+    -fx-font-size: 14px;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+.scroll-pane-style {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+}
+.scroll-pane-style .viewport {
+    -fx-background-color: #1a1f22;
+}
+.scroll-pane-style .content {
+    -fx-background-color: #1a1f22; 
+}
+.scroll-pane-style .scroll-bar {
+    -fx-background-color: #e35b4f; 
+    -fx-background-radius: 5;
+    -fx-border-color: #FF6600; 
+    -fx-border-width: 1;
+}
+.scroll-pane-style .scroll-bar .thumb {
+    -fx-background-color: #f58a6d;
+    -fx-background-radius: 5;
+}
+.scroll-pane-style .scroll-bar .track {
+    -fx-background-color: #1a1f22; 
+    -fx-background-radius: 5;
+    -fx-border-color: #1a1f22; 
+    -fx-border-width: 1;
+}

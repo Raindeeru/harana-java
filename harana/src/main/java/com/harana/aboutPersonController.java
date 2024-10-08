@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.io.File;
@@ -34,15 +33,17 @@ public class aboutPersonController {
     @FXML Label aboutPAge; 
     @FXML VBox userContent;
     @FXML VBox postsBox;
+    private UserList userListObject;
     @FXML VBox wholePage;
 
     Stage stage; 
 
     private ArrayList<Image> userSetImages;  
-    private ArrayList<Label> userPosts;  
+    //private ArrayList<Label> userPosts;  
     private int currentImage = 0; 
     private User profile; 
     private User user;
+    private UserList userList; 
 
     public void setUser(User user) {
         this.user = user;
@@ -56,7 +57,7 @@ public class aboutPersonController {
         aboutPName.setText(profile.getUsername());
         aboutPAge.setText(String.valueOf(profile.getAge()));
         userSetImages = new ArrayList<>(); 
-        userPosts = new ArrayList<>();
+        //userPosts = new ArrayList<>();
         
         for (String imagePath : profile.getImagePaths()){
             File file = new File("data/images/"+imagePath);
@@ -127,14 +128,14 @@ public class aboutPersonController {
 
     @FXML
     public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
-        System.out.println("liked");
+        System.out.println("Yew");
         profile = JsonParser.getUser(profile.getUserId());
         user.getLikes().add(profile.getUserId());
         
         for(String likes: profile.getLikes()){
             if (likes.equals(user.getUserId())) {
                 int fileCount = new File("data/chats").list().length;
-                String chatFileName = "chat" + Integer.toString(fileCount) + ".json";
+                String chatFileName = "chat" + Integer.toString(fileCount);
                 Chat newMatchChat = new Chat(profile.getUsername(), user.getUsername(), chatFileName);
                 JsonParser.setChat(chatFileName, newMatchChat); 
                 profile.getChats().add(chatFileName);
@@ -154,10 +155,9 @@ public class aboutPersonController {
         user.getDislikes().add(profile.getUserId()); 
         JsonParser.setUser(profile.getUserId(), profile);
         JsonParser.setUser(user.getUserId(), user);
-
+    
         App.switchToDating(user);
-        }
-
+    }
     //@FXML
     //private void initialize() {
     //    userImage();

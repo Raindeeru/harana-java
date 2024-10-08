@@ -1,7 +1,7 @@
 {
   "username": "Jamal",
   "online": false,
-  "age": 25, 
+  "age": 25,
   "chats": [],
   "posts": [],
   "imagePaths": [
@@ -9,9 +9,9 @@
     "userimage1.jpg"
   ],
   "musicUrls": "Everlong Foo Fighters",
+  "musicTitle": "Everlong",
+  "musicArtist": "Foo Fighters",
   "userId": "user3.json",
   "likes": [],
-  "dislikes": [
-    
-  ]
+  "dislikes": []
 }
