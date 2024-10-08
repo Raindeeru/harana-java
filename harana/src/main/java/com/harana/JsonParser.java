@@ -80,29 +80,4 @@ public class JsonParser {
         UserList userList = gson.fromJson(bufferedReader, UserList.class);
         return userList;
     }
-
-    public void setUserList() throws FileNotFoundException {
-        this.userList = JsonParser.getUsers();
-        ArrayList<String> toRemove = new ArrayList<String>();
-        for(String otheruser: userList.getUsers()){
-            if (user.getUserId().equals(otheruser)) {
-                toRemove.add(otheruser);
-                continue;
-            }
-            for(String like: user.getLikes()){
-                if (otheruser.equals(like)) {
-                    toRemove.add(otheruser);
-                }
-            }
-            for(String dislike: user.getLikes()){
-                if (otheruser.equals(dislike)) {
-                    toRemove.add(otheruser);
-                }
-            }
-        }
-        if (toRemove != null) {
-            userList.getUsers().removeAll(toRemove);
-        }
-    }
-
 }
