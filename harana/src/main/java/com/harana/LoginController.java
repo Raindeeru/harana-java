@@ -15,6 +15,8 @@ import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 
+
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.*;

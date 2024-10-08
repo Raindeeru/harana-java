@@ -10,69 +10,75 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.aboutPersonController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #CC1242;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.aboutPersonController">
    <children>
-      <HBox prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
+      <HBox prefHeight="745.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
          <children>
-            <Button fx:id="backPButton" mnemonicParsing="false" onAction="#backPButton" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="Back">
-               <HBox.margin>
-                  <Insets left="14.0" top="10.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
-      <HBox prefHeight="691.0" prefWidth="400.0">
-         <children>
-            <ScrollPane fx:id="scrollPane" prefHeight="691.0" prefWidth="399.0">
+            <ScrollPane fx:id="scrollPane" prefHeight="751.0" prefWidth="399.0">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="687.0" prefWidth="396.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="741.0" prefWidth="396.0" style="-fx-background-color: #CC1242;">
                      <children>
-                        <VBox fx:id="wholePage" prefHeight="691.0" prefWidth="396.0">
+                        <VBox fx:id="wholePage" prefHeight="745.0" prefWidth="396.0">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <HBox prefHeight="393.0" prefWidth="396.0">
                                  <children>
-                                    <Button fx:id="backImage" mnemonicParsing="false" onAction="#backImage" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="&lt;">
+                                    <Button fx:id="backPButton" mnemonicParsing="false" onAction="#backPButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: white;" text="&lt;">
                                        <HBox.margin>
-                                          <Insets left="27.0" right="20.0" top="162.5" />
+                                          <Insets left="10.0" top="10.0" />
                                        </HBox.margin>
                                     </Button>
-                                    <ImageView fx:id="userImage" fitHeight="325.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true" />
+                                    <Button fx:id="backImage" mnemonicParsing="false" onAction="#backImage" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="&lt;">
+                                       <HBox.margin>
+                                          <Insets left="-8.0" right="20.0" top="180.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <ImageView fx:id="userImage" fitHeight="386.0" fitWidth="251.0" pickOnBounds="true" preserveRatio="true" />
                                     <Button fx:id="nextImage" mnemonicParsing="false" onAction="#nextImage" style="-fx-background-color: #0b4467; -fx-text-fill: white;" text="&gt;">
                                        <HBox.margin>
-                                          <Insets left="20.0" top="162.5" />
+                                          <Insets left="20.0" right="10.0" top="180.0" />
                                        </HBox.margin>
                                     </Button>
                                  </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
                               </HBox>
-                              <VBox fx:id="userContent" prefHeight="365.0" prefWidth="396.0" style="-fx-background-color: #0b4467;">
+                              <VBox prefHeight="348.0" prefWidth="396.0" style="-fx-background-color: white; -fx-background-radius: 20;">
                                  <children>
-                                    <Label fx:id="aboutPName" text="Name">
-                                       <font>
-                                          <Font size="25.0" />
-                                       </font>
+                                    <VBox fx:id="userContent" prefHeight="349.0" prefWidth="396.0" style="-fx-background-color: white;">
+                                       <children>
+                                          <Label fx:id="aboutPName" alignment="CENTER" text="Name">
+                                             <font>
+                                                <Font size="40.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="aboutPAge" text="Album">
+                                             <font>
+                                                <Font size="30.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="7.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <Label fx:id="postLabel" text="Post">
+                                             <font>
+                                                <Font size="20.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="10.0" top="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <VBox fx:id="postsBox" alignment="TOP_LEFT" prefHeight="197.0" prefWidth="365.0">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" left="15.0" right="15.0" top="3.0" />
+                                             </VBox.margin>
+                                          </VBox>
+                                       </children>
                                        <VBox.margin>
-                                          <Insets left="5.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <Label fx:id="aboutPAge" text="Age">
-                                       <font>
-                                          <Font size="20.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets left="7.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <Label text="Post">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets left="10.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                    <VBox fx:id="postsBox" alignment="TOP_LEFT" prefHeight="273.0" prefWidth="367.0">
-                                       <VBox.margin>
-                                          <Insets bottom="5.0" left="15.0" right="15.0" top="3.0" />
+                                          <Insets top="20.0" />
                                        </VBox.margin>
                                     </VBox>
                                  </children>

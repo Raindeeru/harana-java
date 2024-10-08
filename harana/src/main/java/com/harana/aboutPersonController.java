@@ -2,6 +2,7 @@ package com.harana;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -9,6 +10,7 @@ import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
@@ -33,8 +35,9 @@ public class aboutPersonController {
     @FXML Label aboutPAge; 
     @FXML VBox userContent;
     @FXML VBox postsBox;
-    private UserList userListObject;
     @FXML VBox wholePage;
+    @FXML Label postLabel; 
+
 
     Stage stage; 
 
@@ -55,7 +58,12 @@ public class aboutPersonController {
 
     public void initializeProfile(){
         aboutPName.setText(profile.getUsername());
-        aboutPAge.setText(String.valueOf(profile.getAge()));
+        aboutPAge.setText(profile.getMusicTitle());
+        VBox alignment = new VBox(); 
+        alignment.setAlignment(Pos.CENTER); 
+        alignment.getChildren().addAll(aboutPName, aboutPAge); 
+        VBox topContent = new VBox(); 
+        topContent.getChildren().addAll(alignment, postLabel); 
         userSetImages = new ArrayList<>(); 
         //userPosts = new ArrayList<>();
         
@@ -65,18 +73,21 @@ public class aboutPersonController {
         }
         userImage.setImage(userSetImages.get(0));
         
-        postsBox.getChildren().clear();
+        VBox posterBox = new VBox();
         ArrayList<Post> posts = profile.getPosts(); 
         if(!posts.isEmpty()) {
             for(Post post : posts){
                 Label usernamePost = new Label(profile.getUsername());
-                usernamePost.setPadding(new Insets(0,0,0,7));
+                usernamePost.setAlignment(Pos.CENTER);
+                usernamePost.setPadding(new Insets(0,0,0,12));
+                usernamePost.setFont(Font.font(Font.getDefault().getFamily(), FontWeight.BOLD, 15));
                 Label postL = new Label(post.getPostContent()); 
                 postL.setPadding(new Insets(0,0,7,15));
+                postL.setFont(Font.font(Font.getDefault().getFamily(), FontWeight.NORMAL, 12));
                 postL.setWrapText(true);
                 VBox layoutPostBox = new VBox();
                 layoutPostBox.getChildren().addAll(usernamePost, postL);
-                postsBox.getChildren().add(0, layoutPostBox);
+                posterBox.getChildren().add(0, layoutPostBox); 
             }
             }  
             else {
@@ -85,6 +96,9 @@ public class aboutPersonController {
                 none.setPadding(new Insets(0,0,7,15));
                 postsBox.getChildren().add(0, none);
         }
+        VBox overall = new VBox(); 
+        overall.getChildren().addAll(topContent, posterBox);
+        userContent.getChildren().add(0, overall);
         scrollPane.setContent(wholePage);  
     }
     
@@ -118,7 +132,7 @@ public class aboutPersonController {
 
     @FXML
     public void aboutAge() { 
-        aboutPName.setText(String.valueOf(profile.getAge()));
+        aboutPAge.setText(profile.getMusicTitle());
     }
 
     @FXML
@@ -165,3 +179,5 @@ public class aboutPersonController {
     //    aboutAge();
     //}
 }
+
+
