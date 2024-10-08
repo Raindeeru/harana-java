@@ -3,7 +3,41 @@
   "online": false,
   "age": 25,
   "chats": [],
-  "posts": [],
+  "posts": [
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    },
+    {
+      "userPostC": "hahahahahahahaahahahahah"
+    }
+  ],
   "imagePaths": [
     "userimage2.jpg",
     "userimage1.jpg"

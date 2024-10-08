@@ -260,7 +260,7 @@ public class datingPageController
         Music firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
 
         File file = new File("data/images/"+displayingProfile.getImagePaths().get(0));
-        profileImage.setImage(new Image(file.toURI().toString()));
+        profileImage.setImage(new Image(file.toURI().toString(), 200, 200, false, true));
         profileName.setText(displayingProfile.getUsername());
 
         title.setText(firstDisplay.getTrack().getName());
@@ -284,7 +284,10 @@ public class datingPageController
         startProgressBar();
 
         Circle clip = new Circle(albumCover.getFitWidth() / 2, albumCover.getFitHeight() / 2, 150);
-        albumCover.setClip(clip);
+        albumCover.setClip(clip); 
+
+        Circle clip1 = new Circle(80, 80, 80);
+        profileImage.setClip(clip1);
 
         startNotifThread(matchNotif, user);
     }
@@ -324,7 +327,7 @@ public class datingPageController
         profileName.setText(displayingProfile.getUsername());
 
         File file = new File("data/images/"+displayingProfile.getImagePaths().get(0));
-        profileImage.setImage(new Image(file.toURI().toString()));
+        profileImage.setImage(new Image(file.toURI().toString(), 200, 200, false, true));
 
         File cover = new File(firstDisplay.getImagePath());
         albumCover.setImage(new Image(cover.toURI().toString()));

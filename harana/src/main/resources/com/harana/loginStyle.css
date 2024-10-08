@@ -111,12 +111,12 @@
     -fx-background-color: #1a1f22; 
 }
 .scroll-pane-style .scroll-bar {
-    -fx-background-color: #e35b4f; 
+    -fx-background-color: #0b4467; 
     -fx-background-radius: 5;
     -fx-border-width: 1;
 }
 .scroll-pane-style .scroll-bar .thumb {
-    -fx-background-color: #f58a6d;
+    -fx-background-color: #0b4467;
     -fx-background-radius: 5;
 }
 .scroll-pane-style .scroll-bar .track {
