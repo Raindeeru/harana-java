@@ -24,6 +24,14 @@
     -fx-background-color: linear-gradient(to bottom, #a80f36 50%, #a80f36 45%, #800b29 100%);
 }
 
+.postBackground-ID{
+    -fx-background-color: linear-gradient(to bottom, #0B4467 50%, #0B4467 45%, #800b29 100%);
+}
+
+.custom-text-color {
+    -fx-text-fill: white;  /* Change this to your desired color */
+}
+
 #postArea {
     
     -fx-text-fill: white;
@@ -87,15 +95,15 @@
     -fx-border-width: 0;
 }
 .scroll-pane-style .viewport {
-    -fx-background-color: #1a1f22;
+    -fx-background-color: transparent;
 }
 .scroll-pane-style .content {
-    -fx-background-color: #1a1f22; 
+    -fx-background-color: #e35b4f; 
 }
 .scroll-pane-style .scroll-bar {
     -fx-background-color: #e35b4f; 
     -fx-background-radius: 5;
-    -fx-border-color: #FF6600; 
+
     -fx-border-width: 1;
 }
 .scroll-pane-style .scroll-bar .thumb {

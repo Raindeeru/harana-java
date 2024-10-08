@@ -1,0 +1,25 @@
+{
+  "messages": [
+    {
+      "sender": "user1",
+      "message": "aaa"
+    },
+    {
+      "sender": "user2",
+      "message": "aaaa"
+    },
+    {
+      "sender": "user2",
+      "message": "aaaabbb"
+    },
+    {
+      "sender": "user1",
+      "message": "aa"
+    }
+  ],
+  "user1": "Jr Gayagoy",
+  "user2": "Abdullah",
+  "chatid": "chat0",
+  "user1_typing": false,
+  "user2_typing": false
+}

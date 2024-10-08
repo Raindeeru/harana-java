@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -91,9 +92,11 @@ public class profilePageController {
         account = user;
         userSetImages = new ArrayList<>();
         editUsernameTextField.setText(account.getUsername());
+        editUsernameTextField.getStyleClass().add("custom-text-color");
         musicTexfField.setText(account.getMusicTitle());
+        musicTexfField.getStyleClass().add("custom-text-color");
         artistTextField.setText(account.getMusicArtist());
-
+        artistTextField.getStyleClass().add("custom-text-color");
         for (String imagePath : account.getImagePaths()){
             File file = new File("data/images/"+imagePath);
             userSetImages.add(new Image(file.toURI().toString(),1000,1000,false,true));
@@ -107,7 +110,9 @@ public class profilePageController {
             Label usernamePostDisplay = new Label(account.getUsername());
             Label postDesc = new Label(prevPost.getPostContent());
             usernamePostDisplay.setFont(new Font("Trebuchet MS", 20));
+            usernamePostDisplay.setTextFill(Color.WHITE);
             postDesc.setFont(new Font("Segoe UI Emoji", 14));
+            postDesc.setTextFill(Color.WHITE);
             postBoxes.getChildren().addAll(usernamePostDisplay, postDesc);
             parentPostBox.getChildren().add(0, postBoxes);
         }

@@ -10,16 +10,16 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #800b29;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
+<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="postBackground-ID" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
    <children>
-      <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="224.0" prefWidth="414.0" styleClass="linear-grad-to-bottom" stylesheets="@loginStyle.css">
+      <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="224.0" prefWidth="359.0" stylesheets="@loginStyle.css">
          <children>
             <Button fx:id="prevButton" mnemonicParsing="false" onAction="#pressPrev" prefHeight="150.0" prefWidth="100.0" styleClass="prev-button" stylesheets="@loginStyle.css" />
-            <ImageView fx:id="galleryIMG" fitHeight="190.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="galleryIMG" fitHeight="190.0" fitWidth="164.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" prefHeight="150.0" prefWidth="100.0" styleClass="next-button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="408.0" styleClass="background-ID">
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="344.0">
          <children>
             <Button fx:id="addPhotoButton" mnemonicParsing="false" onAction="#addPhoto" styleClass="add-Photo-Button" stylesheets="@loginStyle.css">
                <opaqueInsets>
@@ -28,23 +28,29 @@
                <HBox.margin>
                   <Insets />
                </HBox.margin></Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchPostButton" styleClass="new-Post-Button" stylesheets="@loginStyle.css" />
-            <Button mnemonicParsing="false" onAction="#editChangeBTN" styleClass="edit-Profile-Button" stylesheets="@loginStyle.css" />
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchPostButton" prefWidth="90.0" styleClass="new-Post-Button" stylesheets="@loginStyle.css" />
+            <Button mnemonicParsing="false" onAction="#editChangeBTN" prefWidth="100.0" styleClass="edit-Profile-Button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
       <TextField fx:id="editUsernameTextField" alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="text-field-style" stylesheets="@loginStyle.css" />
       <TextField fx:id="musicTexfField" alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="400.0" styleClass="text-field-style" stylesheets="@loginStyle.css" />
       <TextField fx:id="artistTextField" alignment="TOP_CENTER" prefHeight="26.0" prefWidth="400.0" styleClass="text-field-style" stylesheets="@loginStyle.css" />
-      <StackPane prefHeight="252.0" prefWidth="400.0" styleClass="post-ID">
+      <StackPane prefHeight="252.0" prefWidth="344.0">
          <children>
             <ScrollPane fx:id="postScroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="381.0" styleClass="scroll-pane-style" stylesheets="@loginStyle.css">
                <content>
-                  <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="385.0" styleClass="post-ID">
+                  <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="383.0">
                      <children>
-                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="399.0">
+                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="247.0" prefWidth="399.0">
                            <children>
-                              <Label fx:id="usernameLabel" text="Username" />
-                              <Label fx:id="postDescLabel" text="PostDesc" />
+                              <Label fx:id="usernameLabel" prefHeight="61.0" prefWidth="85.0" text="Username" textFill="WHITE">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding></Label>
+                              <Label fx:id="postDescLabel" prefHeight="74.0" prefWidth="93.0" text="PostDesc" textFill="WHITE">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding></Label>
                            </children>
                         </VBox>
                      </children>
@@ -53,7 +59,7 @@
             </ScrollPane>
          </children>
       </StackPane>
-      <VBox alignment="CENTER" prefHeight="131.0" prefWidth="352.0">
+      <VBox alignment="CENTER" prefHeight="131.0" prefWidth="400.0">
          <children>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
