@@ -9,42 +9,58 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #800b29;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
+<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" styleClass="postBackground-ID" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
    <children>
-      <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="224.0" prefWidth="414.0" styleClass="linear-grad-to-bottom" stylesheets="@loginStyle.css">
+      <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="224.0" prefWidth="414.0" stylesheets="@loginStyle.css">
          <children>
             <Button fx:id="prevButton" mnemonicParsing="false" onAction="#pressPrev" prefHeight="150.0" prefWidth="100.0" styleClass="prev-button" stylesheets="@loginStyle.css" />
             <ImageView fx:id="galleryIMG" fitHeight="190.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" prefHeight="150.0" prefWidth="100.0" styleClass="next-button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="408.0" styleClass="background-ID">
+      <HBox alignment="CENTER" prefHeight="42.0" prefWidth="408.0">
          <children>
-            <Button fx:id="addPhotoButton" mnemonicParsing="false" onAction="#addPhoto" styleClass="add-Photo-Button" stylesheets="@loginStyle.css">
+            <Button fx:id="addPhotoButton" mnemonicParsing="false" onAction="#addPhoto" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" stylesheets="@loginStyle.css" text="Add Profile Picture" textFill="WHITE">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <HBox.margin>
-                  <Insets />
-               </HBox.margin></Button>
-            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchPostButton" styleClass="new-Post-Button" stylesheets="@loginStyle.css" />
-            <Button mnemonicParsing="false" onAction="#editChangeBTN" styleClass="edit-Profile-Button" stylesheets="@loginStyle.css" />
+                  <Insets right="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchPostButton" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" stylesheets="@loginStyle.css" text="Post" textFill="WHITE">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button mnemonicParsing="false" onAction="#editChangeBTN" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" stylesheets="@loginStyle.css" text="Edit profile" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
          </children>
       </HBox>
       <TextField fx:id="editUsernameTextField" alignment="CENTER" prefHeight="50.0" prefWidth="400.0" styleClass="text-field-style" stylesheets="@loginStyle.css" />
       <TextField fx:id="musicTexfField" alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="400.0" styleClass="text-field-style" stylesheets="@loginStyle.css" />
       <TextField fx:id="artistTextField" alignment="TOP_CENTER" prefHeight="26.0" prefWidth="400.0" styleClass="text-field-style" stylesheets="@loginStyle.css" />
-      <StackPane prefHeight="252.0" prefWidth="400.0" styleClass="post-ID">
+      <StackPane prefHeight="252.0" prefWidth="400.0">
          <children>
             <ScrollPane fx:id="postScroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="314.0" prefWidth="381.0" styleClass="scroll-pane-style" stylesheets="@loginStyle.css">
                <content>
-                  <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="390.0" styleClass="post-ID">
+                  <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="385.0">
                      <children>
-                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="399.0">
+                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="364.0">
                            <children>
-                              <Label fx:id="usernameLabel" text="Username" />
-                              <Label fx:id="postDescLabel" text="PostDesc" />
+                              <Label fx:id="usernameLabel" text="Username" textFill="WHITE" />
+                              <Label fx:id="postDescLabel" text="PostDesc" textFill="WHITE" />
                            </children>
                         </VBox>
                      </children>
@@ -53,9 +69,9 @@
             </ScrollPane>
          </children>
       </StackPane>
-      <VBox alignment="CENTER" prefHeight="131.0" prefWidth="352.0">
+      <VBox alignment="CENTER" prefHeight="121.0" prefWidth="400.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="121.0" prefWidth="400.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#openChatPage" prefHeight="127.0" prefWidth="134.0" styleClass="chat-Button" stylesheets="@loginStyle.css">
                      <HBox.margin>
@@ -63,7 +79,7 @@
                      </HBox.margin>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#openHomePage" prefHeight="127.0" prefWidth="134.0" styleClass="home-Button" stylesheets="@loginStyle.css" />
-                  <Button mnemonicParsing="false" onAction="#openProfileButton" prefHeight="127.0" prefWidth="134.0" styleClass="profile-Button" stylesheets="@loginStyle.css">
+                  <Button mnemonicParsing="false" onAction="#openProfileButton" prefHeight="127.0" prefWidth="134.0" styleClass="profile-Button" stylesheets="@loginStyle.css" text="profile">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

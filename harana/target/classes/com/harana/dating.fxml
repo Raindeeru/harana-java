@@ -132,17 +132,17 @@
                <children>
                   <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="134.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handleChatButton" prefHeight="127.0" prefWidth="134.0" text="Chat" />
+                        <Button mnemonicParsing="false" onAction="#handleChatButton" prefHeight="127.0" prefWidth="134.0" styleClass="chat-Button1" stylesheets="@loginStyle.css" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="134.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#handledatingButtonClick" prefHeight="100.0" prefWidth="134.0" text="Home" />
+                        <Button mnemonicParsing="false" onAction="#handledatingButtonClick" prefHeight="100.0" prefWidth="134.0" styleClass="home-Button1" stylesheets="@loginStyle.css" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" prefHeight="46.0" prefWidth="134.0">
                      <children>
-                        <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" prefHeight="100.0" prefWidth="165.0" text="Profile" />
+                        <Button fx:id="profileButton" alignment="CENTER" mnemonicParsing="false" onAction="#OpenUserProfile" prefHeight="100.0" prefWidth="165.0" styleClass="profile-Button1" stylesheets="@loginStyle.css" />
                      </children>
                   </HBox>
                </children>
