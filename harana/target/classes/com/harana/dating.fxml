@@ -9,6 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -17,7 +20,29 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b4467" height="800.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
       <Circle fill="#cc1242" radius="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cc1242" height="506.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="250.0" width="400.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="506.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: linear-gradient(to top, #860e30 0.0%, #860e30 64.3338%, #cc1242 100.0%);" translateY="250.0" width="400.0">
+         <fill>
+            <LinearGradient endX="1.0" startX="1.0" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.5263158082962036" green="0.056530214846134186" blue="0.18963612616062164" />
+                     </color>
+                  </Stop>
+                  <Stop offset="0.6433378196500673">
+                     <color>
+                        <Color red="0.5263158082962036" green="0.056530214846134186" blue="0.18963612616062164" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="0.800000011920929" green="0.07058823853731155" blue="0.25882354378700256" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
       <VBox>
          <children>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="400.0">
@@ -26,10 +51,10 @@
                      <children>
                         <Circle fill="#0b4467" layoutX="210.0" layoutY="110.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="15.0" />
                         <Circle fill="#cc1242" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                        <Circle fill="DODGERBLUE" radius="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Circle fill="#0b4467" radius="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                         <VBox alignment="CENTER" prefWidth="232.0">
                            <children>
-                              <ImageView fx:id="profileImage" fitHeight="183.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                              <ImageView fx:id="profileImage" fitHeight="183.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@IShowOten.jpg" />
                                  </image>
@@ -66,7 +91,7 @@
                         </StackPane>
                         <VBox alignment="CENTER">
                            <children>
-                              <Label fx:id="title" text="Title" wrapText="true">
+                              <Label fx:id="title" text="Title">
                                  <font>
                                     <Font size="24.0" />
                                  </font>

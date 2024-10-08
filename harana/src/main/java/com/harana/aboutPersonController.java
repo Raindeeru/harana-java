@@ -64,7 +64,9 @@ public class aboutPersonController {
         alignment.setAlignment(Pos.CENTER); 
         alignment.getChildren().addAll(aboutPName, aboutPAge); 
         VBox topContent = new VBox(); 
-        topContent.getChildren().addAll(alignment, postLabel); 
+        System.out.println(alignment);
+        System.out.println(postLabel);
+        topContent.getChildren().addAll(alignment); 
         userSetImages = new ArrayList<>(); 
         //userPosts = new ArrayList<>();
         
