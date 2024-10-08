@@ -27,6 +27,9 @@
 .postBackground-ID{
     -fx-background-color: linear-gradient(to bottom, #0b4467 50%, #082d44 60%, #072335 100%);
 }
+.custom-text-color{
+    -fx-text-fill: white;
+}
 #postArea {
     
     -fx-text-fill: white;
@@ -58,6 +61,18 @@
 }
 .profile-Button{
     -fx-graphic: url('profileButtonProfilePage.png'); 
+    -fx-background-color: transparent;
+}
+.profile-Button1{
+    -fx-graphic: url('profileButtonProfilePage1.png'); 
+    -fx-background-color: transparent;
+}
+.home-Button1{
+    -fx-graphic: url('homeButtonProfilePage1.png'); 
+    -fx-background-color: transparent;
+}
+.chat-Button1{
+    -fx-graphic: url('chatsButtonProfilePage1.png'); 
     -fx-background-color: transparent;
 }
 #editUsernameTextField {
