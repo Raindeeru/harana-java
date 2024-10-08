@@ -20,9 +20,6 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b4467" height="800.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
       <Circle fill="#cc1242" radius="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-20.0" />
-<<<<<<< HEAD
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cc1242" height="506.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="250.0" width="400.0" />
-=======
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="506.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" style="-fx-fill: linear-gradient(to top, #860e30 0.0%, #860e30 64.3338%, #cc1242 100.0%);" translateY="250.0" width="400.0">
          <fill>
             <LinearGradient endX="1.0" startX="1.0" startY="1.0">
@@ -46,7 +43,6 @@
             </LinearGradient>
          </fill>
       </Rectangle>
->>>>>>> c32d473cb3c5567735675d986dd3f8033890d963
       <VBox>
          <children>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="400.0">
@@ -55,11 +51,7 @@
                      <children>
                         <Circle fill="#0b4467" layoutX="210.0" layoutY="110.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="15.0" />
                         <Circle fill="#cc1242" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-<<<<<<< HEAD
-                        <Circle fill="0b4467" radius="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-=======
                         <Circle fill="#0b4467" radius="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
->>>>>>> c32d473cb3c5567735675d986dd3f8033890d963
                         <VBox alignment="CENTER" prefWidth="232.0">
                            <children>
                               <ImageView fx:id="profileImage" fitHeight="183.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
