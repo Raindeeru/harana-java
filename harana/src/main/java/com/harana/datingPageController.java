@@ -284,7 +284,7 @@ public class datingPageController
         startProgressBar();
 
         Circle clip = new Circle(albumCover.getFitWidth() / 2, albumCover.getFitHeight() / 2, 150);
-        albumCover.setClip(clip);
+        albumCover.setClip(clip); 
 
         Circle clip1 = new Circle(80, 80, 80);
         profileImage.setClip(clip1);
