@@ -66,7 +66,7 @@ public class aboutPersonController {
         VBox topContent = new VBox(); 
         System.out.println(alignment);
         System.out.println(postLabel);
-        topContent.getChildren().addAll(alignment); 
+        topContent.getChildren().addAll(alignment, postLabel); 
         userSetImages = new ArrayList<>(); 
         //userPosts = new ArrayList<>();
         
