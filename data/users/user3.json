@@ -1,7 +1,7 @@
 {
   "username": "Jamal",
   "online": false,
-  "age": 25, 
+  "age": 25,
   "chats": [],
   "posts": [],
   "imagePaths": [
@@ -13,7 +13,5 @@
   "musicArtist": "Foo Fighters",
   "userId": "user3.json",
   "likes": [],
-  "dislikes": [
-    
-  ]
+  "dislikes": []
 }
