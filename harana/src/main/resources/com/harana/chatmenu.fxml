@@ -7,6 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -16,11 +19,27 @@
       <StackPane>
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
-            <VBox prefWidth="400.0" style="-fx-background-color: CC1242;">
+            <VBox prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom, rgba(204,18,66,1) 0%, rgba(130,13,43,1) 100%);;">
                <children>
                   <StackPane style="-fx-background-color: #0A3C5A;">
                      <children>
-                        <Arc fill="#cc1242" length="180.0" radiusX="200.0" radiusY="200.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
+                        <Arc length="180.0" radiusX="200.0" radiusY="200.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" type="ROUND">
+                           <fill>
+                              <LinearGradient startY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.75789475440979" green="0.07298245280981064" blue="0.25562572479248047" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.8526315689086914" green="0.08210526406764984" blue="0.2875789403915405" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </fill></Arc>
                         <Arc fill="#ef745b" layoutX="210.0" layoutY="210.0" length="180.0" radiusX="180.0" radiusY="180.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" type="ROUND" />
                         <Label alignment="CENTER" prefHeight="97.0" prefWidth="400.0" text="Chats" textFill="#0a3b59" translateY="20.0">
                            <font>

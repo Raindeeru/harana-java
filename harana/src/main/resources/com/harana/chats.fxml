@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -14,9 +15,9 @@
       <HBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
          <children>
             <Button mnemonicParsing="false" onAction="#Back" prefHeight="100.0" prefWidth="150.0" text="Back" />
-            <Label prefHeight="100.0" prefWidth="350.0" text="Derven Gonzalez" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+            <Label fx:id="BigName" prefHeight="100.0" prefWidth="350.0" text="Derven Gonzalez" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="24.0" />
                </font>
                <padding>
                   <Insets left="20.0" />
@@ -24,40 +25,46 @@
             </Label>
          </children>
       </HBox>
-      <HBox prefHeight="723.0" prefWidth="400.0">
+      <HBox prefHeight="594.0" prefWidth="400.0">
          <children>
-            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="398.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%);" vbarPolicy="NEVER" vvalue="1.0">
+            <ScrollPane fx:id="chat_scroll" hbarPolicy="NEVER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="597.0" prefWidth="398.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%);" vbarPolicy="NEVER" vvalue="1.0">
                <content>
-                  <VBox fx:id="chat_screen" alignment="BOTTOM_LEFT" prefHeight="690.0" prefWidth="380.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%); -fx-background: transparent;">
+                  <VBox fx:id="chat_screen" alignment="BOTTOM_LEFT" prefHeight="700.0" prefWidth="380.0" style="-fx-background-color: linear-gradient(to bottom, #CC1242, #EF745B 80%); -fx-background: transparent;">
                      <children>
                         <VBox fx:id="user2_chat">
                            <children>
-                              <VBox fx:id="user2_name" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="14.0" prefWidth="79.0">
+                              <VBox fx:id="user2_name" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="382.0">
                                  <children>
-                                    <Label text="Other Person">
+                                    <Label prefHeight="33.0" prefWidth="288.0" text="Other Person">
                                        <VBox.margin>
                                           <Insets />
                                        </VBox.margin>
                                        <padding>
                                           <Insets bottom="2.0" />
                                        </padding>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="user2_message" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="22.0" prefWidth="116.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #0B4467; -fx-background-radius: 15;">
+                              <VBox fx:id="user2_message" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="22.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #0B4467; -fx-background-radius: 15;">
                                  <children>
                                     <Label text="Other Person Chat" textFill="WHITE">
-                                       <padding>
-                                          <Insets left="5.0" />
-                                       </padding>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
                                     </Label>
                                  </children>
+                                 <padding>
+                                    <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+                                 </padding>
                               </VBox>
                            </children>
                         </VBox>
-                        <VBox fx:id="user1_chat" alignment="TOP_RIGHT">
+                        <VBox fx:id="user1_chat" prefHeight="0.0" prefWidth="389.0">
                            <children>
-                              <VBox fx:id="user1_name" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="18.0" prefWidth="30.0">
+                              <VBox fx:id="user1_name" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="378.0">
                                  <children>
                                     <Label text="You">
                                        <VBox.margin>
@@ -66,15 +73,21 @@
                                        <padding>
                                           <Insets bottom="2.0" />
                                        </padding>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
                                     </Label>
                                  </children>
                               </VBox>
-                              <VBox fx:id="user1_message" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="21.0" prefWidth="83.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #CC1242; -fx-background-radius: 15;">
+                              <VBox fx:id="user1_message" maxWidth="-Infinity" minWidth="-Infinity" nodeOrientation="RIGHT_TO_LEFT" prefHeight="21.0" style="-fx-border-color: white; -fx-border-radius: 15; -fx-background-color: #CC1242; -fx-background-radius: 15;">
                                  <children>
                                     <Label nodeOrientation="RIGHT_TO_LEFT" text="Your Chat" textAlignment="RIGHT" textFill="WHITE">
                                        <padding>
-                                          <Insets left="6.0" />
+                                          <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                        </padding>
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
                                     </Label>
                                  </children>
                               </VBox>
@@ -92,26 +105,26 @@
             </ScrollPane>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #EF745B; -fx-border-color: white; -fx-border-style: solid hidden hidden hidden;">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="400.0" style="-fx-background-color: #EF745B; -fx-border-color: white; -fx-border-style: solid hidden hidden hidden;">
          <children>
-            <VBox fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="322.0" style="-fx-background-color: #EF745B;">
+            <StackPane>
                <children>
-                  <Label fx:id="typing_label" text="User Typing">
+                  <TextField fx:id="message_field" onKeyTyped="#Typing" prefHeight="26.0" prefWidth="290.0" promptText="Type message..." style="-fx-background-radius: 15; -fx-border-radius: 15;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label fx:id="typing_label" text="Typing..." textFill="WHITE" translateY="-30.0">
                      <padding>
                         <Insets bottom="5.0" />
                      </padding>
-                     <VBox.margin>
-                        <Insets left="5.0" />
-                     </VBox.margin>
+                     <font>
+                        <Font size="20.0" />
+                     </font>
                   </Label>
-                  <TextField fx:id="message_field" onKeyTyped="#Typing" prefHeight="26.0" prefWidth="282.0" promptText="Type message..." style="-fx-background-radius: 15; -fx-border-radius: 15;">
-                     <VBox.margin>
-                        <Insets left="10.0" />
-                     </VBox.margin>
-                  </TextField>
                </children>
-            </VBox>
-            <Button fx:id="send_btn" mnemonicParsing="false" onAction="#Send" prefHeight="26.0" prefWidth="42.0" text="send">
+            </StackPane>
+            <Button fx:id="send_btn" mnemonicParsing="false" onAction="#Send" prefHeight="100.0" prefWidth="100.0" text="send">
                <HBox.margin>
                   <Insets left="10.0" top="21.5" />
                </HBox.margin></Button>
