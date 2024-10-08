@@ -118,3 +118,5 @@ public class ChatMenuController {
         App.switchToProfilePage(user);
     }
 }
+
+

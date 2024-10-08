@@ -4,6 +4,8 @@ import java.io.File;
 
 import se.michaelthelin.spotify.model_objects.specification.Track;
 
+
+
 public class Music {
     private Track track;
     private String imagePath;
