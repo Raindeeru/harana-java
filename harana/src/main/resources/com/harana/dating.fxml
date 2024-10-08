@@ -15,17 +15,17 @@
 
 <StackPane prefHeight="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="800.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
-      <Circle fill="RED" radius="200.0" stroke="BLACK" strokeType="INSIDE" translateY="-20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="506.0" stroke="BLACK" strokeType="INSIDE" translateY="250.0" width="400.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="0B4467" height="800.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
+      <Circle fill="CC1242" radius="200.0" stroke="BLACK" strokeType="INSIDE" translateY="-20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#CC1242" height="506.0" stroke="BLACK" strokeType="INSIDE" translateY="250.0" width="400.0" />
       <VBox>
          <children>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="400.0">
                <children>
                   <StackPane>
                      <children>
-                        <Circle fill="#9ea5ac" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="DODGERBLUE" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#ef745b" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="0B4467" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
                         <VBox alignment="CENTER" prefWidth="232.0">
                            <children>
                               <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
@@ -52,7 +52,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                            <children>
-                              <Circle fill="DODGERBLUE" radius="170.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="ef745b" radius="170.0" stroke="BLACK" strokeType="INSIDE" />
                               <ImageView fx:id="albumCover" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Vinly%20Record.png" />
