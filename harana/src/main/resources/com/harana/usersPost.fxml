@@ -10,17 +10,17 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="400.0" styleClass="post-ID" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.postController">
    <children>
-      <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" stylesheets="@loginStyle.css">
+      <HBox prefHeight="100.0" prefWidth="200.0" stylesheets="@loginStyle.css">
          <children>
             <Label text="Post" textFill="WHITE">
                <HBox.margin>
                   <Insets left="15.0" right="10.0" top="25.0" />
                </HBox.margin>
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font size="18.0" />
                </font>
             </Label>
-            <HBox prefHeight="75.0" prefWidth="231.0" />
+            <HBox prefHeight="75.0" prefWidth="261.0" />
             <Button fx:id="backButton" mnemonicParsing="false" onAction="#backB" text="Back">
                <HBox.margin>
                   <Insets left="10.0" right="15.0" top="25.0" />
@@ -40,7 +40,7 @@
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <HBox prefHeight="76.0" prefWidth="312.0" />
-            <Button fx:id="postButton" mnemonicParsing="false" onAction="#postB" style="-fx-background-color: trasnparent; -fx-border-radius: 20; -fx-border-color: white;" text="Post" textFill="WHITE">
+            <Button fx:id="postButton" mnemonicParsing="false" onAction="#postB" text="Post">
                <HBox.margin>
                   <Insets left="15.0" right="15.0" top="20.0" />
                </HBox.margin>
