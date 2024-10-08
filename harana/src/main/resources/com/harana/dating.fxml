@@ -26,7 +26,7 @@
                      <children>
                         <Circle fill="#0b4467" layoutX="210.0" layoutY="110.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="15.0" />
                         <Circle fill="#cc1242" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-                        <Circle fill="DODGERBLUE" radius="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Circle fill="0b4467" radius="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                         <VBox alignment="CENTER" prefWidth="232.0">
                            <children>
                               <ImageView fx:id="profileImage" fitHeight="183.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" visible="false">
