@@ -81,6 +81,7 @@ public class aboutPersonController {
                 usernamePost.setAlignment(Pos.CENTER);
                 usernamePost.setPadding(new Insets(0,0,0,12));
                 usernamePost.setFont(Font.font(Font.getDefault().getFamily(), FontWeight.BOLD, 15));
+                
                 Label postL = new Label(post.getPostContent()); 
                 postL.setPadding(new Insets(0,0,7,15));
                 postL.setFont(Font.font(Font.getDefault().getFamily(), FontWeight.NORMAL, 12));
