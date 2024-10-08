@@ -10,7 +10,6 @@ import com.harana.users.Cred;
 import com.harana.users.User;
 import java.io.*;
 import java.util.ArrayList;
-import java.io.FileWriter;
 
 public class JsonParser {
     private static String users_loc = "data/users/";
@@ -77,10 +76,27 @@ public class JsonParser {
         return userList;
     }
 
-    public static void setUsers(UserList userList) throws IOException{
-        Gson gson = new Gson();
-        FileWriter writer = new FileWriter("data/userList.json"); 
-        writer.write(gson.toJson(userList)); 
-        writer.close();
+    public void setUserList() throws FileNotFoundException {
+    this.userList = JsonParser.getUsers();
+    ArrayList<String> toRemove = new ArrayList<String>();
+    for (String otheruser: userList.getUsers()) {
+        if (user.getUserId().equals(otheruser)) {
+            toRemove.add(otheruser);
+            continue;
+        }
+
+        for (String like: user.getLikes()) {
+            if (otheruser.equals(like)) {
+                toRemove.add(otheruser);
+            }
+        }
+
+        for (String dislike: user.getDislikes()) {
+            if (otheruser.equals(dislike)) {
+                toRemove.add(otheruser);
+            }
+        }
     }
+}
+
 }

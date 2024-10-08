@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.io.File;
@@ -34,12 +33,13 @@ public class aboutPersonController {
     @FXML Label aboutPAge; 
     @FXML VBox userContent;
     @FXML VBox postsBox;
+    private UserList userListObject;
     @FXML VBox wholePage;
 
     Stage stage; 
 
     private ArrayList<Image> userSetImages;  
-    private ArrayList<Label> userPosts;  
+    //private ArrayList<Label> userPosts;  
     private int currentImage = 0; 
     private User profile; 
     private User user;
@@ -57,7 +57,7 @@ public class aboutPersonController {
         aboutPName.setText(profile.getUsername());
         aboutPAge.setText(String.valueOf(profile.getAge()));
         userSetImages = new ArrayList<>(); 
-        userPosts = new ArrayList<>();
+        //userPosts = new ArrayList<>();
         
         for (String imagePath : profile.getImagePaths()){
             File file = new File("data/images/"+imagePath);
@@ -128,7 +128,7 @@ public class aboutPersonController {
 
     @FXML
     public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
-        System.out.println("liked");
+        System.out.println("Yew");
         profile = JsonParser.getUser(profile.getUserId());
         user.getLikes().add(profile.getUserId());
         
@@ -155,22 +155,9 @@ public class aboutPersonController {
         user.getDislikes().add(profile.getUserId()); 
         JsonParser.setUser(profile.getUserId(), profile);
         JsonParser.setUser(user.getUserId(), user);
-
-        this.userList = JsonParser.getUsers();
-        ArrayList<String> toRemove = new ArrayList<String>();
-        for(String otheruser: userList.getUsers()){
-            if (user.getDislikes().contains(otheruser)) {
-                toRemove.add(otheruser);
-            }
-        }
-        if (toRemove != null) {
-            userList.getUsers().removeAll(toRemove);
-        }
-
-        JsonParser.setUsers(userList);
+    
         App.switchToDating(user);
     }
-
     //@FXML
     //private void initialize() {
     //    userImage();
