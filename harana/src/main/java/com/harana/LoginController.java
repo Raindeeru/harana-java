@@ -63,6 +63,7 @@ public class LoginController {
         for(Cred creds : cred){
             if(username.equals(creds.getUsername())&& password.equals(creds.getPassword()))
                 user = JsonParser.getUser(creds.getUserJsonPath());
+                System.out.println("hahahah");
         }
         
         return user;
