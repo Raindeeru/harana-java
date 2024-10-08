@@ -10,32 +10,41 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
+<VBox fx:id="backgroundID" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" style="-fx-background-color: #800b29;" stylesheets="@loginStyle.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.profilePageController">
    <children>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox fx:id="galleryBG" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="linear-grad-to-bottom" stylesheets="@loginStyle.css">
          <children>
-            <Button fx:id="prevButton" mnemonicParsing="false" onAction="#pressPrev" text="&lt;" />
-            <ImageView fx:id="galleryIMG" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" text="&gt;" />
+            <Button fx:id="prevButton" mnemonicParsing="false" onAction="#pressPrev" prefHeight="150.0" prefWidth="100.0" styleClass="prev-button" stylesheets="@loginStyle.css" />
+            <ImageView fx:id="galleryIMG" fitHeight="150.0" fitWidth="181.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#pressNext" prefHeight="150.0" prefWidth="100.0" styleClass="next-button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="background-ID">
          <children>
-            <Button fx:id="addPhotoButton" alignment="CENTER" mnemonicParsing="false" onAction="#addPhoto" text="Add Photo" />
+            <Button fx:id="addPhotoButton" mnemonicParsing="false" onAction="#addPhoto" text="Add Photo">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets right="125.0" />
+               </HBox.margin></Button>
+            <Button alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#switchPostButton" text="Add Posts" />
          </children>
       </HBox>
       <Label text="Name" />
-      <TextField fx:id="editUsernameTextField" />
+      <TextField fx:id="editUsernameTextField" disable="true" />
       <Label text="Music" />
-      <TextField fx:id="musicTexfField" />
+      <TextField fx:id="musicTexfField" disable="true" />
+      <Label text="Artist" />
+      <TextField fx:id="artistTextField" disable="true" />
       <Button mnemonicParsing="false" onAction="#editChangeBTN" text="Button" />
-      <StackPane prefHeight="443.0" prefWidth="350.0">
+      <StackPane prefHeight="443.0" prefWidth="350.0" styleClass="post-ID">
          <children>
-            <ScrollPane fx:id="postScroll" prefWidth="350.0">
+            <ScrollPane fx:id="postScroll" minHeight="-Infinity" minWidth="-Infinity" prefHeight="358.0" prefWidth="351.0" styleClass="post-ID">
                <content>
-                  <VBox fx:id="parentPostBox" prefHeight="208.0" prefWidth="335.0">
+                  <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="400.0" styleClass="post-ID">
                      <children>
-                        <VBox fx:id="newPostBox" prefHeight="200.0">
+                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="399.0">
                            <children>
                               <Label fx:id="usernameLabel" text="Username" />
                               <Label fx:id="postDescLabel" text="PostDesc" />
@@ -45,11 +54,6 @@
                   </VBox>
                </content>
             </ScrollPane>
-            <Button mnemonicParsing="false" onAction="#switchPostButton" text="Post" StackPane.alignment="BOTTOM_RIGHT">
-               <StackPane.margin>
-                  <Insets bottom="5.0" right="20.0" />
-               </StackPane.margin>
-            </Button>
          </children>
       </StackPane>
       <VBox alignment="CENTER" prefHeight="131.0" prefWidth="352.0">

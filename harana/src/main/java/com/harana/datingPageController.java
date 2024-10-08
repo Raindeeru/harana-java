@@ -5,22 +5,29 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
+import se.michaelthelin.spotify.model_objects.specification.ArtistSimplified;
 import se.michaelthelin.spotify.model_objects.specification.Track;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -46,7 +53,13 @@ public class datingPageController
     private ImageView profileImage;
     @FXML
     private Label profileName;
-    
+    @FXML 
+    private HBox matchNotif;
+    @FXML
+    private Label title;
+    @FXML 
+    private Label artist;
+
     private boolean isPlaying = false;
     private double progress = 0.0;
     private Thread progressThread;
@@ -101,13 +114,14 @@ public class datingPageController
         {
             isPlaying = false;
             playButton.setText("▶");
-            player.stop();
+            player.pause();
             stopProgressBar();
         }
     }
     @FXML
     private void handlepreviousButton() throws ParseException, SpotifyWebApiException, IOException
     {
+        
         changeProfile();
     }
     @FXML
@@ -119,6 +133,8 @@ public class datingPageController
     @FXML
     private void handleChatButton() throws IOException
     {
+        user = JsonParser.getUser(user.getUserId());
+
         App.SwitchToChatMenu(user);
         player.dispose();
     }
@@ -130,17 +146,21 @@ public class datingPageController
     @FXML
     private void handleprofileButtonClick() throws IOException
     {
+        user = JsonParser.getUser(user.getUserId());
         App.switchToProfilePage(user);  
         player.dispose();
     }
 
     @FXML
     private void CheckProfile() throws IOException{
+        user = JsonParser.getUser(user.getUserId());
         App.SwitchToAboutPerson(user, displayingProfile);;
         player.dispose();
     }
     @FXML
     void OpenUserProfile(ActionEvent event) throws IOException {
+        user = JsonParser.getUser(user.getUserId());
+
         App.switchToProfilePage(user);
         player.dispose();
     }
@@ -179,7 +199,41 @@ public class datingPageController
             progressThread.interrupt();
         }
     }
-    
+    @FXML
+    public static void startNotifThread(Node node, User user){
+        Task<Void> startNotif = new Task<Void>() {
+            @Override
+            protected Void call() throws Exception {
+                     
+                User initialUser = user;
+                User currentUser = user;
+                int initialMatchesNumber;
+                int currentMatchesNumber;
+                initialMatchesNumber = initialUser.getChats().size();
+                currentMatchesNumber = currentUser.getChats().size();
+                
+                  
+                System.out.println(initialMatchesNumber);
+                while (initialMatchesNumber == currentMatchesNumber) {
+                    currentMatchesNumber = JsonParser.getUser(user.getUserId()).getChats().size();
+                    Thread.sleep(100);
+                }
+
+                node.setVisible(true);
+                Thread.sleep(3000);
+                
+                node.setVisible(false);
+                User userIntermediary = user;
+                userIntermediary = JsonParser.getUser(user.getUserId());             
+                return null;
+            }
+            
+        };
+        
+        Thread startNotifThread = new Thread(startNotif);
+        startNotifThread.setDaemon(true);
+        startNotifThread.start();
+    }
     public void initializePage() throws IOException, ParseException, SpotifyWebApiException
     {
         setUserList();
@@ -194,12 +248,17 @@ public class datingPageController
         displayingProfile = JsonParser.getUser(displayProfileString);
         Music firstDisplay = getMusic("image.png", "audio.mp3", displayingProfile.getMusicUrls());
 
-        File file = new File("data/images/"+user.getImagePaths().get(0));
+        File file = new File("data/images/"+displayingProfile.getImagePaths().get(0));
         profileImage.setImage(new Image(file.toURI().toString()));
-        
-            
-
         profileName.setText(displayingProfile.getUsername());
+
+        title.setText(firstDisplay.getTrack().getName());
+        String artists = "";
+        for(ArtistSimplified artist: firstDisplay.getTrack().getArtists()){
+            artists = artist.getName() + ",";
+        }
+        artist.setText(artists);
+        
 
         File cover = new File(firstDisplay.getImagePath());
         albumCover.setImage(new Image(cover.toURI().toString()));
@@ -211,29 +270,25 @@ public class datingPageController
         playButton.setText("❚❚");
         player = new MediaPlayer(media); 
         player.play();
+        startProgressBar();
 
-        timer = new Timer();
-        timer.schedule(new TimerTask() 
-        {
-            @Override
-            public void run() 
-            {
-                Platform.runLater(() -> 
-                {
-                    try {
-                        changeProfile();
-                    } catch (ParseException | SpotifyWebApiException | IOException e) {
-                        e.printStackTrace();
-                    }
-                });
-            }
-        }, 30000);
+        Circle clip = new Circle(albumCover.getFitWidth() / 2, albumCover.getFitHeight() / 2, 150);
+        albumCover.setClip(clip);
+
+        startNotifThread(matchNotif, user);
     }
     
     private void changeProfile() throws ParseException, SpotifyWebApiException, IOException{
         player.dispose();
 
         if (userList.getUsers().isEmpty()) {
+            isPlaying = false;
+            progress = 0;
+            progressBar.setProgress(0);
+            profileImage.setImage(null);
+            albumCover.setImage(new Image((new File("nomatches.jpg").toURI().toString())));
+            title.setText("No more People to Match With");
+            artist.setText("Damn");
             return;
         }
 
@@ -253,12 +308,19 @@ public class datingPageController
         }
         
         
-        profileImage.setImage(new Image(getClass().getResourceAsStream(displayingProfile.getImagePaths().get(0))));
         profileName.setText(displayingProfile.getUsername());
+
+        File file = new File("data/images/"+displayingProfile.getImagePaths().get(0));
+        profileImage.setImage(new Image(file.toURI().toString()));
 
         File cover = new File(firstDisplay.getImagePath());
         albumCover.setImage(new Image(cover.toURI().toString()));
-        
+        title.setText(firstDisplay.getTrack().getName());
+        String artists = "";
+        for(ArtistSimplified artist: firstDisplay.getTrack().getArtists()){
+            artists = artist.getName() + "\n";
+        }
+        artist.setText(artists);
         File music = new File(firstDisplay.getAudioPath());
         Media media = new Media(music.toURI().toString());
         player = new MediaPlayer(media); 
@@ -268,6 +330,8 @@ public class datingPageController
         playButton.setText("❚❚");
         cacheAvailable = false;
         CreateCache();    
+        progress = 0;
+        startProgressBar();
     }
     
     private Music getMusic(String imagePath, String audioPath, String query) throws ParseException, SpotifyWebApiException, IOException{
@@ -283,7 +347,6 @@ public class datingPageController
                 cachedUser = JsonParser.getUser(cachedUserString);
                 cachedMusic = getMusic("cachedImage.png", "cachedAudio.mp3", cachedUser.getMusicUrls());
                 cacheAvailable = true;
-                System.out.println("Hello");
                 return null;
             }
 

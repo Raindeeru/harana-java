@@ -41,9 +41,7 @@ public class LoginController {
 
 
     public void initialize() throws IOException{
-        cred = JsonParser.getCredentials("credentials.json");
-        
-        
+        cred = JsonParser.getCredentials("credentials.json");        
     }
     
     @FXML
@@ -56,7 +54,7 @@ public class LoginController {
         
         System.out.println(verify);
         if(verify != null){
-            App.switchToProfilePage(verify);
+            App.switchToDating(verify);
         }
     }
 

@@ -6,6 +6,8 @@ import java.net.URI;
 import java.net.URL;
 import java.io.*;
 import java.nio.channels.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.apache.hc.core5.http.ParseException;
 
@@ -33,8 +35,6 @@ public class MusicManager {
         HttpRequest req = HttpRequest.newBuilder().uri(URI.create("https://youtube-to-mp315.p.rapidapi.com/download?url=" + URL + "&format=mp3")).POST(HttpRequest.BodyPublishers.noBody()).header("x-rapidapi-key", "3aaca02681msh9a97c8cc81c1f95p1099d3jsne44a150eaee0").header("x-rapidapi-host", "youtube-to-mp315.p.rapidapi.com").header("Content-Type", "application/json").build();
         HttpResponse<String> res = client.send(req, BodyHandlers.ofString());
         MusicResponse musicRes = JsonParser.getMusicResponse(res.body());
-        System.out.println(res.body());
-        System.out.println(musicRes.getDownloadUrl());
 
         Thread.sleep(10000);
         
@@ -78,10 +78,6 @@ public class MusicManager {
 
         Track topResult = searchResult.getTracks().getItems()[0];
 
-        System.out.println(topResult.getName());
-        System.out.println(topResult.getArtists().clone()[0].getName());
-        System.out.println(topResult.getAlbum().getImages()[0].getUrl());
-
         ReadableByteChannel readableByteChannel = Channels.newChannel(URI.create(topResult.getPreviewUrl()).toURL().openStream());
         FileOutputStream fileOutputStream = new FileOutputStream(FilePath);
         FileChannel fileChannel = fileOutputStream.getChannel();
@@ -97,5 +93,20 @@ public class MusicManager {
         fileOutputStreamImage.close();
 
         return topResult;
+    }
+    public static ArrayList<Track> getSpotifySearch(String songName) throws ParseException, SpotifyWebApiException, IOException{
+        SpotifyApi spotify = new SpotifyApi.Builder().setClientId(CLIENT_ID).setClientSecret(CLIENT_SECRET).build();
+
+        final ClientCredentialsRequest clientCredentialsRequest = spotify.clientCredentials().build();
+
+        final ClientCredentials clientCredentials = clientCredentialsRequest.execute();
+
+        spotify.setAccessToken(clientCredentials.getAccessToken());
+        final SearchItemRequest searchItemRequest = spotify.searchItem(songName, ModelObjectType.TRACK.getType()).limit(10).build();
+
+        final SearchResult searchResult = searchItemRequest.execute();
+
+        ArrayList<Track> topResults = new ArrayList<Track>(Arrays.asList(searchResult.getTracks().getItems()));
+        return topResults;
     }
 }

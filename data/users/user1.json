@@ -1,11 +1,8 @@
 {
   "username": "Jr Gayagoy",
   "online": false,
-  "chats": [
-    "chat0.json",
-    "chat1.json",
-    "chat2.json"
-  ],
+  "age": 20, 
+  "chats": [],
   "posts": [
     {
       "userPostC": "BOBO MO DERVEN 🤬🤬🧁🧁"
@@ -17,34 +14,18 @@
       "userPostC": "stan red velvet "
     },
     {
-      "userPostC": "aaaa"
-    },
-    {
-      "userPostC": "hatdog"
-    },
-    {
-      "userPostC": "lol"
-    },
-    {
-      "userPostC": "Hatdog"
-    },
-    {
-      "userPostC": "PAKYU"
-    },
-    {
-      "userPostC": "Gusto kong pumunta cosmania :\u003c\u003c\u003c"
+      "userPostC": "eyyyyyyyyyyyyyy"
     }
   ],
   "imagePaths": [
     "userimage1.jpg",
-    "userimage2.jpg",
-    "441879075_1179616776519304_1704562225703422214_n.jpg",
-    "97971efe10c3b5d8cea3a9e2ae7d5a26.jpg"
+    "userimage2.jpg"
   ],
   "musicUrls": "Melancholy Hill Gorillaz",
   "userId": "user1.json",
-  "likes": [
-    "user4.json",
-    "user3.json"
+  "likes": [],
+  "musicTitle": "Melancholy Hill",
+  "musicArtist": "Gorillaz",
+  "dislikes": [
   ]
 }

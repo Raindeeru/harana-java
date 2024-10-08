@@ -1,9 +1,8 @@
 {
   "username": "Abdullah",
   "online": false,
-  "chats": [
-    "chat1.json"
-  ],
+  "age": 22, 
+  "chats": [],
   "posts": [
     {
       "userPostC": "hahahahahahahaahahahahah"
@@ -20,8 +19,9 @@
     "userimage1.jpg"
   ],
   "musicUrls": "RomCom Rob Deniel",
+  "musicTitle": "RomCom",
+  "musicArtist": "Rob Deniel",
   "userId": "user4.json",
-  "likes": [
-    "user1.json"
-  ]
+  "likes": [],
+  "dislikes": []
 }

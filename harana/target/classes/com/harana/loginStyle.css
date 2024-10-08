@@ -5,3 +5,21 @@
 #passwordTextField{
     -fx-text-fill: white;
 }
+.linear-grad-to-bottom {
+    -fx-background-color: linear-gradient(to bottom, #0b4467 80%, #000000 100%);
+}
+.prev-button {
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/leftButtonProfile.png'); 
+    -fx-background-color: transparent; 
+}
+
+.next-button {
+    -fx-graphic: url('file:///C:/Users/Matthew%20(School%20Acc)/Downloads/harana-java/harana/src/main/resources/com/harana/rightButtonProfile.png');
+    -fx-background-color: transparent; 
+}
+.post-ID{
+    -fx-background-color: linear-gradient(to bottom, #ef745b 80%, #401d16 100%);
+}
+.background-ID{
+    -fx-background-color: linear-gradient(to bottom, #a80f36 50%, #a80f36 45%, #800b29 100%);
+}

@@ -1,15 +1,18 @@
 package com.harana;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
+
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import se.michaelthelin.spotify.exceptions.SpotifyWebApiException;
 import javafx.scene.image.Image;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -29,8 +32,9 @@ public class aboutPersonController {
     @FXML ScrollPane scrollPane; 
     @FXML Label aboutPName; 
     @FXML Label aboutPAge; 
-    @FXML VBox postBox;
-    @FXML AnchorPane wholePage;
+    @FXML VBox userContent;
+    @FXML VBox postsBox;
+    @FXML VBox wholePage;
 
     Stage stage; 
 
@@ -50,27 +54,37 @@ public class aboutPersonController {
 
     public void initializeProfile(){
         aboutPName.setText(profile.getUsername());
+        aboutPAge.setText(String.valueOf(profile.getAge()));
         userSetImages = new ArrayList<>(); 
         userPosts = new ArrayList<>();
-        scrollPane.setContent(wholePage);
         
         for (String imagePath : profile.getImagePaths()){
             File file = new File("data/images/"+imagePath);
             userSetImages.add(new Image(file.toURI().toString()));
         }
         userImage.setImage(userSetImages.get(0));
-
+        
+        postsBox.getChildren().clear();
         ArrayList<Post> posts = profile.getPosts(); 
-        if(posts != null) {
+        if(!posts.isEmpty()) {
             for(Post post : posts){
+                Label usernamePost = new Label(profile.getUsername());
+                usernamePost.setPadding(new Insets(0,0,0,7));
                 Label postL = new Label(post.getPostContent()); 
+                postL.setPadding(new Insets(0,0,7,15));
                 postL.setWrapText(true);
-                userPosts.add(postL);//aayusin pa ito inalis ko muna vbox kasi nagerror
+                VBox layoutPostBox = new VBox();
+                layoutPostBox.getChildren().addAll(usernamePost, postL);
+                postsBox.getChildren().add(0, layoutPostBox);
             }
+            }  
+            else {
+                Label none = new Label(); 
+                none.setText(profile.getUsername() + " has no post yet.");
+                none.setPadding(new Insets(0,0,7,15));
+                postsBox.getChildren().add(0, none);
         }
-
-
-
+        scrollPane.setContent(wholePage);  
     }
     
     @FXML
@@ -103,7 +117,7 @@ public class aboutPersonController {
 
     @FXML
     public void aboutAge() { 
-        aboutPAge.setText("eyy");
+        aboutPName.setText(String.valueOf(profile.getAge()));
     }
 
     @FXML
@@ -114,6 +128,7 @@ public class aboutPersonController {
     @FXML
     public void likeButton() throws ParseException, SpotifyWebApiException, IOException { 
         System.out.println("liked");
+        profile = JsonParser.getUser(profile.getUserId());
         user.getLikes().add(profile.getUserId());
         
         for(String likes: profile.getLikes()){
@@ -133,13 +148,19 @@ public class aboutPersonController {
     }
 
     @FXML
-    public void dislikeButton() { 
-        System.out.println("Yew");
-    }
+    public void dislikeButton() throws ParseException, SpotifyWebApiException, IOException {
+        System.out.println("Ewwww");
+        profile = JsonParser.getUser(profile.getUserId());
+        user.getDislikes().add(profile.getUserId()); 
+        JsonParser.setUser(profile.getUserId(), profile);
+        JsonParser.setUser(user.getUserId(), user);
+
+        App.switchToDating(user);
+        }
 
     //@FXML
     //private void initialize() {
-     //   userImage();
+    //    userImage();
     //    aboutName();
     //    aboutAge();
     //}
