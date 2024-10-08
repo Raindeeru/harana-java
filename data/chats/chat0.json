@@ -18,7 +18,31 @@
     },
     {
       "sender": "user1",
-      "message": "hele"
+      "message": "AAAA"
+    },
+    {
+      "sender": "user1",
+      "message": "AAAAA"
+    },
+    {
+      "sender": "user1",
+      "message": "AAAA"
+    },
+    {
+      "sender": "user1",
+      "message": "AAA"
+    },
+    {
+      "sender": "user1",
+      "message": "AAA"
+    },
+    {
+      "sender": "user1",
+      "message": "aaaa"
+    },
+    {
+      "sender": "user1",
+      "message": "ddddd"
     }
   ],
   "user1": "Jr Gayagoy",
@@ -26,5 +50,4 @@
   "chatid": "chat0",
   "user1_typing": false,
   "user2_typing": false
-  
 }

@@ -160,6 +160,9 @@ public class datingPageController
 
     @FXML
     private void CheckProfile() throws IOException{
+        if (userList.getUsers().isEmpty()) {
+            return;
+        }
         user = JsonParser.getUser(user.getUserId());
         App.SwitchToAboutPerson(user, displayingProfile);;
         player.dispose();
@@ -245,6 +248,7 @@ public class datingPageController
     {
         setUserList();
         if (userList.getUsers().isEmpty()) {
+            albumCover.setDisable(true);
             return;
         }
         System.out.println(userList.getUsers());
@@ -296,6 +300,8 @@ public class datingPageController
             albumCover.setImage(new Image((new File("nomatches.jpg").toURI().toString())));
             title.setText("No more People to Match With");
             artist.setText("Damn");
+            profileName.setText("Sheesh Wala na tao");
+            
             return;
         }
 
