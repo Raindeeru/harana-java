@@ -37,14 +37,14 @@
                   <Insets right="10.0" />
                </HBox.margin>
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="16.0" />
                </font></Button>
             <Button mnemonicParsing="false" onAction="#editChangeBTN" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-radius: 10;" stylesheets="@loginStyle.css" text="Edit profile" textFill="WHITE">
                <HBox.margin>
                   <Insets left="20.0" />
                </HBox.margin>
                <font>
-                  <Font size="16.0" />
+                  <Font name="System Bold" size="16.0" />
                </font></Button>
          </children>
       </HBox>
@@ -57,7 +57,7 @@
                <content>
                   <VBox fx:id="parentPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="385.0">
                      <children>
-                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="399.0">
+                        <VBox fx:id="newPostBox" minHeight="-Infinity" minWidth="-Infinity" prefHeight="394.0" prefWidth="364.0">
                            <children>
                               <Label fx:id="usernameLabel" text="Username" textFill="WHITE" />
                               <Label fx:id="postDescLabel" text="PostDesc" textFill="WHITE" />
@@ -69,17 +69,17 @@
             </ScrollPane>
          </children>
       </StackPane>
-      <VBox alignment="CENTER" prefHeight="131.0" prefWidth="352.0">
+      <VBox alignment="CENTER" prefHeight="121.0" prefWidth="400.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="121.0" prefWidth="400.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#openChatPage" prefHeight="127.0" prefWidth="134.0" stylesheets="@loginStyle.css" text="chat">
+                  <Button mnemonicParsing="false" onAction="#openChatPage" prefHeight="127.0" prefWidth="134.0" styleClass="chat-Button" stylesheets="@loginStyle.css">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openHomePage" prefHeight="127.0" prefWidth="134.0" stylesheets="@loginStyle.css" text="home" />
-                  <Button mnemonicParsing="false" onAction="#openProfileButton" prefHeight="127.0" prefWidth="134.0" stylesheets="@loginStyle.css" text="profile">
+                  <Button mnemonicParsing="false" onAction="#openHomePage" prefHeight="127.0" prefWidth="134.0" styleClass="home-Button" stylesheets="@loginStyle.css" />
+                  <Button mnemonicParsing="false" onAction="#openProfileButton" prefHeight="127.0" prefWidth="134.0" styleClass="profile-Button" stylesheets="@loginStyle.css" text="profile">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>

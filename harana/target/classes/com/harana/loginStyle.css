@@ -25,7 +25,7 @@
 }
 
 .postBackground-ID{
-    -fx-background-color: linear-gradient(to bottom, #0b4467 50%, #082d44 60%, #072335 100%);
+    -fx-background-color: linear-gradient(to bottom, #0b4467 10%, #082d44 60%, #072335 100%);
 }
 .custom-text-color{
     -fx-text-fill: white;

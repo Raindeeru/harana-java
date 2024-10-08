@@ -91,9 +91,9 @@
       </StackPane>
       <HBox prefHeight="90.0" prefWidth="400.0">
          <children>
-            <Button disable="true" mnemonicParsing="false" prefHeight="216.0" prefWidth="134.0" text="Chats" />
-            <Button mnemonicParsing="false" onAction="#SwitchToDatingPage" prefHeight="216.0" prefWidth="134.0" text="Dating" />
-            <Button mnemonicParsing="false" onAction="#SwitchToProfilePage" prefHeight="216.0" prefWidth="134.0" text="Profile" />
+            <Button disable="true" mnemonicParsing="false" prefHeight="216.0" prefWidth="134.0" styleClass="chat-Button" stylesheets="@loginStyle.css" />
+            <Button mnemonicParsing="false" onAction="#SwitchToDatingPage" prefHeight="216.0" prefWidth="134.0" styleClass="home-Button" stylesheets="@loginStyle.css" />
+            <Button mnemonicParsing="false" onAction="#SwitchToProfilePage" prefHeight="216.0" prefWidth="134.0" styleClass="profile-Button" stylesheets="@loginStyle.css" />
          </children>
       </HBox>
    </children>
