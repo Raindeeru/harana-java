@@ -9,11 +9,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <StackPane maxHeight="-Infinity" minHeight="-Infinity" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
    <children>
-      <VBox prefHeight="698.0" prefWidth="400.0">
+      <VBox>
          <children>
             <VBox alignment="CENTER" prefHeight="150.0" prefWidth="232.0">
                <children>
@@ -140,7 +141,7 @@
                   <Insets top="150.0" />
                </VBox.margin>
             </VBox>
-            <HBox alignment="CENTER" prefHeight="251.0" prefWidth="400.0">
+            <HBox alignment="CENTER" prefHeight="216.0" prefWidth="400.0">
                <children>
                   <HBox alignment="CENTER" minWidth="-Infinity" prefHeight="46.0" prefWidth="134.0">
                      <children>
