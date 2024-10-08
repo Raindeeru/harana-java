@@ -16,7 +16,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.ChatMenuController">
    <children>
-      <StackPane>
+      <StackPane prefHeight="714.0" prefWidth="400.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
             <VBox prefWidth="400.0" style="-fx-background-color: linear-gradient(to bottom, rgba(204,18,66,1) 0%, rgba(130,13,43,1) 100%);;">

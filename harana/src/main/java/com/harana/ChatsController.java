@@ -274,6 +274,7 @@ public class ChatsController {
 
         userChat.getChildren().addAll(userName, messageLabel);
         chat_screen.getChildren().add(userChat);
+        message_field.setText("");
         setScroll();
     }
 

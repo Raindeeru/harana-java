@@ -243,6 +243,7 @@ public class datingPageController
     {
         setUserList();
         if (userList.getUsers().isEmpty()) {
+            albumCover.setDisable(true);
             return;
         }
         System.out.println(userList.getUsers());
