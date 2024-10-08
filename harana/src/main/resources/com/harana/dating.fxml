@@ -15,20 +15,21 @@
 
 <StackPane prefHeight="800.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.harana.datingPageController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="0B4467" height="800.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
-      <Circle fill="CC1242" radius="200.0" stroke="BLACK" strokeType="INSIDE" translateY="-20.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#CC1242" height="506.0" stroke="BLACK" strokeType="INSIDE" translateY="250.0" width="400.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b4467" height="800.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="400.0" />
+      <Circle fill="#cc1242" radius="200.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="-20.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cc1242" height="506.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="250.0" width="400.0" />
       <VBox>
          <children>
             <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="400.0">
                <children>
                   <StackPane>
                      <children>
-                        <Circle fill="#ef745b" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
-                        <Circle fill="0B4467" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Circle fill="#0b4467" layoutX="210.0" layoutY="110.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" translateY="15.0" />
+                        <Circle fill="#cc1242" layoutX="210.0" layoutY="90.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                        <Circle fill="DODGERBLUE" radius="80.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                         <VBox alignment="CENTER" prefWidth="232.0">
                            <children>
-                              <ImageView fx:id="profileImage" fitHeight="110.0" fitWidth="97.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="profileImage" fitHeight="183.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                  <image>
                                     <Image url="@IShowOten.jpg" />
                                  </image>
@@ -44,6 +45,9 @@
                            </children>
                         </VBox>
                      </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
                   </StackPane>
                   <VBox alignment="CENTER" onMouseClicked="#CheckProfile" prefWidth="432.0">
                      <children>
@@ -52,7 +56,7 @@
                               <Insets bottom="5.0" />
                            </VBox.margin>
                            <children>
-                              <Circle fill="ef745b" radius="170.0" stroke="BLACK" strokeType="INSIDE" />
+                              <Circle fill="#ef745b" radius="170.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                               <ImageView fx:id="albumCover" fitHeight="300.0" fitWidth="300.0" onMouseClicked="#CheckProfile" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@Vinly%20Record.png" />
@@ -60,13 +64,20 @@
                               </ImageView>
                            </children>
                         </StackPane>
-                        <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="200.0" progress="0.0" />
-                        <Label fx:id="title" text="Title" wrapText="true">
-                           <font>
-                              <Font size="24.0" />
-                           </font>
-                        </Label>
-                        <Label fx:id="artist" text="Artist" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Label fx:id="title" text="Title" wrapText="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="artist" text="Artist" />
+                           </children>
+                        </VBox>
+                        <ProgressBar fx:id="progressBar" prefHeight="26.0" prefWidth="368.0" progress="0.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="10.0" />
+                           </VBox.margin></ProgressBar>
                         <HBox alignment="CENTER" prefWidth="232.0">
                            <children>
                               <Button mnemonicParsing="false" onAction="#handlepreviousButton" prefHeight="26.0" prefWidth="50.0" text="⏮">
