@@ -42,9 +42,9 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
-                  <VBox prefHeight="348.0" prefWidth="396.0" style="-fx-background-color: #CC1242; -fx-background-radius: 20;">
+                  <VBox prefHeight="348.0" prefWidth="396.0" style="-fx-background-color: #ef745b; -fx-background-radius: 20;">
                      <children>
-                        <VBox fx:id="userContent" prefHeight="329.0" prefWidth="146.0" style="-fx-background-color: #CC1242;">
+                        <VBox fx:id="userContent" prefHeight="329.0" prefWidth="146.0" style="-fx-background-color: #ef745b;">
                            <children>
                               <Label fx:id="aboutPName" alignment="CENTER" text="Name" textFill="WHITE">
                                  <font>
@@ -86,15 +86,15 @@
             </VBox>
          </content>
       </ScrollPane>
-      <HBox prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #CC1242;">
+      <HBox prefHeight="55.0" prefWidth="400.0" style="-fx-background-color: #ef745b;">
          <children>
-            <Button fx:id="dislikeButton" mnemonicParsing="false" onAction="#dislikeButton" style="-fx-background-color: transparent; -fx-text-fill: white;" text="!Like">
+            <Button fx:id="dislikeButton" mnemonicParsing="false" onAction="#dislikeButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 10;" text="Dislike">
                <HBox.margin>
                   <Insets left="14.0" top="13.0" />
                </HBox.margin>
             </Button>
-            <HBox prefHeight="55.0" prefWidth="291.0" />
-            <Button fx:id="likeButton" mnemonicParsing="false" onAction="#likeButton" style="-fx-background-color: transparent; -fx-text-fill: white;" text="Like">
+            <HBox prefHeight="52.0" prefWidth="273.0" />
+            <Button fx:id="likeButton" mnemonicParsing="false" onAction="#likeButton" style="-fx-background-color: transparent; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 10;" text="Like">
                <HBox.margin>
                   <Insets right="14.0" top="13.0" />
                </HBox.margin>
