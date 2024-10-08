@@ -17,6 +17,9 @@ public class JsonParser {
     private static String cred_loc = "data/credentials/";
     private static String chats_loc = "data/chats/";
 
+    private User user;
+    private UserList userList;
+
     public static User getUser(String userURL)throws IOException{
         Gson gson = new Gson();
         BufferedReader bufferedReader = new BufferedReader(
@@ -89,7 +92,7 @@ public class JsonParser {
                     toRemove.add(otheruser);
                 }
             }
-            for(String dislik: user.getLikes()){
+            for(String dislike: user.getLikes()){
                 if (otheruser.equals(dislike)) {
                     toRemove.add(otheruser);
                 }
